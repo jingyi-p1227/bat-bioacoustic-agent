@@ -211,7 +211,7 @@ def to_decibels(x, ref=np.max, eps=1e-20):
     return 20 * np.log10(np.maximum(x, eps) / ref)
 
 
-def to_image(x, min_db=-80, max_db=0, eps=1e-20):
+def to_image(x, min_db=-130, max_db=0, eps=1e-20):
     x = to_decibels(x, eps=eps)
     x = np.clip(x, min_db, max_db)
     x = (x - min_db) / (max_db - min_db)
@@ -234,13 +234,21 @@ def plot_spectrogram_with_grid(
     low_frequency: float | None = None,
     high_frequency: float | None = None,
     preset: str = "full",
+    interpolation: str = "bilinear",
 ) -> Figure:
     fig, ax = plt.subplots(figsize=(12, 6))
 
     extent = stft.extent(len(audio))
     spec_img = to_image(spec)
 
-    ax.imshow(spec_img, aspect="auto", origin="lower", extent=extent, cmap="gray")
+    ax.imshow(
+        spec_img,
+        aspect="auto",
+        origin="lower",
+        extent=extent,
+        cmap="gray",
+        interpolation=interpolation,
+    )
 
     duration = len(audio) / sr
     ax.set_title(
