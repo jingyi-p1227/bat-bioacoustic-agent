@@ -1,0 +1,21 @@
+{
+  "audio_path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/brazil/audio/OB1_20190120_020100Z-02.wav",
+  "events": [
+    {
+      "event_id": "96da6908-4f7d-5440-91e5-4117274c0a88",
+      "start_time_seconds": 8.6291,
+      "end_time_seconds": 8.6373,
+      "low_frequency_hz": 19531.25,
+      "high_frequency_hz": 39306.6406,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    }
+  ],
+  "notes": "Converted from AOEF recording d00961c1-7c0a-50df-aa66-22772eba44c6 (OB1_20190120_020100Z-02.wav)."
+}

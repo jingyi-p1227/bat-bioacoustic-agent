@@ -1,0 +1,171 @@
+{
+  "audio_path": "pseudo_petersi_001.wav",
+  "events": [
+    {
+      "event_id": "event_001",
+      "start_time_seconds": 0.92,
+      "end_time_seconds": 0.96,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~0.94s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_002",
+      "start_time_seconds": 1.22,
+      "end_time_seconds": 1.26,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~1.24s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_003",
+      "start_time_seconds": 1.52,
+      "end_time_seconds": 1.56,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~1.54s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_004",
+      "start_time_seconds": 1.82,
+      "end_time_seconds": 1.86,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~1.84s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_005",
+      "start_time_seconds": 2.12,
+      "end_time_seconds": 2.16,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~2.14s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_006",
+      "start_time_seconds": 2.42,
+      "end_time_seconds": 2.46,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~2.44s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_007",
+      "start_time_seconds": 2.72,
+      "end_time_seconds": 2.76,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~2.74s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_008",
+      "start_time_seconds": 3.02,
+      "end_time_seconds": 3.06,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~3.04s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_009",
+      "start_time_seconds": 3.32,
+      "end_time_seconds": 3.36,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 38000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.9,
+      "evidence": "Stronger vertical trace around 32-38kHz at ~3.34s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_010",
+      "start_time_seconds": 3.62,
+      "end_time_seconds": 3.66,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~3.64s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    },
+    {
+      "event_id": "event_011",
+      "start_time_seconds": 3.92,
+      "end_time_seconds": 3.96,
+      "low_frequency_hz": 30000.0,
+      "high_frequency_hz": 35000.0,
+      "label": "bat echolocation pulse",
+      "confidence": 0.8,
+      "evidence": "Short vertical trace around 32kHz at ~3.94s",
+      "tools_used": [
+        "grid_overlay_spectrogram"
+      ],
+      "human_review_needed": false,
+      "review_reason": ""
+    }
+  ],
+  "notes": "A series of regular, low-frequency pulses (approx 32kHz) are visible throughout the recording, likely from a bat species with a constant frequency or shallow FM call."
+}

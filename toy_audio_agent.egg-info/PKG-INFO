@@ -1,0 +1,113 @@
+Metadata-Version: 2.4
+Name: toy-audio-agent
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib>=3.10.8
+Requires-Dist: pillow>=12.1.1
+Requires-Dist: pydantic-ai>=1.63.0
+Requires-Dist: pydantic-ai-slim[web]>=1.63.0
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: scipy>=1.17.1
+Requires-Dist: soundfile>=0.13.1
+
+# Toy Audio Agent
+
+Basic steps to run the toy demo locally.
+
+## Requirements
+
+- [`uv`](https://docs.astral.sh/uv/)
+
+`uv` is the only required tool for local setup. It will manage the project Python environment for you.
+
+Install `uv` if you do not already have it:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+## Before You Start
+
+This demo expects audio `.wav` files under the path set by `AUDIO_DIR`.
+
+The app reads these environment variables:
+
+```bash
+OLLAMA_HOST=http://localhost:11434
+AUDIO_DIR=<path_to_folder_with_audio>
+```
+
+The app also loads a local `.env` file automatically.
+
+If not set, it falls back to:
+
+```bash
+OLLAMA_HOST=http://localhost:11434
+AUDIO_DIR=audio/
+```
+
+## Ollama
+
+You need access to an Ollama server.
+
+You can use either:
+
+- a local Ollama server, usually at `http://localhost:11434`
+- a remote Ollama server, using its reachable host URL
+
+If you are using a remote server, set `OLLAMA_HOST` to the correct hostname before starting the app.
+
+The demo uses the `qwen3-vl:latest` model.
+
+If you are running Ollama locally, install it from [`ollama.com`](https://ollama.com/) and pull the model with:
+
+```bash
+ollama pull qwen3-vl:latest
+```
+
+## Setup
+
+Create the local virtual environment and install dependencies:
+
+```bash
+uv sync
+```
+
+This creates `.venv/` for the project automatically.
+
+Run project commands with `uv run <command>`.
+
+Create a local `.env` file before starting the app:
+
+```bash
+OLLAMA_HOST=http://localhost:11434
+AUDIO_DIR=<path_to_folder_with_audio>
+```
+
+Or export the same values in your shell:
+
+```bash
+export OLLAMA_HOST=http://localhost:11434
+export AUDIO_DIR=<path_to_folder_with_audio>
+```
+
+## Run The Demo
+
+Start the app with:
+
+```bash
+uv run uvicorn main:app --host 127.0.0.1 --port 7932 --reload --reload-include main.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:7932
+```
+
+## Notes
+
+- `list_audio_files()` only looks for `.wav` files in `AUDIO_DIR`.
+- `generate_spectrogram()` reads files relative to `AUDIO_DIR` and returns a generated spectrogram image.

@@ -1,0 +1,8 @@
+README.md
+main.py
+pyproject.toml
+toy_audio_agent.egg-info/PKG-INFO
+toy_audio_agent.egg-info/SOURCES.txt
+toy_audio_agent.egg-info/dependency_links.txt
+toy_audio_agent.egg-info/requires.txt
+toy_audio_agent.egg-info/top_level.txt

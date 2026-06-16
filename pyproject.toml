@@ -1,0 +1,15 @@
+[project]
+name = "toy-audio-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.8",
+    "pillow>=12.1.1",
+    "pydantic-ai>=1.63.0",
+    "pydantic-ai-slim[web]>=1.63.0",
+    "python-dotenv>=1.1.1",
+    "scipy>=1.17.1",
+    "soundfile>=0.13.1",
+]

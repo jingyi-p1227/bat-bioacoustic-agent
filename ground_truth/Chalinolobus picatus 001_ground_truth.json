@@ -1,0 +1,81 @@
+{
+  "audio_path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia/audio/Chalinolobus picatus 001.wav",
+  "events": [
+    {
+      "event_id": "44eead62-0597-53ac-86ef-ed78e637c48f",
+      "start_time_seconds": 0.291096,
+      "end_time_seconds": 0.299296,
+      "low_frequency_hz": 37841.8,
+      "high_frequency_hz": 58349.6,
+      "label": "Chalinolobus picatus",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Chalinolobus picatus",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "a7a83734-3aba-5fc6-80e2-4d226ffc97a0",
+      "start_time_seconds": 0.254196,
+      "end_time_seconds": 0.262806,
+      "low_frequency_hz": 36865.2,
+      "high_frequency_hz": 62011.7,
+      "label": "Chalinolobus picatus",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Chalinolobus picatus",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0b7b5a14-a37c-569a-9eb9-35157caa22ec",
+      "start_time_seconds": 0.193926,
+      "end_time_seconds": 0.204176,
+      "low_frequency_hz": 38085.9,
+      "high_frequency_hz": 82763.7,
+      "label": "Chalinolobus picatus",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Chalinolobus picatus",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "773934f4-9993-5684-9b62-0d14b24025cf",
+      "start_time_seconds": 0.120946,
+      "end_time_seconds": 0.129966,
+      "low_frequency_hz": 38818.4,
+      "high_frequency_hz": 90820.3,
+      "label": "Chalinolobus picatus",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Chalinolobus picatus",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "50be3fc7-b5cd-5b8c-b370-5c1447476088",
+      "start_time_seconds": 0.056986,
+      "end_time_seconds": 0.064776,
+      "low_frequency_hz": 38330.1,
+      "high_frequency_hz": 91064.5,
+      "label": "Chalinolobus picatus",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Chalinolobus picatus",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    }
+  ],
+  "notes": "Converted from AOEF recording 6f62ab86-a1f6-590c-a048-17ed8c79c0a8 (Chalinolobus picatus 001.wav)."
+}

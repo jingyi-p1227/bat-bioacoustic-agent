@@ -1,0 +1,1521 @@
+{
+  "audio_path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia/audio/pil_nc12_112_1_2circ.wav",
+  "events": [
+    {
+      "event_id": "e12f2ab8-7c29-55a7-abe4-0fbf563f88f9",
+      "start_time_seconds": 4.14674,
+      "end_time_seconds": 4.15371,
+      "low_frequency_hz": 31738.3,
+      "high_frequency_hz": 79834.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "260f110f-026c-5850-abee-f97198cbc594",
+      "start_time_seconds": 4.12214,
+      "end_time_seconds": 4.13034,
+      "low_frequency_hz": 44189.5,
+      "high_frequency_hz": 73730.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0bc1ae5d-ac0b-547b-a9b1-2f0d1977eace",
+      "start_time_seconds": 4.03645,
+      "end_time_seconds": 4.0426,
+      "low_frequency_hz": 44921.9,
+      "high_frequency_hz": 69335.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9e9f2711-73e1-5ca4-a5b4-3cae325a26ca",
+      "start_time_seconds": 3.98479,
+      "end_time_seconds": 3.99094,
+      "low_frequency_hz": 46386.7,
+      "high_frequency_hz": 66650.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "18516364-fa70-5b8b-92f8-9c80b6644834",
+      "start_time_seconds": 3.90935,
+      "end_time_seconds": 3.9155,
+      "low_frequency_hz": 44677.7,
+      "high_frequency_hz": 67138.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e2b803de-bc74-5227-9395-7fb2d3ad8013",
+      "start_time_seconds": 3.87901,
+      "end_time_seconds": 3.88557,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 74218.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "6cef8391-8765-5d7c-bf0e-aab8b8174144",
+      "start_time_seconds": 3.79332,
+      "end_time_seconds": 3.79988,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 62255.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9d5b2ce6-9b8c-558e-ba24-c4b6e47ebd18",
+      "start_time_seconds": 3.60882,
+      "end_time_seconds": 3.61538,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 63476.6,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "549f3fe8-e0ba-55a7-a0ba-a35c6c83231c",
+      "start_time_seconds": 3.52149,
+      "end_time_seconds": 3.52682,
+      "low_frequency_hz": 43457.0,
+      "high_frequency_hz": 62988.3,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "7b32ba50-9ed0-5af0-94e7-f78957803d77",
+      "start_time_seconds": 3.34027,
+      "end_time_seconds": 3.34683,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 74707.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c347f36a-2a94-5051-9a7e-59099f533c70",
+      "start_time_seconds": 3.21399,
+      "end_time_seconds": 3.21891,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 78125.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e1365c7e-1c2c-50ec-abc3-00dad83b6553",
+      "start_time_seconds": 3.15454,
+      "end_time_seconds": 3.1611,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 78369.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "18be1752-e732-525c-8c64-c50115817524",
+      "start_time_seconds": 3.08853,
+      "end_time_seconds": 3.0955,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 86914.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5b7e0329-da83-5147-a34a-49942ef08c37",
+      "start_time_seconds": 3.07951,
+      "end_time_seconds": 3.08607,
+      "low_frequency_hz": 44677.7,
+      "high_frequency_hz": 80566.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9941fa39-a5c0-537d-abb0-aae874e2fd8c",
+      "start_time_seconds": 3.00407,
+      "end_time_seconds": 3.01022,
+      "low_frequency_hz": 44433.6,
+      "high_frequency_hz": 96435.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "fa45e79e-2146-50a0-8374-52c50e2de317",
+      "start_time_seconds": 2.9684,
+      "end_time_seconds": 2.97701,
+      "low_frequency_hz": 47119.1,
+      "high_frequency_hz": 101074.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "59e63095-441d-564e-b047-2a6c33d7bed3",
+      "start_time_seconds": 2.94585,
+      "end_time_seconds": 2.95446,
+      "low_frequency_hz": 45654.3,
+      "high_frequency_hz": 100342.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "74649421-483d-592b-a71f-6496de00a1fd",
+      "start_time_seconds": 2.91182,
+      "end_time_seconds": 2.92043,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 99365.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d85a9847-59a0-5560-b8aa-5c73afe30191",
+      "start_time_seconds": 2.87369,
+      "end_time_seconds": 2.87984,
+      "low_frequency_hz": 44921.9,
+      "high_frequency_hz": 105469.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "07871116-121d-51f2-8f0c-9dea97f826e3",
+      "start_time_seconds": 2.80809,
+      "end_time_seconds": 2.81506,
+      "low_frequency_hz": 45898.4,
+      "high_frequency_hz": 99853.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "164844af-3bc2-59d3-ace5-f58dc4adf8a5",
+      "start_time_seconds": 2.78062,
+      "end_time_seconds": 2.78718,
+      "low_frequency_hz": 44677.7,
+      "high_frequency_hz": 81787.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9d75050a-af57-5065-a350-cfbb640fdccc",
+      "start_time_seconds": 2.57521,
+      "end_time_seconds": 2.58177,
+      "low_frequency_hz": 44433.6,
+      "high_frequency_hz": 103027.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "144ebaca-49de-53c3-9771-e9863b638d87",
+      "start_time_seconds": 2.70436,
+      "end_time_seconds": 2.71092,
+      "low_frequency_hz": 45898.4,
+      "high_frequency_hz": 99609.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ab48396e-c097-55c6-bacd-41574c92e69c",
+      "start_time_seconds": 2.7552,
+      "end_time_seconds": 2.7634,
+      "low_frequency_hz": 46142.6,
+      "high_frequency_hz": 98877.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "aa3269ea-b18e-5817-bd7f-d467a2d918c8",
+      "start_time_seconds": 2.63712,
+      "end_time_seconds": 2.64696,
+      "low_frequency_hz": 45166.0,
+      "high_frequency_hz": 90332.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d4b10324-6713-5668-ab9d-79ace6cf2492",
+      "start_time_seconds": 2.61744,
+      "end_time_seconds": 2.624,
+      "low_frequency_hz": 46386.7,
+      "high_frequency_hz": 79345.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b5e31c7c-351a-56ae-b117-48c9d24442d3",
+      "start_time_seconds": 2.55102,
+      "end_time_seconds": 2.55758,
+      "low_frequency_hz": 44677.7,
+      "high_frequency_hz": 79589.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2f1bf2e2-8419-5ab0-8f66-c3a3b44e3969",
+      "start_time_seconds": 2.50838,
+      "end_time_seconds": 2.51535,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 104492.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "16254268-99a1-54fe-b123-3fbff2efa7bc",
+      "start_time_seconds": 2.46697,
+      "end_time_seconds": 2.4723,
+      "low_frequency_hz": 45166.0,
+      "high_frequency_hz": 105957.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "07d2ba0d-1167-5b13-b1de-5704d065a948",
+      "start_time_seconds": 2.45221,
+      "end_time_seconds": 2.45877,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 103027.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "95b2e19e-e751-52b0-8dd2-a602c60b9774",
+      "start_time_seconds": 2.40342,
+      "end_time_seconds": 2.40875,
+      "low_frequency_hz": 44677.7,
+      "high_frequency_hz": 81543.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "bde7388d-9e60-504a-a2ed-2ebfe52e7d9f",
+      "start_time_seconds": 2.34315,
+      "end_time_seconds": 2.35094,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 81787.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "822ac7bd-92d8-5103-979a-7e9bd83c3051",
+      "start_time_seconds": 2.32675,
+      "end_time_seconds": 2.33331,
+      "low_frequency_hz": 46386.7,
+      "high_frequency_hz": 96191.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "27759aa4-d66c-5c6b-ae4d-4613944fe26a",
+      "start_time_seconds": 2.28493,
+      "end_time_seconds": 2.28985,
+      "low_frequency_hz": 45898.4,
+      "high_frequency_hz": 102783.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "1673e946-9eb4-5807-8039-622ebd5a4cb5",
+      "start_time_seconds": 2.27181,
+      "end_time_seconds": 2.27878,
+      "low_frequency_hz": 45654.3,
+      "high_frequency_hz": 99121.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "704d8f0a-bac1-5a08-acda-c4cb961f29d1",
+      "start_time_seconds": 2.2386,
+      "end_time_seconds": 2.24557,
+      "low_frequency_hz": 45898.4,
+      "high_frequency_hz": 87890.6,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "594c8779-e173-5bc2-a29b-094136f9fec2",
+      "start_time_seconds": 2.2181,
+      "end_time_seconds": 2.22589,
+      "low_frequency_hz": 46630.9,
+      "high_frequency_hz": 89355.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "792f18f4-74c2-5ba8-bef5-dbb907007e0f",
+      "start_time_seconds": 2.16521,
+      "end_time_seconds": 2.17054,
+      "low_frequency_hz": 45654.3,
+      "high_frequency_hz": 84472.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9e3ec89d-616a-5178-84f2-9527cdb0a5e5",
+      "start_time_seconds": 2.11437,
+      "end_time_seconds": 2.12052,
+      "low_frequency_hz": 44921.9,
+      "high_frequency_hz": 82031.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "664e55ff-92bf-5e5e-895d-f30e88278d0e",
+      "start_time_seconds": 2.10617,
+      "end_time_seconds": 2.11273,
+      "low_frequency_hz": 44921.9,
+      "high_frequency_hz": 79345.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "86f303f4-07a8-5912-935f-567da18c465d",
+      "start_time_seconds": 1.97989,
+      "end_time_seconds": 1.98604,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 81543.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c30f8b03-c6ee-5a5c-a1c4-30ea183faead",
+      "start_time_seconds": 2.01966,
+      "end_time_seconds": 2.02622,
+      "low_frequency_hz": 45654.3,
+      "high_frequency_hz": 77880.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "56eb9510-00c1-510c-8419-79ca382ad7af",
+      "start_time_seconds": 2.05082,
+      "end_time_seconds": 2.05697,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 79834.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b88a1605-f2c0-5bba-a3f7-d46b09126130",
+      "start_time_seconds": 1.91921,
+      "end_time_seconds": 1.92413,
+      "low_frequency_hz": 46630.9,
+      "high_frequency_hz": 78857.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b12210ff-2000-5ac8-830c-90db7aef3660",
+      "start_time_seconds": 1.89953,
+      "end_time_seconds": 1.90486,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 85449.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "21419573-e503-5cb7-855f-30ef34b8c45f",
+      "start_time_seconds": 1.8737,
+      "end_time_seconds": 1.88149,
+      "low_frequency_hz": 46630.9,
+      "high_frequency_hz": 77880.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "4e161a43-0621-5af5-8b5e-59238aca3dd7",
+      "start_time_seconds": 1.85607,
+      "end_time_seconds": 1.86099,
+      "low_frequency_hz": 45898.4,
+      "high_frequency_hz": 76416.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "dd24aaa3-b9dd-53f0-8340-a32c7092951a",
+      "start_time_seconds": 1.81097,
+      "end_time_seconds": 1.81589,
+      "low_frequency_hz": 44677.7,
+      "high_frequency_hz": 75683.6,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c4834f86-8528-5731-97f6-473571955cab",
+      "start_time_seconds": 1.77325,
+      "end_time_seconds": 1.7794,
+      "low_frequency_hz": 46875.0,
+      "high_frequency_hz": 75195.3,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "7f3acd3e-5aed-5d5c-8dc6-c5ceddea3047",
+      "start_time_seconds": 1.74414,
+      "end_time_seconds": 1.74947,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 78369.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0f38fcc2-f365-54fa-963e-a62bc1e55859",
+      "start_time_seconds": 1.72897,
+      "end_time_seconds": 1.7343,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 84228.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5871223a-ffdb-5a82-93c5-fa5ae2aeca42",
+      "start_time_seconds": 1.6728,
+      "end_time_seconds": 1.67977,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 78613.3,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b1b7c673-8082-59f8-9e9b-85e948c44d8d",
+      "start_time_seconds": 1.65804,
+      "end_time_seconds": 1.6646,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 64941.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "70e88835-ad55-5c25-b220-651dcb63cafb",
+      "start_time_seconds": 1.61991,
+      "end_time_seconds": 1.62483,
+      "low_frequency_hz": 45654.3,
+      "high_frequency_hz": 76660.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "99c47f53-2c89-5afd-bbd2-b08e49f28868",
+      "start_time_seconds": 1.60351,
+      "end_time_seconds": 1.60966,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 77148.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e0626d0d-3a00-546e-843d-7a6587b6118f",
+      "start_time_seconds": 1.55964,
+      "end_time_seconds": 1.5662,
+      "low_frequency_hz": 44921.9,
+      "high_frequency_hz": 74218.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "32a974c4-a170-582f-990a-c7cd64e1e9e4",
+      "start_time_seconds": 1.51987,
+      "end_time_seconds": 1.52479,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 77880.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "3791fa26-b0b6-5b02-b484-5cdc8710f389",
+      "start_time_seconds": 1.51085,
+      "end_time_seconds": 1.517,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 77392.6,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9416287a-3e9f-59e6-8cf3-fa32b4f9dd32",
+      "start_time_seconds": 1.4432,
+      "end_time_seconds": 1.44976,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 76171.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "260d29b3-9efa-5acc-8ff0-8031174e5f79",
+      "start_time_seconds": 1.43049,
+      "end_time_seconds": 1.43746,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 77636.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "1c40d665-af05-557e-a998-4ca45b1c1e59",
+      "start_time_seconds": 1.37391,
+      "end_time_seconds": 1.38006,
+      "low_frequency_hz": 44433.6,
+      "high_frequency_hz": 77636.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2b4edc6d-fd24-51cb-8bdf-13134dd2f25f",
+      "start_time_seconds": 1.34603,
+      "end_time_seconds": 1.35259,
+      "low_frequency_hz": 45166.0,
+      "high_frequency_hz": 81298.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "68ff45c9-e5ae-58c7-8952-28a8a28c0b93",
+      "start_time_seconds": 1.30052,
+      "end_time_seconds": 1.30708,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 74707.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "cbe422ab-b27f-574d-8b35-2b5bf3c6d1af",
+      "start_time_seconds": 1.28084,
+      "end_time_seconds": 1.28617,
+      "low_frequency_hz": 44433.6,
+      "high_frequency_hz": 92041.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "75e4fdfe-cce6-5bac-bcbf-de1059308411",
+      "start_time_seconds": 1.22262,
+      "end_time_seconds": 1.22918,
+      "low_frequency_hz": 44921.9,
+      "high_frequency_hz": 94726.6,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5427555a-361b-5ffd-949d-37832c4c0f75",
+      "start_time_seconds": 1.19433,
+      "end_time_seconds": 1.20089,
+      "low_frequency_hz": 31982.4,
+      "high_frequency_hz": 83496.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "6522b048-b5dd-55d5-ac32-3a4e2f3fd4a6",
+      "start_time_seconds": 1.15784,
+      "end_time_seconds": 1.1644,
+      "low_frequency_hz": 44921.9,
+      "high_frequency_hz": 98632.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "bcf9fea9-e793-594a-9957-59d1cded17ac",
+      "start_time_seconds": 1.13775,
+      "end_time_seconds": 1.14267,
+      "low_frequency_hz": 44189.5,
+      "high_frequency_hz": 70312.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e7ec62c5-1e3c-582b-bd43-633e798535a2",
+      "start_time_seconds": 1.12668,
+      "end_time_seconds": 1.13365,
+      "low_frequency_hz": 28076.2,
+      "high_frequency_hz": 91552.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "042fd49d-53f6-5694-8287-e89ad5ec3bb1",
+      "start_time_seconds": 1.09511,
+      "end_time_seconds": 1.10167,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 81787.1,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9645b3f5-0d28-53b3-b455-cffac1d6d5cf",
+      "start_time_seconds": 1.0578,
+      "end_time_seconds": 1.06436,
+      "low_frequency_hz": 28076.2,
+      "high_frequency_hz": 78613.3,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "13406ec0-db69-5d5a-acda-6678e0715969",
+      "start_time_seconds": 1.03238,
+      "end_time_seconds": 1.03935,
+      "low_frequency_hz": 43457.0,
+      "high_frequency_hz": 78857.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "fd69ed47-58ec-5258-99ad-6292e27b1df9",
+      "start_time_seconds": 0.974976,
+      "end_time_seconds": 0.981126,
+      "low_frequency_hz": 32959.0,
+      "high_frequency_hz": 76660.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "8c6393e9-bdf5-56ca-bcf3-c267a7ce1f23",
+      "start_time_seconds": 0.954886,
+      "end_time_seconds": 0.961446,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 71533.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "dcc829ec-f434-5165-b056-d703f58891f8",
+      "start_time_seconds": 0.910606,
+      "end_time_seconds": 0.917576,
+      "low_frequency_hz": 29541.0,
+      "high_frequency_hz": 88378.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "46150eab-128d-5fd1-9668-0e21589152a2",
+      "start_time_seconds": 0.886416,
+      "end_time_seconds": 0.892976,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 63476.6,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "523c8fe5-66ab-58e8-8b19-150fccaddc56",
+      "start_time_seconds": 0.809336,
+      "end_time_seconds": 0.817536,
+      "low_frequency_hz": 28320.3,
+      "high_frequency_hz": 88134.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b507de97-6617-5f90-b74e-1c52baada02e",
+      "start_time_seconds": 0.733896,
+      "end_time_seconds": 0.740866,
+      "low_frequency_hz": 45166.0,
+      "high_frequency_hz": 66650.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "eadfb9e4-85ea-5cb5-93ee-b8fdaef66882",
+      "start_time_seconds": 0.725696,
+      "end_time_seconds": 0.730616,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 68115.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "94649cf6-c1a2-572e-b82f-ff5d92741db2",
+      "start_time_seconds": 0.660096,
+      "end_time_seconds": 0.665426,
+      "low_frequency_hz": 42724.6,
+      "high_frequency_hz": 67138.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "78df1935-8405-5ab4-a55b-a8823c58baf5",
+      "start_time_seconds": 0.707656,
+      "end_time_seconds": 0.715446,
+      "low_frequency_hz": 30761.7,
+      "high_frequency_hz": 97900.4,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b9b6fc0b-ea69-5254-a7c8-48553e9ba7db",
+      "start_time_seconds": 0.549396,
+      "end_time_seconds": 0.557596,
+      "low_frequency_hz": 28076.2,
+      "high_frequency_hz": 96435.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "099f1bef-96a6-59b4-8d0f-d0e4e1971c10",
+      "start_time_seconds": 0.580966,
+      "end_time_seconds": 0.587116,
+      "low_frequency_hz": 43212.9,
+      "high_frequency_hz": 70800.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "17355dc2-69e6-50a9-89d2-a87da3639a51",
+      "start_time_seconds": 0.487896,
+      "end_time_seconds": 0.495686,
+      "low_frequency_hz": 43457.0,
+      "high_frequency_hz": 59814.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ab6f3fff-358c-584d-aeaf-87d1a7897ff0",
+      "start_time_seconds": 0.306676,
+      "end_time_seconds": 0.314876,
+      "low_frequency_hz": 29296.9,
+      "high_frequency_hz": 102539.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "1b7d5d75-3aaa-59ad-9258-e432279c5e3c",
+      "start_time_seconds": 0.403436,
+      "end_time_seconds": 0.411636,
+      "low_frequency_hz": 27832.0,
+      "high_frequency_hz": 100342.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d4e96115-e3bb-5ea9-b5be-1c2f9771cd92",
+      "start_time_seconds": 0.434596,
+      "end_time_seconds": 0.441156,
+      "low_frequency_hz": 42724.6,
+      "high_frequency_hz": 82763.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "35ed0de9-0945-57dc-bc50-930491c85ba9",
+      "start_time_seconds": 0.372686,
+      "end_time_seconds": 0.379656,
+      "low_frequency_hz": 42724.6,
+      "high_frequency_hz": 86669.9,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0bbb35b4-8644-5331-875f-048503715047",
+      "start_time_seconds": 0.277156,
+      "end_time_seconds": 0.284126,
+      "low_frequency_hz": 43212.9,
+      "high_frequency_hz": 68603.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "120484d4-b0ef-576e-972b-0154d1e0aed7",
+      "start_time_seconds": 0.231236,
+      "end_time_seconds": 0.239846,
+      "low_frequency_hz": 28808.6,
+      "high_frequency_hz": 101074.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "caa185fe-9f15-58a1-be2a-fe306561578f",
+      "start_time_seconds": 0.199256,
+      "end_time_seconds": 0.205406,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 88623.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2b36b5de-b6d5-5661-b610-34748bcee811",
+      "start_time_seconds": 0.159076,
+      "end_time_seconds": 0.165636,
+      "low_frequency_hz": 32470.7,
+      "high_frequency_hz": 100830.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9c4ea236-6c1b-5e47-837d-18a9ce919048",
+      "start_time_seconds": 0.101266,
+      "end_time_seconds": 0.109466,
+      "low_frequency_hz": 30029.3,
+      "high_frequency_hz": 101074.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "dc4504b1-954b-579a-b284-c5bb9b37a061",
+      "start_time_seconds": 0.121356,
+      "end_time_seconds": 0.126276,
+      "low_frequency_hz": 43212.9,
+      "high_frequency_hz": 84228.5,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "29734da0-4661-5bda-a0d9-5d222fbbc8be",
+      "start_time_seconds": 0.042226,
+      "end_time_seconds": 0.047146,
+      "low_frequency_hz": 43701.2,
+      "high_frequency_hz": 79834.0,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0437ca76-7764-501e-ad18-18954c92ed1f",
+      "start_time_seconds": 0.030336,
+      "end_time_seconds": 0.038126,
+      "low_frequency_hz": 29785.2,
+      "high_frequency_hz": 94238.3,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ed321728-630b-5746-984b-b4ad18780c74",
+      "start_time_seconds": 3.84662,
+      "end_time_seconds": 3.85195,
+      "low_frequency_hz": 45410.2,
+      "high_frequency_hz": 58349.6,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "65acb232-212f-5346-89de-c09b032950f4",
+      "start_time_seconds": 0.636316,
+      "end_time_seconds": 0.644516,
+      "low_frequency_hz": 26367.2,
+      "high_frequency_hz": 97656.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "a787983f-7ed5-5ed9-8a6c-cdb23390fb7e",
+      "start_time_seconds": 0.507576,
+      "end_time_seconds": 0.512906,
+      "low_frequency_hz": 43945.3,
+      "high_frequency_hz": 98632.8,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "04028c96-3fa5-56c7-805d-d011f51b20bb",
+      "start_time_seconds": 0.498556,
+      "end_time_seconds": 0.506756,
+      "low_frequency_hz": 28076.2,
+      "high_frequency_hz": 99365.2,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0a5e1def-8a26-5af5-94e5-042df6d4bbce",
+      "start_time_seconds": 0.070926,
+      "end_time_seconds": 0.077076,
+      "low_frequency_hz": 41748.0,
+      "high_frequency_hz": 60302.7,
+      "label": "Nyctophilus corbeni",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:scientificName=Nyctophilus corbeni",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    }
+  ],
+  "notes": "Converted from AOEF recording fa177acd-6d92-5cfe-b3cd-ef8b76e77c34 (pil_nc12_112_1_2circ.wav)."
+}

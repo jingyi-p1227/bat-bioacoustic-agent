@@ -1,0 +1,1836 @@
+{
+  "audio_path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/brazil/audio/OB3_20190125_020104Z003.WAV",
+  "events": [
+    {
+      "event_id": "5d5fc496-2f0d-5ca8-aeb1-d9f290633485",
+      "start_time_seconds": 9.0623,
+      "end_time_seconds": 9.0681,
+      "low_frequency_hz": 33691.4062,
+      "high_frequency_hz": 39062.5,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "15436c69-3a44-52e3-92c7-fe8469f1dbb7",
+      "start_time_seconds": 8.8184,
+      "end_time_seconds": 8.8258,
+      "low_frequency_hz": 31982.4219,
+      "high_frequency_hz": 38330.0781,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "252433d6-7533-541d-b210-2769da75cbfb",
+      "start_time_seconds": 8.5999,
+      "end_time_seconds": 8.6102,
+      "low_frequency_hz": 31738.2812,
+      "high_frequency_hz": 39794.9219,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ec6a3b98-1be3-5d6e-a261-0b02b88a8ed6",
+      "start_time_seconds": 8.3834,
+      "end_time_seconds": 8.3933,
+      "low_frequency_hz": 30761.7188,
+      "high_frequency_hz": 41259.7656,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e2d81422-ae7a-5eba-ab62-c2d776898cf1",
+      "start_time_seconds": 8.1744,
+      "end_time_seconds": 8.181,
+      "low_frequency_hz": 31250.0,
+      "high_frequency_hz": 41259.7656,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "f048037f-12f0-508c-a2ab-e7276a580ec8",
+      "start_time_seconds": 7.9617,
+      "end_time_seconds": 7.9695,
+      "low_frequency_hz": 31982.4219,
+      "high_frequency_hz": 41992.1875,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ff0a1c0d-b1f4-5777-9c99-5fcf59e842f3",
+      "start_time_seconds": 7.707,
+      "end_time_seconds": 7.7165,
+      "low_frequency_hz": 32958.9844,
+      "high_frequency_hz": 40283.2031,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "558b250b-524f-5339-bb36-f1761202847d",
+      "start_time_seconds": 7.7218,
+      "end_time_seconds": 7.7346,
+      "low_frequency_hz": 15869.1406,
+      "high_frequency_hz": 20751.9531,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "f45e1a4b-d682-5664-a347-2d9762d6cc3e",
+      "start_time_seconds": 7.4256,
+      "end_time_seconds": 7.4387,
+      "low_frequency_hz": 15625.0,
+      "high_frequency_hz": 20263.6719,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "7a9d9fcd-02bc-5129-be15-cb27f1c6dfc9",
+      "start_time_seconds": 7.1355,
+      "end_time_seconds": 7.1437,
+      "low_frequency_hz": 15136.7188,
+      "high_frequency_hz": 19042.9688,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "51c0216d-69be-50b6-aed6-e0f799148444",
+      "start_time_seconds": 5.595,
+      "end_time_seconds": 5.6057,
+      "low_frequency_hz": 18066.4062,
+      "high_frequency_hz": 22705.0781,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "dbf138fe-9703-5921-93ca-284fbf074b4a",
+      "start_time_seconds": 5.2415,
+      "end_time_seconds": 5.2551,
+      "low_frequency_hz": 15136.7188,
+      "high_frequency_hz": 20507.8125,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "1511806f-a4b7-5fcc-bc3d-cc67361d5d3b",
+      "start_time_seconds": 4.6544,
+      "end_time_seconds": 4.6577,
+      "low_frequency_hz": 19287.1094,
+      "high_frequency_hz": 28076.1719,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "8e5d14b0-f24f-5da3-916b-ac46895c8243",
+      "start_time_seconds": 4.6322,
+      "end_time_seconds": 4.6359,
+      "low_frequency_hz": 18798.8281,
+      "high_frequency_hz": 26367.1875,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "f9a52f4c-00c1-5910-97ff-e7794cb04d45",
+      "start_time_seconds": 1.9532,
+      "end_time_seconds": 1.9639,
+      "low_frequency_hz": 15380.8594,
+      "high_frequency_hz": 20019.5312,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9591c9e0-874b-5e1d-a320-461b43599531",
+      "start_time_seconds": 1.6713,
+      "end_time_seconds": 1.6857,
+      "low_frequency_hz": 14404.2969,
+      "high_frequency_hz": 18310.5469,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5a0a7b6f-52fe-5b37-b1e1-a9fbda2a3c64",
+      "start_time_seconds": 1.3796,
+      "end_time_seconds": 1.3956,
+      "low_frequency_hz": 15380.8594,
+      "high_frequency_hz": 19287.1094,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e58a1817-07de-583d-b4b4-8f37d00b3b80",
+      "start_time_seconds": 1.041,
+      "end_time_seconds": 1.0545,
+      "low_frequency_hz": 15380.8594,
+      "high_frequency_hz": 20263.6719,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0c9efabc-bb1b-5b61-963d-8f253d33c0f8",
+      "start_time_seconds": 0.7472,
+      "end_time_seconds": 0.7538,
+      "low_frequency_hz": 20751.9531,
+      "high_frequency_hz": 24414.0625,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d24d6a14-1899-5ce2-8b80-29a84ba11aca",
+      "start_time_seconds": 0.7324,
+      "end_time_seconds": 0.741,
+      "low_frequency_hz": 19531.25,
+      "high_frequency_hz": 23437.5,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b4c628da-0233-5767-8c5b-afedfac0fb5e",
+      "start_time_seconds": 0.72,
+      "end_time_seconds": 0.7283,
+      "low_frequency_hz": 19775.3906,
+      "high_frequency_hz": 23437.5,
+      "label": "Chiroptera",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c976668a-3c4a-5cf9-a73e-d15567b45867",
+      "start_time_seconds": 0.7513,
+      "end_time_seconds": 0.7673,
+      "low_frequency_hz": 14648.4375,
+      "high_frequency_hz": 18798.8281,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "6cf89001-a4d3-5a84-aef9-afcdd435f67e",
+      "start_time_seconds": 0.474,
+      "end_time_seconds": 0.497,
+      "low_frequency_hz": 14404.2969,
+      "high_frequency_hz": 20263.6719,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5e5bf8de-f39c-5d85-b518-eb12417b640e",
+      "start_time_seconds": 0.0378,
+      "end_time_seconds": 0.0489,
+      "low_frequency_hz": 47119.1406,
+      "high_frequency_hz": 65429.6875,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b3fe02c3-9701-504f-8233-8481d9607937",
+      "start_time_seconds": 0.1148,
+      "end_time_seconds": 0.1247,
+      "low_frequency_hz": 45654.2969,
+      "high_frequency_hz": 67138.6719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9017ceb8-73bf-5808-a8bc-d4a8b3207d1d",
+      "start_time_seconds": 0.167,
+      "end_time_seconds": 0.1761,
+      "low_frequency_hz": 45654.2969,
+      "high_frequency_hz": 66650.3906,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "673e01fd-3912-543f-8d4f-2202e7cda234",
+      "start_time_seconds": 0.2222,
+      "end_time_seconds": 0.2308,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 72021.4844,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "03f75c90-46f3-5b31-a230-660c9717332b",
+      "start_time_seconds": 0.2744,
+      "end_time_seconds": 0.2835,
+      "low_frequency_hz": 47119.1406,
+      "high_frequency_hz": 70068.3594,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ccab4627-3a6a-5c4b-943a-22f5a5cd4c43",
+      "start_time_seconds": 0.3271,
+      "end_time_seconds": 0.337,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 72998.0469,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "1e00ac2d-5422-5cbe-a66c-de222c260dca",
+      "start_time_seconds": 0.3822,
+      "end_time_seconds": 0.3896,
+      "low_frequency_hz": 47607.4219,
+      "high_frequency_hz": 76660.1562,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ca6c7f93-a0be-581b-9062-66085c807a6d",
+      "start_time_seconds": 0.4382,
+      "end_time_seconds": 0.4452,
+      "low_frequency_hz": 45898.4375,
+      "high_frequency_hz": 78125.0,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "3b8c4eb5-e2ba-59df-9b35-ea47d22210b3",
+      "start_time_seconds": 0.488,
+      "end_time_seconds": 0.4962,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 77880.8594,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "59d0c818-d99a-50ca-94d1-3eace067cf78",
+      "start_time_seconds": 0.5394,
+      "end_time_seconds": 0.5485,
+      "low_frequency_hz": 45166.0156,
+      "high_frequency_hz": 73974.6094,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0040a17e-40f2-5a9f-aff5-07641d5ecaf9",
+      "start_time_seconds": 0.5912,
+      "end_time_seconds": 0.6007,
+      "low_frequency_hz": 45166.0156,
+      "high_frequency_hz": 70068.3594,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "3442df4e-7ddf-54c0-99ca-14acb2b331ab",
+      "start_time_seconds": 0.648,
+      "end_time_seconds": 0.6571,
+      "low_frequency_hz": 44921.875,
+      "high_frequency_hz": 74707.0312,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "34db21fd-5cfc-54d5-bfd9-5e3649f1fab5",
+      "start_time_seconds": 0.7093,
+      "end_time_seconds": 0.718,
+      "low_frequency_hz": 47607.4219,
+      "high_frequency_hz": 58837.8906,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "515a9bd6-f8b8-5377-9aa9-6cf50b1b5c5c",
+      "start_time_seconds": 0.7665,
+      "end_time_seconds": 0.7772,
+      "low_frequency_hz": 45654.2969,
+      "high_frequency_hz": 75927.7344,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "0f121c34-0b0e-5b4b-b89b-3eb140968de7",
+      "start_time_seconds": 0.885,
+      "end_time_seconds": 0.8957,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 70556.6406,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ab005539-ed75-5b7c-9c4c-6781dc5d52f6",
+      "start_time_seconds": 0.8299,
+      "end_time_seconds": 0.8398,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 63232.4219,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ea21471a-2c15-5cfc-861e-4e409ab8bec1",
+      "start_time_seconds": 0.9772,
+      "end_time_seconds": 0.9862,
+      "low_frequency_hz": 47119.1406,
+      "high_frequency_hz": 62255.8594,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c00c109b-9485-55fe-a951-851fb4bf608d",
+      "start_time_seconds": 1.0632,
+      "end_time_seconds": 1.0722,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 67871.0938,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "f200b40f-a53b-582f-969a-83c91558f09b",
+      "start_time_seconds": 1.1829,
+      "end_time_seconds": 1.1936,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 65673.8281,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "bc96ec20-6317-5a77-b3f8-5478e1668e6a",
+      "start_time_seconds": 1.1261,
+      "end_time_seconds": 1.1335,
+      "low_frequency_hz": 44189.4531,
+      "high_frequency_hz": 55664.0625,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "4ea0a883-f147-51a4-b92e-b829c8901615",
+      "start_time_seconds": 1.2714,
+      "end_time_seconds": 1.2808,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 55419.9219,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2f05d82f-950d-54d5-b1fb-5175b6433389",
+      "start_time_seconds": 1.3578,
+      "end_time_seconds": 1.3668,
+      "low_frequency_hz": 45166.0156,
+      "high_frequency_hz": 61767.5781,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "755f75b5-09ec-54a6-a963-78a8599fa57b",
+      "start_time_seconds": 1.4195,
+      "end_time_seconds": 1.4253,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 54443.3594,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "56ec0d11-da5b-54f1-9932-0553fca1923d",
+      "start_time_seconds": 1.4825,
+      "end_time_seconds": 1.4899,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 57373.0469,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "6b434eff-fdff-53d1-8cde-7b619d772dc1",
+      "start_time_seconds": 1.5759,
+      "end_time_seconds": 1.5824,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 56396.4844,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "a7b18192-a255-5801-9ab7-c61a13a27435",
+      "start_time_seconds": 1.7458,
+      "end_time_seconds": 1.754,
+      "low_frequency_hz": 44677.7344,
+      "high_frequency_hz": 56152.3438,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "057ca78a-805d-56ab-ab9a-7ff59a73a347",
+      "start_time_seconds": 1.8371,
+      "end_time_seconds": 1.8462,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 58349.6094,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "019a7edd-1deb-53ad-8ef5-6c6fd63bed68",
+      "start_time_seconds": 1.9367,
+      "end_time_seconds": 1.9449,
+      "low_frequency_hz": 45898.4375,
+      "high_frequency_hz": 55908.2031,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2b49e9a9-8833-5fed-8484-26d255a82c22",
+      "start_time_seconds": 2.0939,
+      "end_time_seconds": 2.1021,
+      "low_frequency_hz": 45654.2969,
+      "high_frequency_hz": 54931.6406,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b3ef393a-9bc5-52b4-bf21-b35e0ec4f65b",
+      "start_time_seconds": 2.177,
+      "end_time_seconds": 2.184,
+      "low_frequency_hz": 47607.4219,
+      "high_frequency_hz": 58105.4688,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c812afb0-e14b-56a1-9006-8d230d1bc183",
+      "start_time_seconds": 2.3918,
+      "end_time_seconds": 2.4,
+      "low_frequency_hz": 46875.0,
+      "high_frequency_hz": 65673.8281,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "844011a9-02e5-5112-a492-f622b20b3fbc",
+      "start_time_seconds": 2.4704,
+      "end_time_seconds": 2.4819,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 65185.5469,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d9ae626d-7c23-50e0-9189-159fb4d95351",
+      "start_time_seconds": 2.5506,
+      "end_time_seconds": 2.5609,
+      "low_frequency_hz": 47851.5625,
+      "high_frequency_hz": 70312.5,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c5b2ae81-0047-5ff0-8ac6-1057fa648102",
+      "start_time_seconds": 2.6313,
+      "end_time_seconds": 2.6436,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 67138.6719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "739cb0a3-ec0b-51b6-9f9e-6e3a4dad3c0e",
+      "start_time_seconds": 2.6893,
+      "end_time_seconds": 2.7008,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 69580.0781,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "cbb289f4-825b-5cf4-9632-b154cd2cbc88",
+      "start_time_seconds": 2.7555,
+      "end_time_seconds": 2.7662,
+      "low_frequency_hz": 47851.5625,
+      "high_frequency_hz": 64941.4062,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "c518689b-c672-526e-a8fe-cb0415716ec0",
+      "start_time_seconds": 2.8296,
+      "end_time_seconds": 2.839,
+      "low_frequency_hz": 47607.4219,
+      "high_frequency_hz": 67138.6719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "7668e973-8490-55b6-8878-79ee879a5098",
+      "start_time_seconds": 2.9024,
+      "end_time_seconds": 2.9123,
+      "low_frequency_hz": 46875.0,
+      "high_frequency_hz": 70556.6406,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ef22e336-e6a3-568f-8c25-f79d2e07d778",
+      "start_time_seconds": 2.9542,
+      "end_time_seconds": 2.9621,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 74951.1719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "9a7d4ef1-8cf9-5cc1-a3da-995683312fd3",
+      "start_time_seconds": 2.967,
+      "end_time_seconds": 2.9851,
+      "low_frequency_hz": 13671.875,
+      "high_frequency_hz": 20996.0938,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5b42746a-6275-56a8-8d2d-dff9ae00107a",
+      "start_time_seconds": 2.9975,
+      "end_time_seconds": 3.0073,
+      "low_frequency_hz": 45166.0156,
+      "high_frequency_hz": 73974.6094,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "f01b521a-618a-59c7-9f02-aeb6314f8e11",
+      "start_time_seconds": 3.1188,
+      "end_time_seconds": 3.1258,
+      "low_frequency_hz": 49316.4062,
+      "high_frequency_hz": 71533.2031,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2c268e00-83ce-5dfe-9d6c-e762a09e237a",
+      "start_time_seconds": 3.1843,
+      "end_time_seconds": 3.1945,
+      "low_frequency_hz": 46875.0,
+      "high_frequency_hz": 74218.75,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "7c2e59cf-fecf-5aa4-b88d-d700a37bec64",
+      "start_time_seconds": 3.2386,
+      "end_time_seconds": 3.2493,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 74951.1719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "6a0bdd61-dd15-58bc-8222-0be81800f02a",
+      "start_time_seconds": 3.2958,
+      "end_time_seconds": 3.3085,
+      "low_frequency_hz": 47119.1406,
+      "high_frequency_hz": 80566.4062,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "8edf15ec-bc1d-54fa-83cb-8435f0603af5",
+      "start_time_seconds": 3.3793,
+      "end_time_seconds": 3.3892,
+      "low_frequency_hz": 47363.2812,
+      "high_frequency_hz": 72998.0469,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "273dcb1e-1297-5252-8c90-76acb073ced0",
+      "start_time_seconds": 3.4311,
+      "end_time_seconds": 3.4427,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 74951.1719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "8c6f359e-99fd-591c-a291-b67ba48ebc99",
+      "start_time_seconds": 3.5007,
+      "end_time_seconds": 3.5138,
+      "low_frequency_hz": 47363.2812,
+      "high_frequency_hz": 78857.4219,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "78f09888-261f-5615-879a-d40095bac042",
+      "start_time_seconds": 3.5566,
+      "end_time_seconds": 3.5698,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 75439.4531,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "84c74ecb-8ffb-5259-b8b4-c58edb19f282",
+      "start_time_seconds": 3.6142,
+      "end_time_seconds": 3.6266,
+      "low_frequency_hz": 45654.2969,
+      "high_frequency_hz": 78857.4219,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "811a2a1d-55a1-5cbd-9448-22851072a978",
+      "start_time_seconds": 3.6727,
+      "end_time_seconds": 3.6871,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 76904.2969,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b28792f2-adf9-57eb-a572-ba72c6e36304",
+      "start_time_seconds": 3.734,
+      "end_time_seconds": 3.748,
+      "low_frequency_hz": 46875.0,
+      "high_frequency_hz": 78369.1406,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ee46fb6e-d375-50ae-befa-8c6ef4f5cb42",
+      "start_time_seconds": 3.7957,
+      "end_time_seconds": 3.8093,
+      "low_frequency_hz": 45898.4375,
+      "high_frequency_hz": 82519.5312,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ec4b03ed-3608-5a8c-921f-5fa32a9ff9b4",
+      "start_time_seconds": 3.8656,
+      "end_time_seconds": 3.8763,
+      "low_frequency_hz": 47607.4219,
+      "high_frequency_hz": 77636.7188,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b51a8ad9-6be9-58d0-8cb9-93c418ad90fa",
+      "start_time_seconds": 3.9245,
+      "end_time_seconds": 3.9343,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 81787.1094,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e9c0acb6-3d99-5f3b-b3b8-702d08258b64",
+      "start_time_seconds": 3.9932,
+      "end_time_seconds": 4.001,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 80810.5469,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "8f313494-1f8e-5a2e-abb5-7bbb7ab38440",
+      "start_time_seconds": 4.0541,
+      "end_time_seconds": 4.0619,
+      "low_frequency_hz": 45898.4375,
+      "high_frequency_hz": 82275.3906,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "34a7e234-6973-5838-ab78-153a8b2a81de",
+      "start_time_seconds": 4.1199,
+      "end_time_seconds": 4.1273,
+      "low_frequency_hz": 47119.1406,
+      "high_frequency_hz": 83740.2344,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "30913e86-a10b-519e-a948-535303c99d6a",
+      "start_time_seconds": 4.1771,
+      "end_time_seconds": 4.1853,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 83984.375,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "16fe2670-87f5-510d-9c7d-a3bc94256fa8",
+      "start_time_seconds": 4.2351,
+      "end_time_seconds": 4.2438,
+      "low_frequency_hz": 47363.2812,
+      "high_frequency_hz": 84716.7969,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "21e3c6df-53f7-58a4-9864-2509a9e8bb55",
+      "start_time_seconds": 4.3121,
+      "end_time_seconds": 4.3228,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 85205.0781,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "40c4d695-9681-5148-ab0f-2c53047b6d05",
+      "start_time_seconds": 4.368,
+      "end_time_seconds": 4.3771,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 87646.4844,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "a4a312f6-65ea-5390-afc1-1cb297d68a50",
+      "start_time_seconds": 4.431,
+      "end_time_seconds": 4.4392,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 86914.0625,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "54e5db2b-434d-52d0-ab94-0b80e320e163",
+      "start_time_seconds": 4.4816,
+      "end_time_seconds": 4.4898,
+      "low_frequency_hz": 46142.5781,
+      "high_frequency_hz": 85205.0781,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "6a1e567f-f4a9-5df2-bca2-b42928c8000b",
+      "start_time_seconds": 4.5474,
+      "end_time_seconds": 4.5552,
+      "low_frequency_hz": 46875.0,
+      "high_frequency_hz": 74462.8906,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e98285be-9ba2-51be-8a30-30db9d859a90",
+      "start_time_seconds": 4.5976,
+      "end_time_seconds": 4.6087,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 71533.2031,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "97ae1772-9602-5efa-bcd3-b20d4e6b5440",
+      "start_time_seconds": 4.6577,
+      "end_time_seconds": 4.6696,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 70068.3594,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "a8ba32b7-8b06-5e53-88d5-d9062e83b80a",
+      "start_time_seconds": 4.7165,
+      "end_time_seconds": 4.7264,
+      "low_frequency_hz": 47119.1406,
+      "high_frequency_hz": 65185.5469,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "4c338ccb-e914-5200-8cca-d4c0e2a09053",
+      "start_time_seconds": 4.7745,
+      "end_time_seconds": 4.784,
+      "low_frequency_hz": 47607.4219,
+      "high_frequency_hz": 71044.9219,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "6a977ccf-d362-56cc-889a-92d9b3abc5b7",
+      "start_time_seconds": 4.8276,
+      "end_time_seconds": 4.8383,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 73730.4688,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "59586190-6ab3-58c0-b7e9-98111553f35b",
+      "start_time_seconds": 4.9013,
+      "end_time_seconds": 4.912,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 67138.6719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "4bc7defe-9838-509e-9f56-8a256131eab5",
+      "start_time_seconds": 4.9971,
+      "end_time_seconds": 5.0074,
+      "low_frequency_hz": 45654.2969,
+      "high_frequency_hz": 69091.7969,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "4a95f729-2ee4-56d6-ab3c-fd2c2c719c0c",
+      "start_time_seconds": 5.0543,
+      "end_time_seconds": 5.0626,
+      "low_frequency_hz": 45654.2969,
+      "high_frequency_hz": 72021.4844,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "a8760833-24c8-581a-9ad1-2673d610a78f",
+      "start_time_seconds": 5.1111,
+      "end_time_seconds": 5.1206,
+      "low_frequency_hz": 45410.1562,
+      "high_frequency_hz": 62500.0,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "cc06ef90-8816-57af-b8ec-5d597cae18e3",
+      "start_time_seconds": 5.1716,
+      "end_time_seconds": 5.1811,
+      "low_frequency_hz": 44677.7344,
+      "high_frequency_hz": 73486.3281,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "780ca922-7d02-5143-b0ba-439cd7334b42",
+      "start_time_seconds": 5.3374,
+      "end_time_seconds": 5.3444,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 56396.4844,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "b6058c55-d65b-5ead-ad01-8a6ed45e1786",
+      "start_time_seconds": 5.2831,
+      "end_time_seconds": 5.2913,
+      "low_frequency_hz": 46630.8594,
+      "high_frequency_hz": 56884.7656,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Echolocation, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d34da16d-9674-5e61-884e-6fafe70735ff",
+      "start_time_seconds": 6.9141,
+      "end_time_seconds": 7.0281,
+      "low_frequency_hz": 23193.3594,
+      "high_frequency_hz": 51025.3906,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e364628e-e0b1-5162-8635-6177237f5253",
+      "start_time_seconds": 6.8516,
+      "end_time_seconds": 6.8569,
+      "low_frequency_hz": 47363.2812,
+      "high_frequency_hz": 59570.3125,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "e02f4018-b7d3-5459-8e06-133fad84cc9a",
+      "start_time_seconds": 6.8121,
+      "end_time_seconds": 6.8158,
+      "low_frequency_hz": 49316.4062,
+      "high_frequency_hz": 63476.5625,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5c665f56-7ad8-5ce2-a8d4-00a615cb3445",
+      "start_time_seconds": 6.7281,
+      "end_time_seconds": 6.7343,
+      "low_frequency_hz": 48583.9844,
+      "high_frequency_hz": 64208.9844,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "8b8686e4-ac0f-551c-a8e5-6ff4fdeafc70",
+      "start_time_seconds": 6.6973,
+      "end_time_seconds": 6.7018,
+      "low_frequency_hz": 46386.7188,
+      "high_frequency_hz": 63476.5625,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "829dd34a-1667-518b-99a8-f0d0f35caad4",
+      "start_time_seconds": 6.594,
+      "end_time_seconds": 6.5998,
+      "low_frequency_hz": 47607.4219,
+      "high_frequency_hz": 59326.1719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ffb8636d-0393-5c4e-8d9c-d9f22b991ea6",
+      "start_time_seconds": 6.6343,
+      "end_time_seconds": 6.6376,
+      "low_frequency_hz": 45898.4375,
+      "high_frequency_hz": 64697.2656,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "ccc3d5f1-6bce-5aee-b10d-73c83405538c",
+      "start_time_seconds": 6.664,
+      "end_time_seconds": 6.6677,
+      "low_frequency_hz": 50048.8281,
+      "high_frequency_hz": 58837.8906,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "934348ac-2502-53ff-b40b-cd6d909f04e9",
+      "start_time_seconds": 9.8918,
+      "end_time_seconds": 9.8968,
+      "low_frequency_hz": 48339.8438,
+      "high_frequency_hz": 60546.875,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d797efa2-f8e4-5ef9-b769-124b0a11f53c",
+      "start_time_seconds": 9.8491,
+      "end_time_seconds": 9.8561,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 60058.5938,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "43730650-d4e8-505e-8adf-0910d349fc3b",
+      "start_time_seconds": 9.803,
+      "end_time_seconds": 9.8075,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 59326.1719,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2c66d471-8c2d-50fd-b7b8-0169d7635d04",
+      "start_time_seconds": 9.7569,
+      "end_time_seconds": 9.7635,
+      "low_frequency_hz": 49072.2656,
+      "high_frequency_hz": 59570.3125,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "a3350285-92cf-5fba-bcfe-355051bf0855",
+      "start_time_seconds": 9.7071,
+      "end_time_seconds": 9.7116,
+      "low_frequency_hz": 48095.7031,
+      "high_frequency_hz": 60302.7344,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "72416629-c576-5701-ad29-ad0d9642834f",
+      "start_time_seconds": 9.5536,
+      "end_time_seconds": 9.5594,
+      "low_frequency_hz": 50048.8281,
+      "high_frequency_hz": 63720.7031,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "d85a6144-beac-5b2f-9882-2c89212777fd",
+      "start_time_seconds": 9.5141,
+      "end_time_seconds": 9.5195,
+      "low_frequency_hz": 48583.9844,
+      "high_frequency_hz": 61035.1562,
+      "label": "Rhogeessa",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Rhogeessa",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "f21e084a-41cb-5271-a939-ca43550656ae",
+      "start_time_seconds": 9.5285,
+      "end_time_seconds": 9.5479,
+      "low_frequency_hz": 15380.8594,
+      "high_frequency_hz": 22949.2188,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "f2818832-f671-5c7a-91f9-ba15bcd4a8b9",
+      "start_time_seconds": 9.9281,
+      "end_time_seconds": 9.9478,
+      "low_frequency_hz": 16113.2812,
+      "high_frequency_hz": 22705.0781,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "2b7cb754-a1df-5340-8e72-754f084fb302",
+      "start_time_seconds": 9.1862,
+      "end_time_seconds": 9.2006,
+      "low_frequency_hz": 15380.8594,
+      "high_frequency_hz": 23193.3594,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "86bd90d7-f9c0-5f6a-9a12-db24f676bcfc",
+      "start_time_seconds": 8.8295,
+      "end_time_seconds": 8.8467,
+      "low_frequency_hz": 15625.0,
+      "high_frequency_hz": 22460.9375,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "584e918c-cdee-531a-9552-04bbfce63ac9",
+      "start_time_seconds": 8.5937,
+      "end_time_seconds": 8.6052,
+      "low_frequency_hz": 14892.5781,
+      "high_frequency_hz": 21484.375,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "18c888c2-1d09-5bb5-9830-6411de84c43a",
+      "start_time_seconds": 8.3069,
+      "end_time_seconds": 8.3188,
+      "low_frequency_hz": 15625.0,
+      "high_frequency_hz": 22460.9375,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    },
+    {
+      "event_id": "5068115a-cbaf-5399-9e86-796c8aaee02c",
+      "start_time_seconds": 0.2032,
+      "end_time_seconds": 0.2156,
+      "low_frequency_hz": 14160.1562,
+      "high_frequency_hz": 21972.6562,
+      "label": "Eumops",
+      "confidence": 1.0,
+      "evidence": "Converted from AOEF annotation tags: soundevent:call_type=Feeding, dwc:order=Chiroptera, dwc:genus=Eumops",
+      "tools_used": [
+        "convert_aoef_to_eventresult"
+      ],
+      "human_review_needed": false,
+      "review_reason": "Ground-truth annotation converted from AOEF."
+    }
+  ],
+  "notes": "Converted from AOEF recording 1066f804-50b7-5160-b4c6-7cc8fa7e55b6 (OB3_20190125_020104Z003.WAV)."
+}
