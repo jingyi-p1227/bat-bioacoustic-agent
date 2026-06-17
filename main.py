@@ -1,5 +1,7 @@
 from pydantic import BaseModel, Field, model_validator
+from dataclasses import dataclass
 from io import BytesIO
+import math
 import os
 from pathlib import Path
 
@@ -28,6 +30,11 @@ ANNOTATION_DIR = Path("annotations")
 ANNOTATION_DIR.mkdir(exist_ok=True)
 OUTPUT_DIR = Path("outputs")
 OUTPUT_DIR.mkdir(exist_ok=True)
+
+DEFAULT_TIME_MAJOR_STEP = 0.5
+DEFAULT_TIME_MINOR_STEP = 0.1
+DEFAULT_FREQUENCY_MAJOR_STEP = 10000
+DEFAULT_FREQUENCY_MINOR_STEP = 5000
 
 
 class OllamaSafeOpenAIChatModel(OpenAIChatModel):
@@ -218,6 +225,129 @@ def to_image(x, min_db=-130, max_db=0, eps=1e-20):
     return x
 
 
+@dataclass(frozen=True)
+class GridSteps:
+    time_major_step: float
+    time_minor_step: float
+    frequency_major_step: float
+    frequency_minor_step: float
+
+
+def _nice_step(raw_step: float) -> float:
+    if raw_step <= 0:
+        raise ValueError("raw_step must be greater than 0")
+
+    exponent = math.floor(math.log10(raw_step))
+    scale = 10**exponent
+    fraction = raw_step / scale
+
+    if fraction <= 1:
+        nice_fraction = 1
+    elif fraction <= 2:
+        nice_fraction = 2
+    elif fraction <= 5:
+        nice_fraction = 5
+    else:
+        nice_fraction = 10
+
+    return nice_fraction * scale
+
+
+def choose_readable_grid_steps(
+    time_span: float,
+    frequency_span: float,
+    target_time_major_lines: int = 8,
+    target_frequency_major_lines: int = 6,
+) -> GridSteps:
+    """Choose readable major/minor grid spacing for the visible spectrogram range."""
+    if time_span <= 0:
+        raise ValueError("time_span must be greater than 0")
+    if frequency_span <= 0:
+        raise ValueError("frequency_span must be greater than 0")
+
+    time_major_step = _nice_step(time_span / target_time_major_lines)
+    frequency_major_step = _nice_step(frequency_span / target_frequency_major_lines)
+
+    return GridSteps(
+        time_major_step=time_major_step,
+        time_minor_step=time_major_step / 5,
+        frequency_major_step=frequency_major_step,
+        frequency_minor_step=frequency_major_step / 2,
+    )
+
+
+def _resolve_grid_steps(
+    *,
+    grid_step_mode: str,
+    time_span: float,
+    frequency_span: float,
+    time_major_step: float | None,
+    time_minor_step: float | None,
+    frequency_major_step: float | None,
+    frequency_minor_step: float | None,
+) -> GridSteps:
+    if grid_step_mode == "fixed":
+        steps = GridSteps(
+            time_major_step=(
+                time_major_step
+                if time_major_step is not None
+                else DEFAULT_TIME_MAJOR_STEP
+            ),
+            time_minor_step=(
+                time_minor_step
+                if time_minor_step is not None
+                else DEFAULT_TIME_MINOR_STEP
+            ),
+            frequency_major_step=(
+                frequency_major_step
+                if frequency_major_step is not None
+                else DEFAULT_FREQUENCY_MAJOR_STEP
+            ),
+            frequency_minor_step=(
+                frequency_minor_step
+                if frequency_minor_step is not None
+                else DEFAULT_FREQUENCY_MINOR_STEP
+            ),
+        )
+    elif grid_step_mode == "auto":
+        auto_steps = choose_readable_grid_steps(time_span, frequency_span)
+        steps = GridSteps(
+            time_major_step=(
+                time_major_step
+                if time_major_step is not None
+                else auto_steps.time_major_step
+            ),
+            time_minor_step=(
+                time_minor_step
+                if time_minor_step is not None
+                else auto_steps.time_minor_step
+            ),
+            frequency_major_step=(
+                frequency_major_step
+                if frequency_major_step is not None
+                else auto_steps.frequency_major_step
+            ),
+            frequency_minor_step=(
+                frequency_minor_step
+                if frequency_minor_step is not None
+                else auto_steps.frequency_minor_step
+            ),
+        )
+    else:
+        raise ValueError("grid_step_mode must be 'fixed' or 'auto'")
+
+    for name, step in {
+        "time_major_step": steps.time_major_step,
+        "time_minor_step": steps.time_minor_step,
+        "frequency_major_step": steps.frequency_major_step,
+        "frequency_minor_step": steps.frequency_minor_step,
+    }.items():
+        if step <= 0:
+            raise ValueError(f"{name} must be greater than 0")
+
+    return steps
+
+
 def plot_spectrogram_with_grid(
     spec,
     audio,
@@ -225,16 +355,17 @@ def plot_spectrogram_with_grid(
     sr: int,
     grid=True,
     show_grid: bool = False,
-    time_major_step: float = 0.5,
-    time_minor_step: float = 0.1,
-    frequency_major_step: float = 10000,
-    frequency_minor_step: float = 5000,
+    time_major_step: float | None = None,
+    time_minor_step: float | None = None,
+    frequency_major_step: float | None = None,
+    frequency_minor_step: float | None = None,
     start_time: float | None = None,
     end_time: float | None = None,
     low_frequency: float | None = None,
     high_frequency: float | None = None,
     preset: str = "full",
     interpolation: str = "bilinear",
+    grid_step_mode: str = "fixed",
 ) -> Figure:
     fig, ax = plt.subplots(figsize=(12, 6))
 
@@ -263,18 +394,21 @@ def plot_spectrogram_with_grid(
         ax.set_ylim(max(0, low_frequency), min(sr / 2, high_frequency))
 
     if show_grid:
-        for name, step in {
-            "time_major_step": time_major_step,
-            "time_minor_step": time_minor_step,
-            "frequency_major_step": frequency_major_step,
-            "frequency_minor_step": frequency_minor_step,
-        }.items():
-            if step <= 0:
-                raise ValueError(f"{name} must be greater than 0")
-        ax.xaxis.set_major_locator(MultipleLocator(time_major_step))
-        ax.xaxis.set_minor_locator(MultipleLocator(time_minor_step))
-        ax.yaxis.set_major_locator(MultipleLocator(frequency_major_step))
-        ax.yaxis.set_minor_locator(MultipleLocator(frequency_minor_step))
+        x_min, x_max = ax.get_xlim()
+        y_min, y_max = ax.get_ylim()
+        grid_steps = _resolve_grid_steps(
+            grid_step_mode=grid_step_mode,
+            time_span=x_max - x_min,
+            frequency_span=y_max - y_min,
+            time_major_step=time_major_step,
+            time_minor_step=time_minor_step,
+            frequency_major_step=frequency_major_step,
+            frequency_minor_step=frequency_minor_step,
+        )
+        ax.xaxis.set_major_locator(MultipleLocator(grid_steps.time_major_step))
+        ax.xaxis.set_minor_locator(MultipleLocator(grid_steps.time_minor_step))
+        ax.yaxis.set_major_locator(MultipleLocator(grid_steps.frequency_major_step))
+        ax.yaxis.set_minor_locator(MultipleLocator(grid_steps.frequency_minor_step))
         ax.tick_params(axis="both", which="major", labelsize=8, length=4)
         ax.tick_params(axis="both", which="minor", labelsize=0, length=2)
         ax.grid(which="major", color="cyan", linewidth=0.7, alpha=0.65)
@@ -355,10 +489,11 @@ def figure_to_image(fig: Figure) -> BytesIO:
 async def generate_spectrogram(
     audio_path: str,
     show_grid: bool = False,
-    time_major_step: float = 0.5,
-    time_minor_step: float = 0.1,
-    frequency_major_step: float = 10000,
-    frequency_minor_step: float = 5000,
+    time_major_step: float | None = None,
+    time_minor_step: float | None = None,
+    frequency_major_step: float | None = None,
+    frequency_minor_step: float | None = None,
+    grid_step_mode: str = "fixed",
 ) -> ToolReturn:
     """Generate a spectrogram image for an audio file in AUDIO_DIR.
 
@@ -369,6 +504,8 @@ async def generate_spectrogram(
         time_minor_step: Minor time grid spacing in seconds.
         frequency_major_step: Major frequency grid spacing in Hz.
         frequency_minor_step: Minor frequency grid spacing in Hz.
+        grid_step_mode: "fixed" keeps existing grid spacing; "auto" fills in
+            unspecified spacing from the visible spectrogram range.
     """
     resolved_audio_path, audio, sr = read_mono_audio(audio_path)
 
@@ -383,6 +520,7 @@ async def generate_spectrogram(
         time_minor_step=time_minor_step,
         frequency_major_step=frequency_major_step,
         frequency_minor_step=frequency_minor_step,
+        grid_step_mode=grid_step_mode,
         preset="full",
     )
     buffer = figure_to_image(fig)
@@ -422,10 +560,11 @@ async def zoom_spectrogram(
     high_frequency: float,
     preset: str = "custom",
     show_grid: bool = False,
-    time_major_step: float = 0.5,
-    time_minor_step: float = 0.1,
-    frequency_major_step: float = 10000,
-    frequency_minor_step: float = 5000,
+    time_major_step: float | None = None,
+    time_minor_step: float | None = None,
+    frequency_major_step: float | None = None,
+    frequency_minor_step: float | None = None,
+    grid_step_mode: str = "fixed",
 ) -> ToolReturn:
     """Generate a zoomed spectrogram image for a candidate time-frequency region.
 
@@ -441,6 +580,8 @@ async def zoom_spectrogram(
         time_minor_step: Minor time grid spacing in seconds.
         frequency_major_step: Major frequency grid spacing in Hz.
         frequency_minor_step: Minor frequency grid spacing in Hz.
+        grid_step_mode: "fixed" keeps existing grid spacing; "auto" fills in
+            unspecified spacing from the visible spectrogram range.
     """
     if start_time >= end_time:
         raise ValueError("start_time must be less than end_time")
@@ -463,6 +604,7 @@ async def zoom_spectrogram(
         time_minor_step=time_minor_step,
         frequency_major_step=frequency_major_step,
         frequency_minor_step=frequency_minor_step,
+        grid_step_mode=grid_step_mode,
         preset=preset,
     )
     buffer = figure_to_image(fig)
