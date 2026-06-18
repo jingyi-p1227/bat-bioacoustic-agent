@@ -43,7 +43,7 @@ def create_synthetic_dataset(root: Path) -> Path:
                     "recording": "recording-1",
                     "geometry": {
                         "type": "BoundingBox",
-                        "coordinates": [0.8, 20000, 1.2, 40000],
+                        "coordinates": [0.81234567, 20000, 1.23456789, 40000],
                     },
                 },
                 {
@@ -51,7 +51,7 @@ def create_synthetic_dataset(root: Path) -> Path:
                     "recording": "recording-1",
                     "geometry": {
                         "type": "BoundingBox",
-                        "coordinates": [2.2, 25000, 2.45, 45000],
+                        "coordinates": [2.21234567, 25000, 2.45678912, 45000],
                     },
                 },
             ],
@@ -106,13 +106,53 @@ def test_overlapping_events_use_clip_relative_times(tmp_path: Path) -> None:
     second_event = second_clip["events"][0]
 
     assert first_event["event_id"] == "event-crossing"
-    assert first_event["start_time"] == pytest.approx(0.8)
+    assert first_event["start_time"] == pytest.approx(0.812346)
     assert first_event["end_time"] == pytest.approx(1.0)
     assert second_event["start_time"] == pytest.approx(0.0)
-    assert second_event["end_time"] == pytest.approx(0.2)
-    assert second_event["source_start_time"] == pytest.approx(0.8)
-    assert second_event["source_end_time"] == pytest.approx(1.2)
+    assert second_event["end_time"] == pytest.approx(0.234568)
+    assert second_event["source_start_time"] == pytest.approx(0.812346)
+    assert second_event["source_end_time"] == pytest.approx(1.234568)
     assert second_event["tags"][1]["value"] == "Ozimops petersi"
+
+
+def test_event_truncation_metadata(tmp_path: Path) -> None:
+    dataset_dir = create_synthetic_dataset(tmp_path)
+    output_dir = tmp_path / "evaluation_set"
+
+    build_evaluation_set(dataset_dir=dataset_dir, output_dir=output_dir)
+
+    first_clip = read_json(output_dir / "ground_truth/OP_001_ground_truth.json")
+    second_clip = read_json(output_dir / "ground_truth/OP_002_ground_truth.json")
+    final_clip = read_json(output_dir / "ground_truth/OP_003_ground_truth.json")
+
+    right_truncated = first_clip["events"][0]
+    left_truncated = second_clip["events"][0]
+    non_truncated = final_clip["events"][0]
+
+    assert right_truncated["is_truncated_by_clip_boundary"] is True
+    assert right_truncated["truncation_side"] == "right"
+    assert left_truncated["is_truncated_by_clip_boundary"] is True
+    assert left_truncated["truncation_side"] == "left"
+    assert non_truncated["is_truncated_by_clip_boundary"] is False
+    assert non_truncated["truncation_side"] == "none"
+
+
+def test_written_time_values_are_rounded_to_six_places(tmp_path: Path) -> None:
+    dataset_dir = create_synthetic_dataset(tmp_path)
+    output_dir = tmp_path / "evaluation_set"
+
+    build_evaluation_set(dataset_dir=dataset_dir, output_dir=output_dir)
+
+    first_clip = read_json(output_dir / "ground_truth/OP_001_ground_truth.json")
+    final_clip = read_json(output_dir / "ground_truth/OP_003_ground_truth.json")
+    rows = read_manifest(output_dir / "manifest.csv")
+
+    assert first_clip["events"][0]["start_time"] == 0.812346
+    assert first_clip["events"][0]["source_end_time"] == 1.234568
+    assert final_clip["events"][0]["start_time"] == 0.212346
+    assert final_clip["events"][0]["end_time"] == 0.456789
+    assert rows[-1]["source_end_time"] == "2.5"
+    assert rows[-1]["clip_duration"] == "0.5"
 
 
 def test_manifest_rows_are_portable_and_classified(tmp_path: Path) -> None:

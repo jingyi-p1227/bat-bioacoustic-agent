@@ -51,6 +51,12 @@ class SourceEvent:
     tags: list[dict[str, Any]]
 
 
+def rounded_time(value: float) -> float:
+    """Round a serialized time value to six decimal places."""
+    rounded = round(value, 6)
+    return 0.0 if rounded == 0 else rounded
+
+
 def load_project(dataset_dir: str | Path) -> dict[str, Any]:
     """Load the AOEF project stored in ``annotations.json``."""
     annotation_path = Path(dataset_dir) / "annotations.json"
@@ -162,16 +168,29 @@ def clip_event(
     if overlap_end <= overlap_start:
         return None
 
+    truncated_left = event.source_start_time < clip_start_time
+    truncated_right = event.source_end_time > clip_end_time
+    if truncated_left and truncated_right:
+        truncation_side = "both"
+    elif truncated_left:
+        truncation_side = "left"
+    elif truncated_right:
+        truncation_side = "right"
+    else:
+        truncation_side = "none"
+
     return {
         "event_id": event.event_id,
-        "start_time": overlap_start - clip_start_time,
-        "end_time": overlap_end - clip_start_time,
+        "start_time": rounded_time(overlap_start - clip_start_time),
+        "end_time": rounded_time(overlap_end - clip_start_time),
         "low_frequency": event.low_frequency,
         "high_frequency": event.high_frequency,
         "label": event.label,
         "tags": event.tags,
-        "source_start_time": event.source_start_time,
-        "source_end_time": event.source_end_time,
+        "source_start_time": rounded_time(event.source_start_time),
+        "source_end_time": rounded_time(event.source_end_time),
+        "is_truncated_by_clip_boundary": truncated_left or truncated_right,
+        "truncation_side": truncation_side,
     }
 
 
@@ -330,8 +349,8 @@ def build_evaluation_set(
                 "clip_id": clip_id,
                 "clip_path": relative_clip_path.as_posix(),
                 "source_recording": source_recording,
-                "source_start_time": source_start_time,
-                "source_end_time": source_end_time,
+                "source_start_time": rounded_time(source_start_time),
+                "source_end_time": rounded_time(source_end_time),
                 "species": species,
                 "task": TASK,
                 "annotation_standard": ANNOTATION_STANDARD,
@@ -349,9 +368,9 @@ def build_evaluation_set(
                     "clip_path": relative_clip_path.as_posix(),
                     "ground_truth_path": relative_ground_truth_path.as_posix(),
                     "source_recording": source_recording,
-                    "source_start_time": source_start_time,
-                    "source_end_time": source_end_time,
-                    "clip_duration": clip_duration,
+                    "source_start_time": rounded_time(source_start_time),
+                    "source_end_time": rounded_time(source_end_time),
+                    "clip_duration": rounded_time(clip_duration),
                     "species": species,
                     "has_target_event": str(num_gt_events > 0).lower(),
                     "num_gt_events": num_gt_events,
