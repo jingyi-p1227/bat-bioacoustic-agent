@@ -1,0 +1,476 @@
+"""Create Prompt V2 pilot diagnostic overlays and a failure-analysis report."""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+from collections import Counter
+from pathlib import Path
+from typing import Any
+
+import matplotlib.pyplot as plt
+import numpy as np
+import soundfile as sf
+from matplotlib.lines import Line2D
+from matplotlib.patches import Rectangle
+
+from main import make_spectrogram, to_decibels
+
+
+DEFAULT_PRED_DIR = Path("outputs/agent_runs/prompt_v2_small_pilot")
+DEFAULT_EVAL_DIR = Path("outputs/evaluation_sets/ozimops_petersi_v1")
+DEFAULT_EVALUATION_DIR = DEFAULT_PRED_DIR / "evaluation"
+DEFAULT_FIGURE_DIR = DEFAULT_EVALUATION_DIR / "diagnostic_figures"
+DEFAULT_CLIP_IDS = ["OP_001", "OP_010", "OP_045", "OP_003", "OP_004", "OP_016"]
+DEFAULT_MIN_DB = -130.0
+DEFAULT_MAX_FREQ_HZ = 120_000.0
+
+CLIP_ROLES = {
+    "OP_001": "canonical multi-event",
+    "OP_010": "dense multi-event / separation",
+    "OP_045": "simple clean / partial-final-clip",
+    "OP_003": "right-truncated boundary",
+    "OP_004": "left-truncated boundary",
+    "OP_016": "dense boundary-stress",
+}
+
+
+def diagnostic_output_path(output_dir: str | Path, clip_id: str) -> Path:
+    """Return the stable output path for one diagnostic figure."""
+    return Path(output_dir) / f"{clip_id}_diagnostic_overlay.png"
+
+
+def load_csv_rows(path: str | Path) -> list[dict[str, str]]:
+    """Load one evaluation CSV, including a header-only empty report."""
+    csv_path = Path(path)
+    if not csv_path.is_file():
+        raise FileNotFoundError(f"Evaluation CSV not found: {csv_path}")
+    with csv_path.open(newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def load_evaluation_csvs(evaluation_dir: str | Path) -> dict[str, list[dict[str, str]]]:
+    """Load all status and metric CSV files needed by the diagnostics."""
+    evaluation_dir = Path(evaluation_dir)
+    return {
+        "per_clip": load_csv_rows(evaluation_dir / "per_clip_metrics.csv"),
+        "matched": load_csv_rows(evaluation_dir / "matched_events.csv"),
+        "unmatched": load_csv_rows(evaluation_dir / "unmatched_predictions.csv"),
+        "missed": load_csv_rows(evaluation_dir / "missed_ground_truth_events.csv"),
+    }
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        raise FileNotFoundError(f"Required JSON file not found: {path}")
+    with path.open(encoding="utf-8") as f:
+        payload = json.load(f)
+    if not isinstance(payload, dict):
+        raise ValueError(f"Expected a JSON object in {path}")
+    return payload
+
+
+def read_mono_audio(path: Path) -> tuple[np.ndarray, int]:
+    audio, sample_rate = sf.read(str(path))
+    if audio.ndim > 1:
+        audio = np.mean(audio, axis=1)
+    return audio, int(sample_rate)
+
+
+def spectrogram_image(spec: np.ndarray, min_db: float) -> np.ndarray:
+    spec_db = to_decibels(spec)
+    spec_db = np.clip(spec_db, min_db, 0)
+    return (spec_db - min_db) / -min_db
+
+
+def rows_for_clip(rows: list[dict[str, str]], clip_id: str) -> list[dict[str, str]]:
+    return [row for row in rows if row.get("clip_id") == clip_id]
+
+
+def draw_box(
+    ax,
+    *,
+    start: float,
+    end: float,
+    low_hz: float,
+    high_hz: float,
+    color: str,
+    linestyle: str,
+    linewidth: float,
+    label: str,
+) -> None:
+    """Draw one time-frequency box and a compact ID label."""
+    width = end - start
+    height_khz = (high_hz - low_hz) / 1000
+    if width <= 0 or height_khz <= 0:
+        return
+    low_khz = low_hz / 1000
+    ax.add_patch(
+        Rectangle(
+            (start, low_khz),
+            width,
+            height_khz,
+            fill=False,
+            edgecolor=color,
+            linestyle=linestyle,
+            linewidth=linewidth,
+        )
+    )
+    ax.text(
+        start,
+        low_khz + height_khz,
+        label,
+        color=color,
+        fontsize=6.5,
+        va="bottom",
+        ha="left",
+        bbox={"facecolor": "black", "alpha": 0.55, "pad": 1, "edgecolor": "none"},
+    )
+
+
+def plot_diagnostic_clip(
+    *,
+    clip_id: str,
+    pred_dir: Path,
+    eval_dir: Path,
+    evaluation_rows: dict[str, list[dict[str, str]]],
+    output_dir: Path,
+    min_db: float = DEFAULT_MIN_DB,
+    max_freq_hz: float = DEFAULT_MAX_FREQ_HZ,
+) -> Path:
+    """Plot GT and predictions with their evaluation status."""
+    audio_path = eval_dir / "audio" / f"{clip_id}.wav"
+    gt_payload = load_json(
+        eval_dir / "ground_truth" / f"{clip_id}_ground_truth.json"
+    )
+    prediction_payload = load_json(pred_dir / f"{clip_id}_predictions.json")
+    if not audio_path.is_file():
+        raise FileNotFoundError(f"Audio file not found: {audio_path}")
+
+    clip_metrics_rows = rows_for_clip(evaluation_rows["per_clip"], clip_id)
+    if len(clip_metrics_rows) != 1:
+        raise ValueError(f"Expected one per-clip metric row for {clip_id}")
+    metrics = clip_metrics_rows[0]
+    matched_rows = rows_for_clip(evaluation_rows["matched"], clip_id)
+    unmatched_rows = rows_for_clip(evaluation_rows["unmatched"], clip_id)
+    missed_rows = rows_for_clip(evaluation_rows["missed"], clip_id)
+    matched_prediction_ids = {row["prediction_id"] for row in matched_rows}
+    matched_gt_ids = {row["ground_truth_event_id"] for row in matched_rows}
+    unmatched_prediction_ids = {row["prediction_id"] for row in unmatched_rows}
+    missed_gt_ids = {row["ground_truth_event_id"] for row in missed_rows}
+
+    audio, sample_rate = read_mono_audio(audio_path)
+    spec, stft = make_spectrogram(audio, sample_rate)
+    image = spectrogram_image(spec, min_db)
+    extent = list(stft.extent(len(audio)))
+    extent[2] /= 1000
+    extent[3] /= 1000
+
+    fig, ax = plt.subplots(figsize=(13, 7))
+    ax.imshow(
+        image,
+        aspect="auto",
+        origin="lower",
+        extent=extent,
+        cmap="gray",
+        interpolation="bilinear",
+    )
+    duration = len(audio) / sample_rate
+    ax.set_xlim(0, duration)
+    ax.set_ylim(0, min(max_freq_hz, sample_rate / 2) / 1000)
+    ax.set_xlabel("Time (s)")
+    ax.set_ylabel("Frequency (kHz)")
+    ax.set_title(
+        f"{clip_id} diagnostic | TP={metrics['tp']} FP={metrics['fp']} "
+        f"FN={metrics['fn']}"
+    )
+    ax.grid(color="white", linewidth=0.3, alpha=0.2)
+
+    for index, event in enumerate(gt_payload.get("events", []), start=1):
+        event_id = str(event["event_id"])
+        missed = event_id in missed_gt_ids
+        color = "red" if missed else "lime"
+        linestyle = "--" if missed else "-"
+        status = "miss" if missed else "match"
+        draw_box(
+            ax,
+            start=float(event["start_time"]),
+            end=float(event["end_time"]),
+            low_hz=float(event["low_frequency"]),
+            high_hz=float(event["high_frequency"]),
+            color=color,
+            linestyle=linestyle,
+            linewidth=1.7,
+            label=f"G{index}:{status}",
+        )
+        if event_id not in matched_gt_ids and event_id not in missed_gt_ids:
+            raise ValueError(f"GT event {event_id} has no evaluation status")
+
+    for index, event in enumerate(prediction_payload.get("events", []), start=1):
+        event_id = str(event["event_id"])
+        unmatched = event_id in unmatched_prediction_ids
+        color = "orange" if unmatched else "cyan"
+        linestyle = ":" if unmatched else "-"
+        status = "FP" if unmatched else "match"
+        draw_box(
+            ax,
+            start=float(event["start_time_seconds"]),
+            end=float(event["end_time_seconds"]),
+            low_hz=float(event["low_frequency_hz"]),
+            high_hz=float(event["high_frequency_hz"]),
+            color=color,
+            linestyle=linestyle,
+            linewidth=1.4,
+            label=f"P{index}:{status}",
+        )
+        if event_id not in matched_prediction_ids and event_id not in unmatched_prediction_ids:
+            raise ValueError(f"Prediction {event_id} has no evaluation status")
+
+    ax.legend(
+        handles=[
+            Line2D([0], [0], color="lime", linewidth=2, label="Matched GT"),
+            Line2D([0], [0], color="red", linestyle="--", linewidth=2, label="Missed GT"),
+            Line2D([0], [0], color="cyan", linewidth=2, label="Matched prediction"),
+            Line2D(
+                [0],
+                [0],
+                color="orange",
+                linestyle=":",
+                linewidth=2,
+                label="Unmatched prediction",
+            ),
+        ],
+        loc="upper right",
+        fontsize=8,
+    )
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = diagnostic_output_path(output_dir, clip_id)
+    fig.savefig(output_path, format="PNG", bbox_inches="tight", pad_inches=0.05)
+    plt.close(fig)
+    return output_path
+
+
+def category_counts(rows: list[dict[str, str]]) -> Counter[str]:
+    counts: Counter[str] = Counter()
+    for row in rows:
+        for category in row.get("failure_categories", "").split(";"):
+            if category:
+                counts[category] += 1
+    return counts
+
+
+def fmt(value: str | float, digits: int = 3) -> str:
+    return f"{float(value):.{digits}f}"
+
+
+def write_failure_analysis(
+    *,
+    output_path: Path,
+    aggregate: dict[str, Any],
+    evaluation_rows: dict[str, list[dict[str, str]]],
+    figure_dir: Path,
+) -> Path:
+    """Write a report grounded in the saved evaluation outputs."""
+    per_clip = evaluation_rows["per_clip"]
+    missed_counts = category_counts(evaluation_rows["missed"])
+    unmatched_counts = category_counts(evaluation_rows["unmatched"])
+    matched_counts = category_counts(evaluation_rows["matched"])
+
+    metrics_by_clip = {row["clip_id"]: row for row in per_clip}
+    interpretations = {
+        "OP_001": (
+            "Only 2 of 5 GT events matched. The matched predictions had almost no "
+            "frequency overlap, showing that approximate temporal detection did "
+            "not translate into usable strong-label boxes."
+        ),
+        "OP_010": (
+            "Only 1 of 7 dense calls matched. The matched pair had zero frequency "
+            "IoU, while five predictions were unmatched, indicating poor temporal "
+            "separation and frequency placement under dense activity."
+        ),
+        "OP_045": (
+            "All 3 events matched with no FP or FN. This partial final clip is the "
+            "strongest case, with mean box IoU 0.459 and all three strict "
+            "box-IoU>=0.3 successes."
+        ),
+        "OP_003": (
+            "No events matched. All 5 GT events, including the right-truncated "
+            "boundary event, were missed; all 4 predictions were unmatched."
+        ),
+        "OP_004": (
+            "Only 1 of 6 GT events matched. The left-truncated event was missed, "
+            "and the sole match had weak frequency overlap."
+        ),
+        "OP_016": (
+            "No events matched in the dense boundary-stress clip. Ten predictions "
+            "were produced for seven GT events, and both truncated GT events were "
+            "missed, suggesting a strong periodic-placement bias."
+        ),
+    }
+
+    lines = [
+        "# Prompt V2 Small Pilot Failure Analysis",
+        "",
+        "## Aggregate Summary",
+        "",
+        "| Metric | Value |",
+        "| --- | ---: |",
+        f"| Pilot clips | {aggregate['clip_count']} |",
+        f"| Ground-truth events | {aggregate['total_ground_truth_events']} |",
+        f"| Predictions | {aggregate['total_predictions']} |",
+        f"| TP / FP / FN | {aggregate['total_tp']} / {aggregate['total_fp']} / {aggregate['total_fn']} |",
+        f"| Precision | {fmt(aggregate['precision'])} |",
+        f"| Recall | {fmt(aggregate['recall'])} |",
+        f"| F1 | {fmt(aggregate['f1'])} |",
+        f"| Mean temporal IoU | {fmt(aggregate['mean_time_iou'])} |",
+        f"| Mean frequency IoU | {fmt(aggregate['mean_frequency_iou'])} |",
+        f"| Mean box IoU | {fmt(aggregate['mean_box_iou'])} |",
+        f"| Matched pairs with box IoU >= 0.3 | {aggregate['strict_box_iou_0_3_count']} |",
+        f"| Matched pairs with box IoU >= 0.5 | {aggregate['strict_box_iou_0_5_count']} |",
+        "",
+        "The pilot produced equal numbers of predictions and GT events, but only "
+        "7 of 33 were temporally matched. The dominant issue is therefore not "
+        "prediction quantity alone; it is incorrect event timing and box placement.",
+        "",
+        "## Per-Clip Summary",
+        "",
+        "| clip_id | role | GT | pred | TP | FP | FN | F1 | mean time IoU | mean freq IoU | mean box IoU | figure |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+    ]
+    for clip_id in DEFAULT_CLIP_IDS:
+        row = metrics_by_clip[clip_id]
+        figure_path = diagnostic_output_path(figure_dir, clip_id).as_posix()
+        lines.append(
+            f"| `{clip_id}` | {CLIP_ROLES[clip_id]} | {row['num_ground_truth_events']} "
+            f"| {row['num_predictions']} | {row['tp']} | {row['fp']} | {row['fn']} "
+            f"| {fmt(row['f1'])} | {fmt(row['mean_time_iou'])} "
+            f"| {fmt(row['mean_frequency_iou'])} | {fmt(row['mean_box_iou'])} "
+            f"| `{figure_path}` |"
+        )
+
+    lines.extend(["", "## Representative Clip Interpretation", ""])
+    for clip_id in DEFAULT_CLIP_IDS:
+        lines.extend(
+            [
+                f"### {clip_id}: {CLIP_ROLES[clip_id]}",
+                "",
+                interpretations[clip_id],
+                "",
+            ]
+        )
+
+    lines.extend(
+        [
+            "## Main Observed Failure Modes",
+            "",
+            f"- **`missed_call` ({missed_counts['missed_call']}):** Recall was low "
+            "outside OP_045, especially for dense and boundary clips.",
+            f"- **`false_positive` ({unmatched_counts['false_positive']}):** Many "
+            "predictions were shifted away from the short GT calls and therefore "
+            "failed the temporal IoU threshold.",
+            f"- **`poor_frequency_localisation` ({matched_counts['poor_frequency_localisation']} explicit suggestion):** "
+            "Even temporally matched pairs often used the wrong frequency band. "
+            "Aggregate mean frequency IoU was only "
+            f"{fmt(aggregate['mean_frequency_iou'])}.",
+            f"- **`boundary_truncation_error` ({missed_counts['boundary_truncation_error']}):** "
+            "All truncated GT events in the pilot were missed.",
+            "- **Possible `merged_calls`:** No merge is confirmed automatically by "
+            "the one-to-one CSV output. Broad or regularly spaced predictions should "
+            "be checked visually for boxes that span more than one visible call.",
+            f"- **Possible over-wide/under-wide boxes:** "
+            f"`over_wide_frequency_box` was suggested {matched_counts['over_wide_frequency_box']} times and "
+            f"`under_wide_frequency_box` {matched_counts['under_wide_frequency_box']} time(s). "
+            "These are heuristic suggestions and require visual confirmation.",
+            "",
+            "## Implications for Prompt V3 or Workflow Changes",
+            "",
+            "1. Add a stronger left-to-right scan instruction tied to visible pulse "
+            "centres rather than regular time spacing.",
+            "2. Emphasise that the main harmonic in this set is generally around "
+            "the visible 30-40 kHz call band; the model repeatedly placed boxes too "
+            "low in frequency.",
+            "3. Add explicit boundary checks: inspect the first and last 50 ms before "
+            "finishing the event list.",
+            "4. Consider a two-pass workflow: first identify temporal call centres, "
+            "then refine tight frequency bounds for each candidate.",
+            "5. Use OP_045 as a positive demonstration and OP_003/OP_004/OP_016 as "
+            "counterexamples for boundary and dense-call handling.",
+            "6. Do not proceed to the full 45-clip run until a revised prompt or "
+            "workflow improves the representative boundary and dense clips.",
+            "",
+            "## Diagnostic Legend",
+            "",
+            "- Lime solid: matched GT.",
+            "- Red dashed: missed GT.",
+            "- Cyan solid: matched prediction.",
+            "- Orange dotted: unmatched prediction.",
+            "",
+        ]
+    )
+    output_path.write_text("\n".join(lines), encoding="utf-8")
+    return output_path
+
+
+def parse_clip_ids(value: str) -> list[str]:
+    clip_ids = [item.strip() for item in value.split(",") if item.strip()]
+    if not clip_ids:
+        raise ValueError("--clip-list must contain at least one clip id")
+    return list(dict.fromkeys(clip_ids))
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Plot Prompt V2 small-pilot diagnostics and write failure analysis."
+    )
+    parser.add_argument("--pred-dir", type=Path, default=DEFAULT_PRED_DIR)
+    parser.add_argument("--eval-dir", type=Path, default=DEFAULT_EVAL_DIR)
+    parser.add_argument(
+        "--evaluation-dir",
+        type=Path,
+        default=DEFAULT_EVALUATION_DIR,
+    )
+    parser.add_argument("--output-dir", type=Path, default=DEFAULT_FIGURE_DIR)
+    parser.add_argument(
+        "--clip-list",
+        default=",".join(DEFAULT_CLIP_IDS),
+    )
+    parser.add_argument("--min-db", type=float, default=DEFAULT_MIN_DB)
+    parser.add_argument("--max-freq", type=float, default=DEFAULT_MAX_FREQ_HZ)
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    clip_ids = parse_clip_ids(args.clip_list)
+    evaluation_rows = load_evaluation_csvs(args.evaluation_dir)
+    aggregate = load_json(args.evaluation_dir / "aggregate_summary.json")
+
+    saved_paths = [
+        plot_diagnostic_clip(
+            clip_id=clip_id,
+            pred_dir=args.pred_dir,
+            eval_dir=args.eval_dir,
+            evaluation_rows=evaluation_rows,
+            output_dir=args.output_dir,
+            min_db=args.min_db,
+            max_freq_hz=args.max_freq,
+        )
+        for clip_id in clip_ids
+    ]
+    report_path = write_failure_analysis(
+        output_path=args.evaluation_dir / "failure_analysis.md",
+        aggregate=aggregate,
+        evaluation_rows=evaluation_rows,
+        figure_dir=args.output_dir,
+    )
+
+    print(f"Saved {len(saved_paths)} diagnostic figure(s):")
+    for path in saved_paths:
+        print(path)
+    print(f"Saved failure analysis to {report_path}")
+
+
+if __name__ == "__main__":
+    main()
