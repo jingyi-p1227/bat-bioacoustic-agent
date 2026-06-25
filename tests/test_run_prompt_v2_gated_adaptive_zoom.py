@@ -8,6 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from run_prompt_v2_gated_adaptive_zoom import (
     accepted_gated_zoom_windows,
+    parse_args,
     parse_gated_view_plan,
     validate_zoom_request,
 )
@@ -144,3 +145,23 @@ def test_validate_zoom_request_clips_bounds() -> None:
     assert window.end_time_seconds == 1.0
     assert window.low_frequency_hz == 0.0
     assert window.high_frequency_hz == 120000
+
+
+def test_full_set_cli_aliases(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "run_prompt_v2_gated_adaptive_zoom.py",
+            "--input-dir",
+            "inputs",
+            "--generated-input-dir",
+            "generated",
+            "--all",
+        ],
+    )
+
+    args = parse_args()
+
+    assert args.overview_dir == Path("inputs")
+    assert args.adaptive_input_dir == Path("generated")
+    assert args.all is True

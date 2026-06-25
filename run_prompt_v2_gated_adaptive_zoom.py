@@ -416,8 +416,22 @@ def print_summary(results: list[GatedClipResult]) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run P5D gated adaptive zoom prototype.")
     parser.add_argument("--eval-dir", type=Path, default=DEFAULT_EVAL_DIR)
-    parser.add_argument("--overview-dir", type=Path, default=DEFAULT_OVERVIEW_DIR)
-    parser.add_argument("--adaptive-input-dir", type=Path, default=DEFAULT_GATED_INPUT_DIR)
+    parser.add_argument(
+        "--overview-dir",
+        "--input-dir",
+        dest="overview_dir",
+        type=Path,
+        default=DEFAULT_OVERVIEW_DIR,
+        help="Directory containing clean overview spectrogram inputs.",
+    )
+    parser.add_argument(
+        "--adaptive-input-dir",
+        "--generated-input-dir",
+        dest="adaptive_input_dir",
+        type=Path,
+        default=DEFAULT_GATED_INPUT_DIR,
+        help="Directory where copied overview, zoom, and composite inputs are saved.",
+    )
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_GATED_OUTPUT_DIR)
     parser.add_argument("--planning-prompt", type=Path, default=DEFAULT_GATED_PLAN_PROMPT)
     parser.add_argument("--final-prompt", type=Path, default=DEFAULT_FINAL_PROMPT)
