@@ -114,6 +114,17 @@ def read_clip_duration(eval_dir: str | Path, clip_id: str) -> float:
     return float(sf.info(audio_path).duration)
 
 
+def resolve_all_clip_ids(eval_dir: str | Path) -> list[str]:
+    """Return all evaluation clip ids from audio/*.wav in stable order."""
+    audio_dir = Path(eval_dir) / "audio"
+    if not audio_dir.is_dir():
+        raise FileNotFoundError(f"Evaluation audio directory not found: {audio_dir}")
+    clip_ids = [path.stem for path in sorted(audio_dir.glob("*.wav"))]
+    if not clip_ids:
+        raise ValueError(f"No WAV files found in {audio_dir}")
+    return clip_ids
+
+
 def resolve_input_image(image_dir: str | Path, clip_id: str) -> Path:
     """Resolve one clean spectrogram image."""
     image_path = Path(image_dir) / f"{clip_id}_spectrogram.png"
@@ -545,7 +556,14 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--prompt", type=Path, default=DEFAULT_PROMPT_PATH)
     parser.add_argument("--eval-dir", type=Path, default=DEFAULT_EVAL_DIR)
-    parser.add_argument("--image-dir", type=Path, default=DEFAULT_IMAGE_DIR)
+    parser.add_argument(
+        "--image-dir",
+        "--input-dir",
+        dest="image_dir",
+        type=Path,
+        default=DEFAULT_IMAGE_DIR,
+        help="Directory containing <clip_id>_spectrogram.png clean input images.",
+    )
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument(
         "--run-name",
@@ -558,6 +576,11 @@ def parse_args() -> argparse.Namespace:
         "--clip-list",
         default=",".join(DEFAULT_CLIP_IDS),
         help="Comma-separated clip ids. Defaults to the six representative clips.",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Run every WAV clip in <eval-dir>/audio.",
     )
     parser.add_argument("--model", "--model-name", dest="model_name", default=DEFAULT_MODEL_NAME)
     parser.add_argument(
@@ -582,8 +605,9 @@ def main() -> None:
         args.run_name,
         args.model_name,
     )
+    clip_ids = resolve_all_clip_ids(args.eval_dir) if args.all else parse_clip_ids(args.clip_list)
     results = []
-    for clip_id in parse_clip_ids(args.clip_list):
+    for clip_id in clip_ids:
         print(f"Running {clip_id} with {args.backend}/{args.model_name}...")
         results.append(
             run_clip(

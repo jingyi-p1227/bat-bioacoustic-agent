@@ -12,17 +12,20 @@ from typing import Any
 
 DEFAULT_OUTPUT_PATH = Path("outputs/agent_runs/model_smoke_test_comparison.csv")
 DEFAULT_CLIP_IDS = ["OP_001", "OP_010", "OP_045", "OP_003", "OP_004", "OP_016"]
+DEFAULT_EVAL_DIR = Path("outputs/evaluation_sets/ozimops_petersi_v1")
 
 
 @dataclass(frozen=True)
 class SmokeRun:
     run_name: str
     run_dir: Path
+    grid_style: str = ""
 
 
 SUMMARY_FIELDS = [
     "model_name",
     "run_name",
+    "grid_style",
     "clips_run",
     "parse_success_count",
     "parse_failure_count",
@@ -43,16 +46,23 @@ SUMMARY_FIELDS = [
 
 
 def parse_run_specs(values: list[str]) -> list[SmokeRun]:
-    """Parse CLI run specs of the form run_name=path."""
+    """Parse run specs of the form run_name=path or run_name:grid_style=path."""
     runs: list[SmokeRun] = []
     for value in values:
         if "=" not in value:
             raise ValueError(f"Run spec must be run_name=path, got: {value}")
-        run_name, run_dir = value.split("=", 1)
+        run_label, run_dir = value.split("=", 1)
+        run_name, _, grid_style = run_label.partition(":")
         run_name = run_name.strip()
         if not run_name:
             raise ValueError(f"Run name cannot be empty in spec: {value}")
-        runs.append(SmokeRun(run_name=run_name, run_dir=Path(run_dir)))
+        runs.append(
+            SmokeRun(
+                run_name=run_name,
+                run_dir=Path(run_dir),
+                grid_style=grid_style.strip(),
+            )
+        )
     return runs
 
 
@@ -102,6 +112,7 @@ def summarize_run(run: SmokeRun, clip_ids: list[str]) -> dict[str, Any]:
     return {
         "model_name": model_name,
         "run_name": run.run_name,
+        "grid_style": run.grid_style,
         "clips_run": len(clip_ids),
         "parse_success_count": success_count,
         "parse_failure_count": failure_count,
@@ -136,6 +147,17 @@ def parse_clip_ids(value: str) -> list[str]:
     return list(dict.fromkeys(clip_ids))
 
 
+def resolve_all_clip_ids(eval_dir: str | Path) -> list[str]:
+    """Return all evaluation clip ids from audio/*.wav in stable order."""
+    audio_dir = Path(eval_dir) / "audio"
+    if not audio_dir.is_dir():
+        raise FileNotFoundError(f"Evaluation audio directory not found: {audio_dir}")
+    clip_ids = [path.stem for path in sorted(audio_dir.glob("*.wav"))]
+    if not clip_ids:
+        raise ValueError(f"No WAV files found in {audio_dir}")
+    return clip_ids
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Summarize Prompt V2 alternative-model smoke tests."
@@ -151,13 +173,19 @@ def parse_args() -> argparse.Namespace:
         default=",".join(DEFAULT_CLIP_IDS),
         help="Comma-separated clip ids included in the smoke test.",
     )
+    parser.add_argument("--eval-dir", type=Path, default=DEFAULT_EVAL_DIR)
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Summarize every WAV clip in <eval-dir>/audio.",
+    )
     parser.add_argument("--output-file", type=Path, default=DEFAULT_OUTPUT_PATH)
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    clip_ids = parse_clip_ids(args.clip_list)
+    clip_ids = resolve_all_clip_ids(args.eval_dir) if args.all else parse_clip_ids(args.clip_list)
     rows = [summarize_run(run, clip_ids) for run in parse_run_specs(args.run)]
     write_summary_csv(args.output_file, rows)
     print(f"Saved comparison summary to {args.output_file}")

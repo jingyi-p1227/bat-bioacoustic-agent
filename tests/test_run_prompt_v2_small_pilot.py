@@ -133,3 +133,21 @@ def test_parse_args_accepts_model_name_alias(monkeypatch: pytest.MonkeyPatch) ->
 
     assert args.model_name == "gemma4:31b"
     assert args.run_name == "prompt_v2_smoke_gemma4_31b"
+
+
+def test_parse_args_accepts_input_dir_alias_and_all(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "run_prompt_v2_small_pilot.py",
+            "--input-dir",
+            "outputs/agent_inputs/prompt_v2_full_grid_v1",
+            "--all",
+        ],
+    )
+
+    args = pilot.parse_args()
+
+    assert args.image_dir == Path("outputs/agent_inputs/prompt_v2_full_grid_v1")
+    assert args.all is True

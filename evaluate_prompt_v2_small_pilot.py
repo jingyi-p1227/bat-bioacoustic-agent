@@ -435,6 +435,17 @@ def parse_clip_ids(value: str) -> list[str]:
     return list(dict.fromkeys(clip_ids))
 
 
+def resolve_all_clip_ids(eval_dir: str | Path) -> list[str]:
+    """Return all evaluation clip ids from audio/*.wav in stable order."""
+    audio_dir = Path(eval_dir) / "audio"
+    if not audio_dir.is_dir():
+        raise FileNotFoundError(f"Evaluation audio directory not found: {audio_dir}")
+    clip_ids = [path.stem for path in sorted(audio_dir.glob("*.wav"))]
+    if not clip_ids:
+        raise ValueError(f"No WAV files found in {audio_dir}")
+    return clip_ids
+
+
 def run_evaluation(
     *,
     pred_dir: Path,
@@ -563,6 +574,11 @@ def parse_args() -> argparse.Namespace:
         "--clip-list",
         default=",".join(DEFAULT_CLIP_IDS),
     )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Evaluate every WAV clip in <eval-dir>/audio.",
+    )
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     return parser.parse_args()
 
@@ -572,7 +588,11 @@ def main() -> None:
     aggregate, clip_results = run_evaluation(
         pred_dir=args.pred_dir,
         eval_dir=args.eval_dir,
-        clip_ids=parse_clip_ids(args.clip_list),
+        clip_ids=(
+            resolve_all_clip_ids(args.eval_dir)
+            if args.all
+            else parse_clip_ids(args.clip_list)
+        ),
         output_dir=args.output_dir,
     )
     per_clip_rows = [result["metrics"] for result in clip_results]

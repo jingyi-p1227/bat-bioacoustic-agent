@@ -8,6 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from summarize_model_smoke_tests import (
     SmokeRun,
     parse_run_specs,
+    resolve_all_clip_ids,
     summarize_run,
     write_summary_csv,
 )
@@ -60,10 +61,10 @@ def create_smoke_run(root: Path) -> Path:
 
 
 def test_parse_run_specs() -> None:
-    runs = parse_run_specs(["gemma=outputs/gemma", "qwen=outputs/qwen"])
+    runs = parse_run_specs(["gemma:grid_v1=outputs/gemma", "qwen=outputs/qwen"])
 
     assert runs == [
-        SmokeRun("gemma", Path("outputs/gemma")),
+        SmokeRun("gemma", Path("outputs/gemma"), "grid_v1"),
         SmokeRun("qwen", Path("outputs/qwen")),
     ]
 
@@ -77,6 +78,7 @@ def test_summarize_run_counts_parse_status_and_metrics(tmp_path: Path) -> None:
     )
 
     assert summary["model_name"] == "test-model"
+    assert summary["grid_style"] == ""
     assert summary["parse_success_count"] == 1
     assert summary["parse_failure_count"] == 1
     assert summary["total_gt"] == 5
@@ -97,3 +99,12 @@ def test_write_summary_csv(tmp_path: Path) -> None:
         rows = list(csv.DictReader(f))
     assert rows[0]["run_name"] == "prompt_v2_smoke_test"
     assert rows[0]["parse_failure_count"] == "1"
+
+
+def test_resolve_all_clip_ids(tmp_path: Path) -> None:
+    audio_dir = tmp_path / "eval" / "audio"
+    audio_dir.mkdir(parents=True)
+    (audio_dir / "OP_002.wav").write_bytes(b"")
+    (audio_dir / "OP_001.wav").write_bytes(b"")
+
+    assert resolve_all_clip_ids(tmp_path / "eval") == ["OP_001", "OP_002"]

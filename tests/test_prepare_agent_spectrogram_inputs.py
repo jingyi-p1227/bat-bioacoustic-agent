@@ -8,7 +8,10 @@ import soundfile as sf
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from prepare_agent_spectrogram_inputs import (
+    GRID_STYLE_DEFINITIONS,
+    apply_grid_style,
     resolve_audio_path,
+    resolve_all_clip_ids,
     save_clean_spectrogram,
 )
 
@@ -53,3 +56,30 @@ def test_save_clean_spectrogram_creates_output_directory(tmp_path: Path) -> None
     assert output_dir.is_dir()
     assert output_path == output_dir / "OP_001_spectrogram.png"
     assert output_path.is_file()
+
+
+def test_resolve_all_clip_ids_lists_audio_files(tmp_path: Path) -> None:
+    eval_dir = create_audio_only_eval_dir(tmp_path, "OP_002")
+    audio_dir = eval_dir / "audio"
+    sf.write(audio_dir / "OP_001.wav", np.zeros(4000, dtype=np.float32), 4000)
+
+    assert resolve_all_clip_ids(eval_dir) == ["OP_001", "OP_002"]
+
+
+def test_grid_style_definitions_are_explicit() -> None:
+    assert GRID_STYLE_DEFINITIONS["grid_v1"].mode == "fixed"
+    assert GRID_STYLE_DEFINITIONS["grid_v2"].mode == "auto"
+
+
+def test_apply_grid_style_rejects_unknown_style() -> None:
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots()
+    with pytest.raises(ValueError, match="Unsupported grid_style"):
+        apply_grid_style(
+            ax,
+            grid_style="grid_v3",
+            duration_seconds=1.0,
+            displayed_max_freq_hz=120000,
+        )
+    plt.close(fig)
