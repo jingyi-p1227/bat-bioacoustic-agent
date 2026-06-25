@@ -17,13 +17,11 @@ from typing import Any
 
 import soundfile as sf
 
-from main import OLLAMA_HOST
-
-
 DEFAULT_PROMPT_PATH = Path("prompts/prompt_v2_bat_strong_label.md")
 DEFAULT_EVAL_DIR = Path("outputs/evaluation_sets/ozimops_petersi_v1")
 DEFAULT_IMAGE_DIR = Path("outputs/agent_inputs/prompt_v2_small_pilot")
 DEFAULT_OUTPUT_DIR = Path("outputs/agent_runs/prompt_v2_small_pilot")
+DEFAULT_AGENT_RUNS_DIR = Path("outputs/agent_runs")
 DEFAULT_CLIP_IDS = ["OP_001", "OP_010", "OP_045", "OP_003", "OP_004", "OP_016"]
 DEFAULT_MODEL_NAME = "qwen3-vl:latest"
 PROMPT_VERSION = "prompt_v2_bat_strong_label"
@@ -76,6 +74,25 @@ class PilotResult:
     output_json_path: Path | None
     raw_response_path: Path
     parse_error_path: Path | None
+
+
+def ollama_host() -> str:
+    """Return the active Ollama host, respecting OLLAMA_HOST if set."""
+    return os.getenv("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
+
+
+def sanitize_run_name(value: str) -> str:
+    """Return a filesystem-friendly run-name fragment."""
+    return re.sub(r"[^A-Za-z0-9]+", "_", value).strip("_").lower()
+
+
+def default_output_dir_for_run(run_name: str | None, model_name: str) -> Path:
+    """Choose a stable output directory without touching the baseline default."""
+    if run_name:
+        return DEFAULT_AGENT_RUNS_DIR / run_name
+    if model_name == DEFAULT_MODEL_NAME:
+        return DEFAULT_OUTPUT_DIR
+    return DEFAULT_AGENT_RUNS_DIR / f"prompt_v2_smoke_{sanitize_run_name(model_name)}"
 
 
 def load_prompt(prompt_path: str | Path = DEFAULT_PROMPT_PATH) -> str:
@@ -164,7 +181,7 @@ def call_ollama(
         ],
     }
     request = urllib.request.Request(
-        f"{OLLAMA_HOST}/api/chat",
+        f"{ollama_host()}/api/chat",
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
         method="POST",
@@ -208,7 +225,7 @@ def call_ollama_generate(
         },
     }
     request = urllib.request.Request(
-        f"{OLLAMA_HOST}/api/generate",
+        f"{ollama_host()}/api/generate",
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
         method="POST",
@@ -348,6 +365,36 @@ def write_prediction_output(
     )
 
 
+def write_failed_prediction_output(
+    *,
+    output_path: Path,
+    clip_id: str,
+    model_name: str,
+    backend: str,
+    run_timestamp: str,
+    input_image_path: Path | None,
+    clip_duration_seconds: float | None,
+    error_message: str,
+) -> None:
+    """Write an explicit empty prediction artifact for failed smoke-test clips."""
+    payload = {
+        "clip_id": clip_id,
+        "prompt_version": PROMPT_VERSION,
+        "model_name": model_name,
+        "backend": backend,
+        "run_timestamp": run_timestamp,
+        "input_image_path": "" if input_image_path is None else input_image_path.as_posix(),
+        "clip_duration_seconds": clip_duration_seconds,
+        "parse_status": "failed",
+        "error": error_message,
+        "events": [],
+    }
+    output_path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
 def run_clip(
     *,
     clip_id: str,
@@ -367,6 +414,8 @@ def run_clip(
     parse_error_path = output_dir / f"{clip_id}_parse_error.txt"
     prediction_path.unlink(missing_ok=True)
     parse_error_path.unlink(missing_ok=True)
+    clip_duration: float | None = None
+    image_path: Path | None = None
 
     try:
         clip_duration = read_clip_duration(eval_dir, clip_id)
@@ -427,15 +476,26 @@ def run_clip(
     except Exception as exc:
         if not raw_response_path.exists():
             raw_response_path.write_text("", encoding="utf-8")
+        error_message = f"{type(exc).__name__}: {exc}"
         parse_error_path.write_text(
-            f"{type(exc).__name__}: {exc}\n",
+            f"{error_message}\n",
             encoding="utf-8",
+        )
+        write_failed_prediction_output(
+            output_path=prediction_path,
+            clip_id=clip_id,
+            model_name=model_name,
+            backend=backend,
+            run_timestamp=datetime.now(timezone.utc).isoformat(),
+            input_image_path=image_path,
+            clip_duration_seconds=clip_duration,
+            error_message=error_message,
         )
         return PilotResult(
             clip_id=clip_id,
             parse_status="failed",
             predicted_event_count=None,
-            output_json_path=None,
+            output_json_path=prediction_path,
             raw_response_path=raw_response_path,
             parse_error_path=parse_error_path,
         )
@@ -486,13 +546,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--prompt", type=Path, default=DEFAULT_PROMPT_PATH)
     parser.add_argument("--eval-dir", type=Path, default=DEFAULT_EVAL_DIR)
     parser.add_argument("--image-dir", type=Path, default=DEFAULT_IMAGE_DIR)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument(
+        "--run-name",
+        help=(
+            "Optional run directory name under outputs/agent_runs. "
+            "Used only when --output-dir is not provided."
+        ),
+    )
     parser.add_argument(
         "--clip-list",
         default=",".join(DEFAULT_CLIP_IDS),
         help="Comma-separated clip ids. Defaults to the six representative clips.",
     )
-    parser.add_argument("--model", default=DEFAULT_MODEL_NAME)
+    parser.add_argument("--model", "--model-name", dest="model_name", default=DEFAULT_MODEL_NAME)
     parser.add_argument(
         "--backend",
         choices=["ollama_generate", "ollama_cli", "ollama_api"],
@@ -511,17 +578,21 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     prompt_text = load_prompt(args.prompt)
+    output_dir = args.output_dir or default_output_dir_for_run(
+        args.run_name,
+        args.model_name,
+    )
     results = []
     for clip_id in parse_clip_ids(args.clip_list):
-        print(f"Running {clip_id} with {args.backend}/{args.model}...")
+        print(f"Running {clip_id} with {args.backend}/{args.model_name}...")
         results.append(
             run_clip(
                 clip_id=clip_id,
                 prompt_text=prompt_text,
                 eval_dir=args.eval_dir,
                 image_dir=args.image_dir,
-                output_dir=args.output_dir,
-                model_name=args.model,
+                output_dir=output_dir,
+                model_name=args.model_name,
                 backend=args.backend,
                 timeout=args.timeout,
                 num_predict=args.num_predict,

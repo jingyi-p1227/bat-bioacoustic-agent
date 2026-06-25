@@ -95,8 +95,41 @@ def test_invalid_json_records_parse_failure_and_keeps_raw_response(
     )
 
     assert result.parse_status == "failed"
-    assert result.output_json_path is None
+    assert result.output_json_path == output_dir / "OP_001_predictions.json"
     assert result.raw_response_path.read_text(encoding="utf-8") == "not valid json"
     assert result.parse_error_path is not None
     assert "JSONDecodeError" in result.parse_error_path.read_text(encoding="utf-8")
-    assert not (output_dir / "OP_001_predictions.json").exists()
+    failure_payload = json.loads((output_dir / "OP_001_predictions.json").read_text())
+    assert failure_payload["parse_status"] == "failed"
+    assert failure_payload["events"] == []
+
+
+def test_default_output_dir_uses_run_name_or_sanitized_model() -> None:
+    assert pilot.default_output_dir_for_run("prompt_v2_smoke_test", "model") == (
+        Path("outputs/agent_runs/prompt_v2_smoke_test")
+    )
+    assert pilot.default_output_dir_for_run(None, "gemma4:31b") == (
+        Path("outputs/agent_runs/prompt_v2_smoke_gemma4_31b")
+    )
+    assert pilot.default_output_dir_for_run(None, "qwen3.6:latest") == (
+        Path("outputs/agent_runs/prompt_v2_smoke_qwen3_6_latest")
+    )
+
+
+def test_parse_args_accepts_model_name_alias(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "run_prompt_v2_small_pilot.py",
+            "--model-name",
+            "gemma4:31b",
+            "--run-name",
+            "prompt_v2_smoke_gemma4_31b",
+        ],
+    )
+
+    args = pilot.parse_args()
+
+    assert args.model_name == "gemma4:31b"
+    assert args.run_name == "prompt_v2_smoke_gemma4_31b"
