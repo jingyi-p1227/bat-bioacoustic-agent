@@ -271,6 +271,7 @@ def write_failure_analysis(
     aggregate: dict[str, Any],
     evaluation_rows: dict[str, list[dict[str, str]]],
     figure_dir: Path,
+    run_name: str = "prompt_v2_small_pilot",
 ) -> Path:
     """Write a report grounded in the saved evaluation outputs."""
     per_clip = evaluation_rows["per_clip"]
@@ -279,39 +280,9 @@ def write_failure_analysis(
     matched_counts = category_counts(evaluation_rows["matched"])
 
     metrics_by_clip = {row["clip_id"]: row for row in per_clip}
-    interpretations = {
-        "OP_001": (
-            "Only 2 of 5 GT events matched. The matched predictions had almost no "
-            "frequency overlap, showing that approximate temporal detection did "
-            "not translate into usable strong-label boxes."
-        ),
-        "OP_010": (
-            "Only 1 of 7 dense calls matched. The matched pair had zero frequency "
-            "IoU, while five predictions were unmatched, indicating poor temporal "
-            "separation and frequency placement under dense activity."
-        ),
-        "OP_045": (
-            "All 3 events matched with no FP or FN. This partial final clip is the "
-            "strongest case, with mean box IoU 0.459 and all three strict "
-            "box-IoU>=0.3 successes."
-        ),
-        "OP_003": (
-            "No events matched. All 5 GT events, including the right-truncated "
-            "boundary event, were missed; all 4 predictions were unmatched."
-        ),
-        "OP_004": (
-            "Only 1 of 6 GT events matched. The left-truncated event was missed, "
-            "and the sole match had weak frequency overlap."
-        ),
-        "OP_016": (
-            "No events matched in the dense boundary-stress clip. Ten predictions "
-            "were produced for seven GT events, and both truncated GT events were "
-            "missed, suggesting a strong periodic-placement bias."
-        ),
-    }
 
     lines = [
-        "# Prompt V2 Small Pilot Failure Analysis",
+        f"# Prompt V2 Diagnostic Failure Analysis: {run_name}",
         "",
         "## Aggregate Summary",
         "",
@@ -330,9 +301,11 @@ def write_failure_analysis(
         f"| Matched pairs with box IoU >= 0.3 | {aggregate['strict_box_iou_0_3_count']} |",
         f"| Matched pairs with box IoU >= 0.5 | {aggregate['strict_box_iou_0_5_count']} |",
         "",
-        "The pilot produced equal numbers of predictions and GT events, but only "
-        "7 of 33 were temporally matched. The dominant issue is therefore not "
-        "prediction quantity alone; it is incorrect event timing and box placement.",
+        f"This run produced {aggregate['total_predictions']} predictions for "
+        f"{aggregate['total_ground_truth_events']} GT events, with "
+        f"{aggregate['total_tp']} temporal matches under the frozen evaluation "
+        "protocol. Use the overlays to separate timing misses from frequency-box "
+        "localisation failures.",
         "",
         "## Per-Clip Summary",
         "",
@@ -340,6 +313,8 @@ def write_failure_analysis(
         "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
     ]
     for clip_id in DEFAULT_CLIP_IDS:
+        if clip_id not in metrics_by_clip:
+            continue
         row = metrics_by_clip[clip_id]
         figure_path = diagnostic_output_path(figure_dir, clip_id).as_posix()
         lines.append(
@@ -352,11 +327,21 @@ def write_failure_analysis(
 
     lines.extend(["", "## Representative Clip Interpretation", ""])
     for clip_id in DEFAULT_CLIP_IDS:
+        if clip_id not in metrics_by_clip:
+            continue
+        row = metrics_by_clip[clip_id]
         lines.extend(
             [
                 f"### {clip_id}: {CLIP_ROLES[clip_id]}",
                 "",
-                interpretations[clip_id],
+                (
+                    f"GT={row['num_ground_truth_events']}, "
+                    f"pred={row['num_predictions']}, TP={row['tp']}, "
+                    f"FP={row['fp']}, FN={row['fn']}, F1={fmt(row['f1'])}, "
+                    f"mean temporal IoU={fmt(row['mean_time_iou'])}, "
+                    f"mean frequency IoU={fmt(row['mean_frequency_iou'])}, "
+                    f"mean box IoU={fmt(row['mean_box_iou'])}."
+                ),
                 "",
             ]
         )
@@ -420,6 +405,16 @@ def parse_clip_ids(value: str) -> list[str]:
     return list(dict.fromkeys(clip_ids))
 
 
+def resolve_eval_output_dir(args: argparse.Namespace) -> Path:
+    """Resolve the evaluation output directory from either CLI spelling."""
+    return args.eval_output_dir or args.evaluation_dir or DEFAULT_EVALUATION_DIR
+
+
+def resolve_output_dir(args: argparse.Namespace, eval_output_dir: Path) -> Path:
+    """Default diagnostic figures to the selected evaluation output directory."""
+    return args.output_dir or eval_output_dir / "diagnostic_figures"
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Plot Prompt V2 small-pilot diagnostics and write failure analysis."
@@ -429,9 +424,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--evaluation-dir",
         type=Path,
-        default=DEFAULT_EVALUATION_DIR,
+        help="Backward-compatible name for --eval-output-dir.",
     )
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_FIGURE_DIR)
+    parser.add_argument(
+        "--eval-output-dir",
+        type=Path,
+        help="Directory containing aggregate_summary.json and evaluation CSV files.",
+    )
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument(
+        "--run-name",
+        default="prompt_v2_small_pilot",
+        help="Label used in the generated failure-analysis report.",
+    )
     parser.add_argument(
         "--clip-list",
         default=",".join(DEFAULT_CLIP_IDS),
@@ -444,8 +449,10 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     clip_ids = parse_clip_ids(args.clip_list)
-    evaluation_rows = load_evaluation_csvs(args.evaluation_dir)
-    aggregate = load_json(args.evaluation_dir / "aggregate_summary.json")
+    eval_output_dir = resolve_eval_output_dir(args)
+    output_dir = resolve_output_dir(args, eval_output_dir)
+    evaluation_rows = load_evaluation_csvs(eval_output_dir)
+    aggregate = load_json(eval_output_dir / "aggregate_summary.json")
 
     saved_paths = [
         plot_diagnostic_clip(
@@ -453,17 +460,18 @@ def main() -> None:
             pred_dir=args.pred_dir,
             eval_dir=args.eval_dir,
             evaluation_rows=evaluation_rows,
-            output_dir=args.output_dir,
+            output_dir=output_dir,
             min_db=args.min_db,
             max_freq_hz=args.max_freq,
         )
         for clip_id in clip_ids
     ]
     report_path = write_failure_analysis(
-        output_path=args.evaluation_dir / "failure_analysis.md",
+        output_path=eval_output_dir / "failure_analysis.md",
         aggregate=aggregate,
         evaluation_rows=evaluation_rows,
-        figure_dir=args.output_dir,
+        figure_dir=output_dir,
+        run_name=args.run_name,
     )
 
     print(f"Saved {len(saved_paths)} diagnostic figure(s):")

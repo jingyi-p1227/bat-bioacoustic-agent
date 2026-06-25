@@ -1,5 +1,6 @@
 import csv
 import sys
+from argparse import Namespace
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -8,6 +9,8 @@ from plot_prompt_v2_small_pilot_diagnostics import (
     diagnostic_output_path,
     load_csv_rows,
     load_evaluation_csvs,
+    resolve_eval_output_dir,
+    resolve_output_dir,
 )
 
 
@@ -62,3 +65,21 @@ def test_load_evaluation_csvs(tmp_path: Path) -> None:
     assert rows["matched"][0]["prediction_id"] == "pred_001"
     assert rows["unmatched"] == []
     assert rows["missed"] == []
+
+
+def test_resolve_eval_output_dir_prefers_new_cli_name() -> None:
+    args = Namespace(
+        eval_output_dir=Path("outputs/run/evaluation"),
+        evaluation_dir=Path("outputs/old/evaluation"),
+    )
+
+    assert resolve_eval_output_dir(args) == Path("outputs/run/evaluation")
+
+
+def test_resolve_output_dir_defaults_under_eval_output_dir() -> None:
+    args = Namespace(output_dir=None)
+    eval_output_dir = Path("outputs/run/evaluation")
+
+    assert resolve_output_dir(args, eval_output_dir) == (
+        eval_output_dir / "diagnostic_figures"
+    )
