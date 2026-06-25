@@ -9,6 +9,7 @@ from plot_prompt_v2_small_pilot_diagnostics import (
     diagnostic_output_path,
     load_csv_rows,
     load_evaluation_csvs,
+    resolve_all_clip_ids,
     resolve_eval_output_dir,
     resolve_output_dir,
 )
@@ -65,6 +66,18 @@ def test_load_evaluation_csvs(tmp_path: Path) -> None:
     assert rows["matched"][0]["prediction_id"] == "pred_001"
     assert rows["unmatched"] == []
     assert rows["missed"] == []
+
+
+def test_resolve_all_clip_ids_uses_per_clip_metrics() -> None:
+    rows = {
+        "per_clip": [
+            {"clip_id": "OP_010"},
+            {"clip_id": "OP_001"},
+            {"clip_id": "OP_010"},
+        ]
+    }
+
+    assert resolve_all_clip_ids(rows) == ["OP_001", "OP_010"]
 
 
 def test_resolve_eval_output_dir_prefers_new_cli_name() -> None:

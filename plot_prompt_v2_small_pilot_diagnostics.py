@@ -405,6 +405,18 @@ def parse_clip_ids(value: str) -> list[str]:
     return list(dict.fromkeys(clip_ids))
 
 
+def resolve_all_clip_ids(evaluation_rows: dict[str, list[dict[str, str]]]) -> list[str]:
+    """Return every evaluated clip id in stable order from per-clip metrics."""
+    clip_ids = [
+        row["clip_id"]
+        for row in evaluation_rows["per_clip"]
+        if row.get("clip_id")
+    ]
+    if not clip_ids:
+        raise ValueError("No clip_id values found in per_clip_metrics.csv")
+    return sorted(dict.fromkeys(clip_ids))
+
+
 def resolve_eval_output_dir(args: argparse.Namespace) -> Path:
     """Resolve the evaluation output directory from either CLI spelling."""
     return args.eval_output_dir or args.evaluation_dir or DEFAULT_EVALUATION_DIR
@@ -441,6 +453,16 @@ def parse_args() -> argparse.Namespace:
         "--clip-list",
         default=",".join(DEFAULT_CLIP_IDS),
     )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Plot every clip listed in per_clip_metrics.csv.",
+    )
+    parser.add_argument(
+        "--skip-report",
+        action="store_true",
+        help="Only write diagnostic overlay images; do not update failure_analysis.md.",
+    )
     parser.add_argument("--min-db", type=float, default=DEFAULT_MIN_DB)
     parser.add_argument("--max-freq", type=float, default=DEFAULT_MAX_FREQ_HZ)
     return parser.parse_args()
@@ -448,10 +470,14 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    clip_ids = parse_clip_ids(args.clip_list)
     eval_output_dir = resolve_eval_output_dir(args)
     output_dir = resolve_output_dir(args, eval_output_dir)
     evaluation_rows = load_evaluation_csvs(eval_output_dir)
+    clip_ids = (
+        resolve_all_clip_ids(evaluation_rows)
+        if args.all
+        else parse_clip_ids(args.clip_list)
+    )
     aggregate = load_json(eval_output_dir / "aggregate_summary.json")
 
     saved_paths = [
@@ -466,18 +492,21 @@ def main() -> None:
         )
         for clip_id in clip_ids
     ]
-    report_path = write_failure_analysis(
-        output_path=eval_output_dir / "failure_analysis.md",
-        aggregate=aggregate,
-        evaluation_rows=evaluation_rows,
-        figure_dir=output_dir,
-        run_name=args.run_name,
-    )
+    report_path = None
+    if not args.skip_report:
+        report_path = write_failure_analysis(
+            output_path=eval_output_dir / "failure_analysis.md",
+            aggregate=aggregate,
+            evaluation_rows=evaluation_rows,
+            figure_dir=output_dir,
+            run_name=args.run_name,
+        )
 
     print(f"Saved {len(saved_paths)} diagnostic figure(s):")
     for path in saved_paths:
         print(path)
-    print(f"Saved failure analysis to {report_path}")
+    if report_path is not None:
+        print(f"Saved failure analysis to {report_path}")
 
 
 if __name__ == "__main__":
