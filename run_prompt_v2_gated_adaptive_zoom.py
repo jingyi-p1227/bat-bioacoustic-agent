@@ -110,6 +110,7 @@ class GatedClipResult:
     requested_zoom_count: int
     accepted_zoom_count: int
     rejected_zoom_count: int
+    zoom_disabled: bool
 
 
 def parse_gated_view_plan(raw_text: str, *, expected_clip_id: str) -> dict[str, Any]:
@@ -248,6 +249,7 @@ def run_gated_clip(
     num_predict: int,
     min_db: float,
     max_frequency_hz: float,
+    overview_only: bool = False,
 ) -> GatedClipResult:
     """Run gated planning, optional zoom generation, and final annotation."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -276,13 +278,18 @@ def run_gated_clip(
         plan = fallback_gated_plan(clip_id, exc)
 
     requested_zoom_count = len(plan.get("zoom_requests", []))
-    zoom_windows, rejected_count = accepted_gated_zoom_windows(
-        plan,
-        clip_duration_seconds=clip_duration,
-        max_frequency_hz=max_frequency_hz,
-    )
+    if overview_only:
+        zoom_windows = []
+        rejected_count = requested_zoom_count
+    else:
+        zoom_windows, rejected_count = accepted_gated_zoom_windows(
+            plan,
+            clip_duration_seconds=clip_duration,
+            max_frequency_hz=max_frequency_hz,
+        )
     plan["accepted_zoom_requests"] = [window.__dict__ for window in zoom_windows]
     plan["rejected_zoom_requests"] = rejected_count
+    plan["zoom_disabled"] = overview_only
     write_view_plan(plan_json_path, plan)
 
     zoom_paths = [
@@ -339,6 +346,7 @@ def run_gated_clip(
             requested_zoom_count=requested_zoom_count,
             accepted_zoom_count=len(zoom_windows),
             rejected_zoom_count=rejected_count,
+            zoom_disabled=overview_only,
         )
     except Exception as exc:
         if not raw_response_path.exists():
@@ -366,6 +374,7 @@ def run_gated_clip(
             requested_zoom_count=requested_zoom_count,
             accepted_zoom_count=len(zoom_windows),
             rejected_zoom_count=rejected_count,
+            zoom_disabled=overview_only,
         )
 
 
@@ -380,6 +389,7 @@ def write_view_plan_summary(output_dir: Path, results: list[GatedClipResult]) ->
             "requested_zoom_count",
             "accepted_zoom_count",
             "rejected_zoom_count",
+            "zoom_disabled",
             "parse_success",
         ]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -394,6 +404,7 @@ def write_view_plan_summary(output_dir: Path, results: list[GatedClipResult]) ->
                     "requested_zoom_count": result.requested_zoom_count,
                     "accepted_zoom_count": result.accepted_zoom_count,
                     "rejected_zoom_count": result.rejected_zoom_count,
+                    "zoom_disabled": result.zoom_disabled,
                     "parse_success": result.plan_parse_success,
                 }
             )
@@ -401,15 +412,22 @@ def write_view_plan_summary(output_dir: Path, results: list[GatedClipResult]) ->
 
 
 def print_summary(results: list[GatedClipResult]) -> None:
-    print("clip_id | plan | final | events | sufficient | requested | accepted | rejected | reasons")
-    print("--------+------+-------+--------+------------+-----------+----------+----------+--------")
+    print(
+        "clip_id | plan | final | events | sufficient | requested | accepted | "
+        "rejected | disabled | reasons"
+    )
+    print(
+        "--------+------+-------+--------+------------+-----------+----------+"
+        "----------+----------+--------"
+    )
     for result in results:
         events = "" if result.predicted_event_count is None else str(result.predicted_event_count)
         print(
             f"{result.clip_id} | {result.plan_parse_success} | "
             f"{result.final_parse_status} | {events} | {result.overview_sufficient} | "
             f"{result.requested_zoom_count} | {result.accepted_zoom_count} | "
-            f"{result.rejected_zoom_count} | {';'.join(result.gating_reasons)}"
+            f"{result.rejected_zoom_count} | {result.zoom_disabled} | "
+            f"{';'.join(result.gating_reasons)}"
         )
 
 
@@ -438,6 +456,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model-name", default=DEFAULT_MODEL_NAME)
     parser.add_argument("--clip-list", default=",".join(DEFAULT_CLIP_IDS))
     parser.add_argument("--all", action="store_true")
+    parser.add_argument(
+        "--overview-only",
+        "--no-zoom",
+        action="store_true",
+        help="Disable zoom generation and force final annotation to use overview only.",
+    )
     parser.add_argument("--timeout", type=float, default=600.0)
     parser.add_argument("--num-predict", type=int, default=8000)
     parser.add_argument("--min-db", type=float, default=DEFAULT_MIN_DB)
@@ -464,6 +488,7 @@ def main() -> None:
             num_predict=args.num_predict,
             min_db=args.min_db,
             max_frequency_hz=args.max_freq,
+            overview_only=args.overview_only,
         )
         for clip_id in clip_ids
     ]

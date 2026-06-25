@@ -7,10 +7,12 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from run_prompt_v2_gated_adaptive_zoom import (
+    GatedClipResult,
     accepted_gated_zoom_windows,
     parse_args,
     parse_gated_view_plan,
     validate_zoom_request,
+    write_view_plan_summary,
 )
 
 
@@ -157,6 +159,7 @@ def test_full_set_cli_aliases(monkeypatch: pytest.MonkeyPatch) -> None:
             "--generated-input-dir",
             "generated",
             "--all",
+            "--overview-only",
         ],
     )
 
@@ -165,3 +168,30 @@ def test_full_set_cli_aliases(monkeypatch: pytest.MonkeyPatch) -> None:
     assert args.overview_dir == Path("inputs")
     assert args.adaptive_input_dir == Path("generated")
     assert args.all is True
+    assert args.overview_only is True
+
+
+def test_view_plan_summary_records_zoom_disabled(tmp_path: Path) -> None:
+    path = write_view_plan_summary(
+        tmp_path,
+        [
+            GatedClipResult(
+                clip_id="OP_016",
+                plan_parse_success=True,
+                final_parse_status="success",
+                predicted_event_count=2,
+                overview_sufficient=False,
+                zoom_needed=True,
+                gating_reasons=["dense_adjacent_calls"],
+                requested_zoom_count=2,
+                accepted_zoom_count=0,
+                rejected_zoom_count=2,
+                zoom_disabled=True,
+            )
+        ],
+    )
+
+    text = path.read_text(encoding="utf-8")
+
+    assert "zoom_disabled" in text
+    assert "True" in text
