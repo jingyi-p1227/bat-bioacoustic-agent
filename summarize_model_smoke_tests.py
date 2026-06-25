@@ -20,12 +20,15 @@ class SmokeRun:
     run_name: str
     run_dir: Path
     grid_style: str = ""
+    setting: str = ""
+    evaluation_dir_name: str = "evaluation"
 
 
 SUMMARY_FIELDS = [
     "model_name",
     "run_name",
     "grid_style",
+    "setting",
     "clips_run",
     "parse_success_count",
     "parse_failure_count",
@@ -46,13 +49,17 @@ SUMMARY_FIELDS = [
 
 
 def parse_run_specs(values: list[str]) -> list[SmokeRun]:
-    """Parse run specs of the form run_name=path or run_name:grid_style=path."""
+    """Parse run specs as run_name:grid_style:setting:evaluation_dir=path."""
     runs: list[SmokeRun] = []
     for value in values:
         if "=" not in value:
             raise ValueError(f"Run spec must be run_name=path, got: {value}")
         run_label, run_dir = value.split("=", 1)
-        run_name, _, grid_style = run_label.partition(":")
+        label_parts = run_label.split(":")
+        run_name = label_parts[0]
+        grid_style = label_parts[1] if len(label_parts) > 1 else ""
+        setting = label_parts[2] if len(label_parts) > 2 else ""
+        evaluation_dir_name = label_parts[3] if len(label_parts) > 3 else "evaluation"
         run_name = run_name.strip()
         if not run_name:
             raise ValueError(f"Run name cannot be empty in spec: {value}")
@@ -61,6 +68,8 @@ def parse_run_specs(values: list[str]) -> list[SmokeRun]:
                 run_name=run_name,
                 run_dir=Path(run_dir),
                 grid_style=grid_style.strip(),
+                setting=setting.strip(),
+                evaluation_dir_name=evaluation_dir_name.strip() or "evaluation",
             )
         )
     return runs
@@ -108,11 +117,12 @@ def summarize_run(run: SmokeRun, clip_ids: list[str]) -> dict[str, Any]:
         except Exception:
             failure_count += 1
 
-    aggregate = load_json(run.run_dir / "evaluation" / "aggregate_summary.json")
+    aggregate = load_json(run.run_dir / run.evaluation_dir_name / "aggregate_summary.json")
     return {
         "model_name": model_name,
         "run_name": run.run_name,
         "grid_style": run.grid_style,
+        "setting": run.setting,
         "clips_run": len(clip_ids),
         "parse_success_count": success_count,
         "parse_failure_count": failure_count,

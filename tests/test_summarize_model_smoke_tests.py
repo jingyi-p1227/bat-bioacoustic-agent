@@ -61,10 +61,21 @@ def create_smoke_run(root: Path) -> Path:
 
 
 def test_parse_run_specs() -> None:
-    runs = parse_run_specs(["gemma:grid_v1=outputs/gemma", "qwen=outputs/qwen"])
+    runs = parse_run_specs(
+        [
+            "gemma:grid_v1:fixed_view:evaluation_representative6=outputs/gemma",
+            "qwen=outputs/qwen",
+        ]
+    )
 
     assert runs == [
-        SmokeRun("gemma", Path("outputs/gemma"), "grid_v1"),
+        SmokeRun(
+            "gemma",
+            Path("outputs/gemma"),
+            "grid_v1",
+            "fixed_view",
+            "evaluation_representative6",
+        ),
         SmokeRun("qwen", Path("outputs/qwen")),
     ]
 
@@ -79,6 +90,7 @@ def test_summarize_run_counts_parse_status_and_metrics(tmp_path: Path) -> None:
 
     assert summary["model_name"] == "test-model"
     assert summary["grid_style"] == ""
+    assert summary["setting"] == ""
     assert summary["parse_success_count"] == 1
     assert summary["parse_failure_count"] == 1
     assert summary["total_gt"] == 5
