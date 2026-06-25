@@ -349,6 +349,18 @@ These results suggest that adaptive viewing is useful, but the current view-plan
 
 ---
 
+## P5F Overview-Only Gated Control
+
+P5F was introduced as a control experiment to determine whether the full-set improvement observed in P5E was caused by actual zoom evidence or by the gated workflow itself. In P5F, all 45 clips were processed through the same gated workflow, but zoom was disabled for every clip. Final annotation therefore used only the clean `grid_v2` overview spectrogram.
+
+The result was extremely close to P5E. The fixed-view baseline achieved `F1=0.602`, P5E gated adaptive zoom achieved `F1=0.668`, and P5F gated overview-only achieved `F1=0.664`. P5F matched P5E on true positives, false negatives, recall, mean IoU values, and strict box-IoU counts, differing only by three additional false positives.
+
+This indicates that the full-set improvement in P5E was mainly attributable to the gated overview-first workflow and final annotation procedure, rather than to zoom image evidence. In the full P5E run, only one clip, `OP_016`, requested zoom views, and that clip remained unresolved with `TP=0` and `FN=7`. Zoom reduced false positives on `OP_016`, but did not recover true events.
+
+Therefore, the strongest interpretation is that the agent benefits from an explicit view-sufficiency check before annotation. The workflow encourages more cautious and reliable predictions, even when no additional zoom views are ultimately used. Optional zoom remains useful as an exploratory tool for difficult cases, but it did not provide meaningful additional full-set benefit in this evaluation.
+
+---
+
 ## Current Baseline Decision
 
 For future experiments:
