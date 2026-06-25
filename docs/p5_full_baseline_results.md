@@ -337,6 +337,18 @@ These are the cases where an adaptive-view agent may help by selecting grid styl
 
 ---
 
+## P5C Per-Clip Adaptive Zoom Analysis
+
+The adaptive zoom prototype improved the representative-six subset overall, but the per-clip results show that the benefit was uneven. Adaptive zoom improved difficult clips such as `OP_003`, `OP_010`, and `OP_016`, with the largest gain on `OP_003`, where F1 increased from `0.222` to `0.750`. This suggests that zoomed spectrogram views can help with boundary-near or visually ambiguous calls.
+
+However, adaptive zoom also degraded some clips that were already strong under the fixed-view baseline. `OP_001` decreased from `0.909` to `0.667`, and `OP_004` decreased from `1.000` to `0.833`. `OP_045` remained perfect, but the planner still requested two zoom views, indicating unnecessary tool use on an easy clip.
+
+Overall, adaptive zoom improved aggregate F1 from `0.606` to `0.667`, mainly by reducing false positives and slightly reducing false negatives. Total false positives decreased by 4 and false negatives decreased by 1. Mean box IoU also improved from `0.376` to `0.400`.
+
+These results suggest that adaptive viewing is useful, but the current view-planning strategy is too eager to request zooms. The next iteration should use a gated adaptive-zoom policy, where zoom is requested only for dense, boundary-truncated, weak, or uncertain regions, while clear and well-separated calls should be annotated directly from the overview.
+
+---
+
 ## Current Baseline Decision
 
 For future experiments:
