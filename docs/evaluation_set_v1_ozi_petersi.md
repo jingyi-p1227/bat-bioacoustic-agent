@@ -5,7 +5,7 @@
 This controlled evaluation set tests whether a single-agent workflow can create
 reliable strong labels for individual bat echolocation calls. It provides
 short, consistently structured audio clips with call-level time-frequency
-ground truth for a spectrogram-only baseline.
+ground truth for the initial spectrogram-only single-agent baseline.
 
 ## Source Dataset
 
@@ -143,6 +143,7 @@ Verification errors: none
 - It does not test multi-species generalisation.
 - Manual scenarios such as `clear_call`, `weak_call`, `noisy`, or `borderline`
   have not yet been assigned. These can be added after spectrogram spot-checking.
+- Because all clips contain at least one target event, this set primarily evaluates localisation and strong-labelling quality rather than false-positive behaviour on empty clips.
 
 ## Next Steps
 
