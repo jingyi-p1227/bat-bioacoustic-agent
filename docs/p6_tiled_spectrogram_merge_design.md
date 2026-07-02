@@ -42,21 +42,18 @@ The merge code must not guess the coordinate frame from numeric values.
 
 ## Duplicate Merge Rule
 
-Overlapping tiles can produce multiple predictions for the same call. The proposed first implementation is confidence-ordered, class-aware two-dimensional non-maximum suppression:
+Overlapping tiles can produce multiple predictions for the same call. P6A.3 implements confidence-ordered two-dimensional non-maximum suppression:
 
 1. Combine predictions from all tiles belonging to one clip.
 2. Validate and clamp coordinates before comparison.
-3. Sort predictions by confidence descending. For absent confidence, use a documented neutral fallback and record a warning.
-4. Prefer a prediction that does not touch a tile boundary over an otherwise similar boundary-clipped prediction.
-5. Keep the highest-ranked prediction.
-6. Suppress a lower-ranked prediction as a duplicate when labels are compatible and either:
-   - `box_iou >= 0.30`; or
-   - `temporal_iou >= 0.60` and `frequency_iou >= 0.50`.
-7. Continue until every prediction is kept or suppressed.
+3. Sort predictions by confidence descending. Missing or invalid confidence uses `0.0` for deterministic ranking.
+4. Keep the highest-ranked prediction.
+5. Suppress a lower-ranked prediction as a duplicate when `box_iou >= 0.50`.
+6. Continue until every prediction is kept or suppressed.
 
-These are merge thresholds, not evaluation thresholds. They must be stored in run metadata and should be tested on the representative-six pilot before being frozen.
+This is a merge threshold, not an evaluation threshold. It is configurable through `--nms-iou-threshold`, is stored in merge metadata, and must be tested on the representative-six pilot before being frozen.
 
-The initial version should keep the selected box unchanged rather than averaging coordinates. This makes the merge decision traceable and avoids creating a synthetic broad box from two imperfect predictions. Retain suppressed predictions and their parent tile IDs in a merge audit file.
+The implementation keeps the selected box unchanged rather than averaging coordinates. This makes the merge decision traceable and avoids creating a synthetic broad box from two imperfect predictions. Suppressed events are retained as `merged_duplicate_provenance` on the selected event, and aggregate duplicate counts are written to `merge_summary.csv`.
 
 ## Boundary-Spanning Calls
 
@@ -113,4 +110,3 @@ Before any model call:
 3. Confirm adjacent windows have the configured overlap except for a clipped final window.
 4. Confirm image paths and audio paths are portable and relative.
 5. Freeze the tile-level prompt context and merge thresholds for the pilot.
-
