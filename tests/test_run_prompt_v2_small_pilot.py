@@ -60,6 +60,19 @@ def test_read_clip_duration_uses_wav_metadata(tmp_path: Path) -> None:
     assert pilot.read_clip_duration(eval_dir, "OP_001") == pytest.approx(1.0)
 
 
+def test_resolve_input_image_accepts_custom_suffix(tmp_path: Path) -> None:
+    image_dir = tmp_path / "images"
+    image_dir.mkdir()
+    expected = image_dir / "OP_016_pcen_grid_v2.png"
+    expected.write_bytes(b"synthetic image")
+
+    assert pilot.resolve_input_image(
+        image_dir,
+        "OP_016",
+        "_pcen_grid_v2.png",
+    ) == expected
+
+
 def test_parse_prediction_handles_valid_json() -> None:
     prediction = pilot.parse_prediction(
         f"```json\n{valid_response()}\n```",
@@ -102,6 +115,38 @@ def test_invalid_json_records_parse_failure_and_keeps_raw_response(
     failure_payload = json.loads((output_dir / "OP_001_predictions.json").read_text())
     assert failure_payload["parse_status"] == "failed"
     assert failure_payload["events"] == []
+
+
+def test_run_clip_can_write_raw_response_to_separate_directory(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    eval_dir, image_dir = create_runtime_files(tmp_path)
+    output_dir = tmp_path / "predictions"
+    raw_dir = tmp_path / "raw_responses"
+    monkeypatch.setattr(
+        pilot,
+        "call_ollama_generate",
+        lambda **kwargs: valid_response(),
+    )
+
+    result = pilot.run_clip(
+        clip_id="OP_001",
+        prompt_text="Prompt",
+        eval_dir=eval_dir,
+        image_dir=image_dir,
+        output_dir=output_dir,
+        model_name="test-model",
+        backend="ollama_generate",
+        timeout=1,
+        num_predict=100,
+        raw_response_dir=raw_dir,
+    )
+
+    assert result.parse_status == "success"
+    assert result.raw_response_path.parent == raw_dir
+    assert result.output_json_path is not None
+    assert result.output_json_path.parent == output_dir
 
 
 def test_default_output_dir_uses_run_name_or_sanitized_model() -> None:

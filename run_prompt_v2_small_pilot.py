@@ -125,9 +125,13 @@ def resolve_all_clip_ids(eval_dir: str | Path) -> list[str]:
     return clip_ids
 
 
-def resolve_input_image(image_dir: str | Path, clip_id: str) -> Path:
+def resolve_input_image(
+    image_dir: str | Path,
+    clip_id: str,
+    image_suffix: str = "_spectrogram.png",
+) -> Path:
     """Resolve one clean spectrogram image."""
-    image_path = Path(image_dir) / f"{clip_id}_spectrogram.png"
+    image_path = Path(image_dir) / f"{clip_id}{image_suffix}"
     if not image_path.is_file():
         raise FileNotFoundError(
             f"Clean spectrogram for clip id {clip_id!r} not found: {image_path}"
@@ -417,10 +421,14 @@ def run_clip(
     backend: str,
     timeout: float,
     num_predict: int,
+    image_suffix: str = "_spectrogram.png",
+    raw_response_dir: Path | None = None,
 ) -> PilotResult:
     """Run one clip, preserve raw output, and continue cleanly on failure."""
     output_dir.mkdir(parents=True, exist_ok=True)
-    raw_response_path = output_dir / f"{clip_id}_raw_response.txt"
+    raw_dir = output_dir if raw_response_dir is None else raw_response_dir
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    raw_response_path = raw_dir / f"{clip_id}_raw_response.txt"
     prediction_path = output_dir / f"{clip_id}_predictions.json"
     parse_error_path = output_dir / f"{clip_id}_parse_error.txt"
     prediction_path.unlink(missing_ok=True)
@@ -430,7 +438,7 @@ def run_clip(
 
     try:
         clip_duration = read_clip_duration(eval_dir, clip_id)
-        image_path = resolve_input_image(image_dir, clip_id)
+        image_path = resolve_input_image(image_dir, clip_id, image_suffix)
         user_message = build_user_message(
             clip_id=clip_id,
             clip_duration_seconds=clip_duration,
@@ -566,6 +574,17 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument(
+        "--raw-response-dir",
+        type=Path,
+        default=None,
+        help="Optional separate directory for raw model responses.",
+    )
+    parser.add_argument(
+        "--image-suffix",
+        default="_spectrogram.png",
+        help="Filename suffix appended after each clip id.",
+    )
+    parser.add_argument(
         "--run-name",
         help=(
             "Optional run directory name under outputs/agent_runs. "
@@ -620,6 +639,8 @@ def main() -> None:
                 backend=args.backend,
                 timeout=args.timeout,
                 num_predict=args.num_predict,
+                image_suffix=args.image_suffix,
+                raw_response_dir=args.raw_response_dir,
             )
         )
     print_summary(results)
