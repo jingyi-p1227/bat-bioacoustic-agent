@@ -71,6 +71,21 @@ def load_json(path: Path) -> dict[str, Any]:
     return payload
 
 
+def resolve_prediction_path(pred_dir: Path, clip_id: str) -> Path:
+    """Accept existing plural files and merged tiled singular files."""
+    candidates = [
+        pred_dir / f"{clip_id}_predictions.json",
+        pred_dir / f"{clip_id}_prediction.json",
+    ]
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+    raise FileNotFoundError(
+        f"Prediction JSON not found for {clip_id}: "
+        + ", ".join(str(path) for path in candidates)
+    )
+
+
 def read_mono_audio(path: Path) -> tuple[np.ndarray, int]:
     audio, sample_rate = sf.read(str(path))
     if audio.ndim > 1:
@@ -144,7 +159,7 @@ def plot_diagnostic_clip(
     gt_payload = load_json(
         eval_dir / "ground_truth" / f"{clip_id}_ground_truth.json"
     )
-    prediction_payload = load_json(pred_dir / f"{clip_id}_predictions.json")
+    prediction_payload = load_json(resolve_prediction_path(pred_dir, clip_id))
     if not audio_path.is_file():
         raise FileNotFoundError(f"Audio file not found: {audio_path}")
 

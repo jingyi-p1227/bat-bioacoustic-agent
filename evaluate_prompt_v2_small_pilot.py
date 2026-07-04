@@ -173,6 +173,21 @@ def load_json(path: Path) -> dict[str, Any]:
     return payload
 
 
+def resolve_prediction_path(pred_dir: Path, clip_id: str) -> Path:
+    """Accept existing plural files and merged tiled singular files."""
+    candidates = [
+        pred_dir / f"{clip_id}_predictions.json",
+        pred_dir / f"{clip_id}_prediction.json",
+    ]
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+    raise FileNotFoundError(
+        f"Prediction JSON not found for {clip_id}: "
+        + ", ".join(str(path) for path in candidates)
+    )
+
+
 def safe_divide(numerator: int | float, denominator: int | float) -> float:
     return float(numerator) / float(denominator) if denominator else 0.0
 
@@ -457,7 +472,7 @@ def run_evaluation(
     output_dir.mkdir(parents=True, exist_ok=True)
     clip_results = []
     for clip_id in clip_ids:
-        prediction_payload = load_json(pred_dir / f"{clip_id}_predictions.json")
+        prediction_payload = load_json(resolve_prediction_path(pred_dir, clip_id))
         ground_truth_payload = load_json(
             eval_dir / "ground_truth" / f"{clip_id}_ground_truth.json"
         )

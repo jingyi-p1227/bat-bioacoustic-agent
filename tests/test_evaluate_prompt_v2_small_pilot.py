@@ -11,6 +11,7 @@ from evaluate_prompt_v2_small_pilot import (
     evaluate_clip,
     frequency_iou,
     greedy_temporal_matches,
+    resolve_prediction_path,
     temporal_iou,
 )
 
@@ -38,6 +39,13 @@ def test_temporal_iou() -> None:
     assert temporal_iou(event("p", 0.0, 2.0), event("g", 1.0, 3.0)) == pytest.approx(
         1 / 3
     )
+
+
+def test_resolve_prediction_path_accepts_merged_singular_name(tmp_path: Path) -> None:
+    path = tmp_path / "OP_016_prediction.json"
+    path.write_text("{}", encoding="utf-8")
+
+    assert resolve_prediction_path(tmp_path, "OP_016") == path
 
 
 def test_frequency_iou() -> None:

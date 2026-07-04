@@ -12,6 +12,7 @@ from plot_prompt_v2_small_pilot_diagnostics import (
     resolve_all_clip_ids,
     resolve_eval_output_dir,
     resolve_output_dir,
+    resolve_prediction_path,
 )
 
 
@@ -29,6 +30,13 @@ def test_diagnostic_output_path() -> None:
     assert diagnostic_output_path(output_dir, "OP_001") == (
         output_dir / "OP_001_diagnostic_overlay.png"
     )
+
+
+def test_resolve_prediction_path_accepts_merged_singular_name(tmp_path: Path) -> None:
+    path = tmp_path / "OP_016_prediction.json"
+    path.write_text("{}", encoding="utf-8")
+
+    assert resolve_prediction_path(tmp_path, "OP_016") == path
 
 
 def test_load_csv_rows_handles_header_only_file(tmp_path: Path) -> None:
