@@ -11,6 +11,7 @@ from merge_tiled_predictions import (
     group_tiles_by_clip,
     merge_clip_predictions,
     run_merge,
+    select_clip_groups,
 )
 
 
@@ -83,6 +84,19 @@ def test_group_tiles_by_clip_orders_each_clip_temporally(tmp_path: Path) -> None
 
     assert set(groups) == {"OP_001", "OP_002"}
     assert [tile.tile_start_seconds for tile in groups["OP_001"]] == [0.0, 0.4]
+
+
+def test_select_clip_groups_restricts_merge_to_target_clip(tmp_path: Path) -> None:
+    groups = group_tiles_by_clip(
+        [
+            make_tile("OP_001", 1, 0.0, 0.5, tmp_path),
+            make_tile("OP_016", 1, 0.0, 0.5, tmp_path),
+        ]
+    )
+
+    selected = select_clip_groups(groups, ["OP_016"])
+
+    assert list(selected) == ["OP_016"]
 
 
 def test_box_iou_distinguishes_duplicate_and_non_overlapping_events() -> None:
@@ -229,4 +243,3 @@ def test_run_merge_writes_clip_schema_and_summary(tmp_path: Path) -> None:
         summary_rows = list(csv.DictReader(handle))
     assert summary_rows[0]["clip_id"] == "OP_001"
     assert summary_rows[0]["merged_events"] == "1"
-

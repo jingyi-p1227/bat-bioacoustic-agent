@@ -120,6 +120,27 @@ def group_tiles_by_clip(
     return groups
 
 
+def select_clip_groups(
+    groups: dict[str, list[ManifestTile]],
+    clip_ids: list[str] | None,
+) -> dict[str, list[ManifestTile]]:
+    """Optionally restrict merge processing to an explicit clip list."""
+    if clip_ids is None:
+        return groups
+    missing = [clip_id for clip_id in clip_ids if clip_id not in groups]
+    if missing:
+        raise ValueError(f"Clip ids missing from tile manifest: {', '.join(missing)}")
+    return {clip_id: groups[clip_id] for clip_id in clip_ids}
+
+
+def parse_clip_ids(value: str) -> list[str]:
+    """Parse a stable, de-duplicated comma-separated clip list."""
+    clip_ids = [item.strip() for item in value.split(",") if item.strip()]
+    if not clip_ids:
+        raise ValueError("--clip-list must contain at least one clip id")
+    return list(dict.fromkeys(clip_ids))
+
+
 def prediction_path_for_tile(prediction_dir: Path, tile: ManifestTile) -> Path:
     """Resolve the expected JSON filename from the source tile image stem."""
     return prediction_dir / f"{tile.image_path.stem}.json"
@@ -434,6 +455,7 @@ def run_merge(
     drop_fully_outside_tile: bool,
     overwrite: bool,
     project_root: Path | None = None,
+    clip_ids: list[str] | None = None,
 ) -> list[MergeSummaryRow]:
     """Merge every clip represented by one tile setting."""
     tiles = load_manifest_tiles(
@@ -441,7 +463,7 @@ def run_merge(
         tile_setting=tile_setting,
         project_root=project_root,
     )
-    groups = group_tiles_by_clip(tiles)
+    groups = select_clip_groups(group_tiles_by_clip(tiles), clip_ids)
     summaries: list[MergeSummaryRow] = []
     for clip_id, clip_tiles in sorted(groups.items()):
         result = merge_clip_predictions(
@@ -480,6 +502,11 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_TILE_SETTING,
     )
     parser.add_argument(
+        "--clip-list",
+        default=None,
+        help="Optional comma-separated clip ids to merge.",
+    )
+    parser.add_argument(
         "--nms-iou-threshold",
         type=float,
         default=DEFAULT_NMS_IOU_THRESHOLD,
@@ -509,6 +536,7 @@ def main() -> None:
         nms_iou_threshold=args.nms_iou_threshold,
         drop_fully_outside_tile=not args.keep_fully_outside_tile,
         overwrite=args.overwrite,
+        clip_ids=(parse_clip_ids(args.clip_list) if args.clip_list else None),
     )
     print(f"Processed {len(summaries)} clip(s).")
     for row in summaries:
@@ -524,4 +552,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

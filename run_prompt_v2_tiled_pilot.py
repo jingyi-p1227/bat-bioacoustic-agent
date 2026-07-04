@@ -76,13 +76,16 @@ def select_tiles(
 
 
 def tile_artifact_paths(
-    output_dir: Path, tile: ManifestTile
+    output_dir: Path,
+    tile: ManifestTile,
+    raw_response_dir: Path | None = None,
 ) -> tuple[Path, Path, Path]:
     """Return prediction, raw response, and parse-error paths for one tile."""
     stem = tile.image_path.stem
+    raw_dir = output_dir if raw_response_dir is None else raw_response_dir
     return (
         output_dir / f"{stem}.json",
-        output_dir / f"{stem}_raw_response.txt",
+        raw_dir / f"{stem}_raw_response.txt",
         output_dir / f"{stem}_parse_error.txt",
     )
 
@@ -184,12 +187,18 @@ def run_tile(
     timeout: float,
     num_predict: int,
     overwrite: bool,
+    raw_response_dir: Path | None = None,
 ) -> TileRunResult:
     """Run one tile and preserve both valid and invalid model responses."""
     if not tile.image_path.is_file():
         raise FileNotFoundError(f"Clean tile image not found: {tile.image_path}")
     output_dir.mkdir(parents=True, exist_ok=True)
-    prediction_path, raw_path, error_path = tile_artifact_paths(output_dir, tile)
+    prediction_path, raw_path, error_path = tile_artifact_paths(
+        output_dir,
+        tile,
+        raw_response_dir,
+    )
+    raw_path.parent.mkdir(parents=True, exist_ok=True)
     if prediction_path.exists() and not overwrite:
         raise FileExistsError(
             f"Tile prediction already exists: {prediction_path}. Use --overwrite."
@@ -285,6 +294,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--prompt", type=Path, default=Path("prompts/prompt_v2_bat_strong_label.md"))
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument(
+        "--raw-response-dir",
+        type=Path,
+        default=None,
+        help="Optional separate directory for raw model responses.",
+    )
     parser.add_argument("--model-name", default=DEFAULT_MODEL_NAME)
     parser.add_argument("--timeout", type=float, default=1200.0)
     parser.add_argument("--num-predict", type=int, default=8000)
@@ -320,6 +335,7 @@ def main() -> None:
                 timeout=args.timeout,
                 num_predict=args.num_predict,
                 overwrite=args.overwrite,
+                raw_response_dir=args.raw_response_dir,
             )
         )
     print_summary(results)
@@ -327,4 +343,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

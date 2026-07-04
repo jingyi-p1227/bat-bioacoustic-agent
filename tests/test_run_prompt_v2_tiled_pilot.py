@@ -57,6 +57,19 @@ def test_tile_user_message_requires_original_coordinates(tmp_path: Path) -> None
     assert "do not restart time at 0" in message
 
 
+def test_tile_artifact_paths_can_separate_raw_responses(tmp_path: Path) -> None:
+    tile = make_tile(tmp_path)
+    prediction, raw, error = tiled.tile_artifact_paths(
+        tmp_path / "predictions",
+        tile,
+        tmp_path / "raw_responses",
+    )
+
+    assert prediction.parent.name == "predictions"
+    assert error.parent.name == "predictions"
+    assert raw.parent.name == "raw_responses"
+
+
 def test_select_tiles_groups_by_requested_clip_and_sets_duration(tmp_path: Path) -> None:
     first = make_tile(tmp_path)
     second = ManifestTile(
@@ -127,4 +140,3 @@ def test_run_tile_records_parse_failure_without_backend_call_in_test(
     assert result.parse_error_path is not None
     assert payload["events"] == []
     assert payload["parse_status"] == "failed"
-
