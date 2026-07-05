@@ -2,55 +2,50 @@
 
 ## Purpose
 
-This library collects representative examples from the `Ozimops petersi` strong-labelling benchmark. It complements aggregate metrics by preserving concrete evidence about when the annotation workflow succeeds, fails, or changes under different visual tools.
+This library is the qualitative companion to the `Ozimops petersi` strong-labelling benchmark. It links visible time-frequency patterns to measured model and tool behaviour, so aggregate metrics can be interpreted through concrete annotation cases.
 
-The library should include:
+The cards are analysis references only. Ground-truth and diagnostic overlays must never be used as model inputs.
 
-- clean and easy success cases;
-- dense multi-event cases;
-- left- and right-boundary cases;
-- hard failures and ambiguous calls;
-- false-positive and missed-call examples;
-- grid-sensitive or preprocessing-sensitive cases;
-- cases that improve or worsen under gated and adaptive workflows.
+## Selection Method
 
-## Intended Uses
+Cases were selected from the frozen representative-six set, the P6E.5 held-out set, and the consolidated P6 case highlights. Selection prioritised:
 
-1. **Prompt refinement:** translate recurring failures into precise, testable annotation instructions.
-2. **Qualitative analysis:** connect aggregate metrics to visible event-level behaviour.
-3. **Example-guided annotation:** provide a future curated reference set without embedding evaluation answers in ordinary prediction inputs.
-4. **Tool design:** identify which cases may benefit from PCEN-like enhancement, denoising, band-pass filtering, cropping, or tiling.
-5. **Reporting:** maintain a stable shortlist of figures for supervisor meetings and final project documentation.
+- clean or canonical successes;
+- dense multi-event sequences;
+- left- and right-boundary truncation;
+- detector timing strengths and source-proposal failures;
+- useful VLM refinements and harmful VLM shifts;
+- preprocessing and deterministic-validator regressions.
 
-## Initial Cards
+All metrics come from existing evaluator CSV/JSON files and `outputs/analysis_reports/p6_single_agent_tool_use_summary/p6_case_highlights.csv`. Figure paths point to existing repository artifacts.
 
-| Clip | Primary role |
-| --- | --- |
-| `OP_045` | Clean success and partial-final-clip sanity check |
-| `OP_003` | Right-boundary case improved by adaptive/gated workflows |
-| `OP_010` | Dense multi-event separation case |
-| `OP_016` | Dense boundary-stress hard failure |
-| `OP_027` | Case that worsened relative to the fixed-view baseline |
+## Uses
 
-## Card Fields
+1. **Error analysis:** connect TP/FP/FN changes to visible geometry.
+2. **Prompt and tool refinement:** identify when overview, tiles, detector proposals, or validation rules help or harm.
+3. **Dissertation writing:** provide stable, evidence-backed case studies and figure shortlists.
+4. **Future example guidance:** define curated examples without leaking benchmark answers into normal prediction runs.
 
-Every card should maintain the following fields:
+## Case Index
 
-- `clip_id`
-- `case_type`
-- `why_this_example_matters`
-- `relevant_figures`
-- `model_behaviour`
-- `prompt_lesson`
-- `tool_lesson`
-- `notes_for_report`
+| Clip | Primary role | Central lesson |
+|---|---|---|
+| [OP_001](OP_001_canonical_multi_event.md) | Canonical multi-event overview case | Extra tools can regress a strong fixed-view result. |
+| [OP_003](OP_003_boundary_improved.md) | Right-boundary and tiled-recall case | Tiling improves recall but still misses the truncated event. |
+| [OP_004](OP_004_useful_expansion.md) | Useful duration expansion | Over-conservative timing preservation can remove a true improvement. |
+| [OP_010](OP_010_dense_multi_event.md) | Dense but separable sequence | 0.5 s tiling achieves full recall with one duplicate/FP. |
+| [OP_016](OP_016_hard_failure.md) | Dense short-call stress case | Detector timing is strong; unconstrained VLM refinement is harmful. |
+| [OP_032](OP_032_heldout_expansion_reverted.md) | Held-out source-extent failure | A fixed 6 ms rule wrongly reverts a useful VLM expansion. |
+| [OP_042](OP_042_heldout_harmful_shift.md) | Held-out harmful rigid shift | Policy B can correctly restore a displaced detector proposal. |
+| [OP_045](OP_045_clean_success.md) | Clean partial clip and detector failure | Preservation cannot repair proposals that are intrinsically too short. |
+
+An additional legacy guard card, [OP_027](OP_027_worsened_case.md), is retained for P5 workflow-regression analysis.
 
 ## Curation Rules
 
 - Do not modify or duplicate ground-truth JSON files.
-- Keep all figure paths relative to the repository root.
-- Record the run name whenever describing model behaviour.
-- Separate observed evidence from interpretation.
-- Do not use diagnostic or GT-overlay figures as model inputs.
-- Treat these cards as analysis references, not additional benchmark labels.
-
+- Keep paths repository-relative.
+- Name the exact run when reporting behaviour.
+- Separate observed metrics from interpretation.
+- Do not invent clean/noisy labels without documented visual review.
+- Treat cards as reporting references, not extra benchmark labels.

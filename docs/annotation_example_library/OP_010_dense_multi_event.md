@@ -1,38 +1,42 @@
-# Annotation Example: OP_010 Dense Multi-Event
+# OP_010: Dense but Separable Multi-Event Sequence
 
-## clip_id
+## Why It Matters
 
-`OP_010`
+`OP_010` is the best dense success case for testing call counting and one-box-per-call separation without boundary truncation. It contrasts with the much shorter and harder calls in `OP_016`.
 
-## case_type
+## Ground-Truth Pattern
 
-`dense_multi_event`, `call_separation`
+- Seven complete events in one second.
+- No truncated events.
+- Calls are dense but remain temporally separable.
 
-## why_this_example_matters
+## Model and Tool Behaviour
 
-This clip contains seven non-truncated ground-truth events. It tests recall, one-call-per-box separation, and whether adjacent calls are merged into broad annotations.
+| Method | TP | FP | FN | F1 |
+|---|---:|---:|---:|---:|
+| Fixed qwen3.6 + grid_v2 | 5 | 2 | 2 | 0.714 |
+| 0.5 s tiled qwen3.6 | 7 | 1 | 0 | 0.933 |
+| PCEN qwen3.6 | 6 | 1 | 1 | 0.857 |
+| Proposal-only / metadata-assisted / Policy B | 6 | 1 | 1 | 0.857 |
 
-## relevant_figures
+The 0.5 s tiled condition achieves full recall but retains one unmatched prediction, consistent with overlap-driven duplicate risk.
 
-- GT reference: `outputs/evaluation_sets/ozimops_petersi_v1/figures/OP_010_gt_overlay.png`
-- Fixed qwen3.6 grid_v1: `outputs/agent_runs/prompt_v2_full_qwen3_6_grid_v1/evaluation/diagnostic_figures/OP_010_diagnostic_overlay.png`
-- Fixed qwen3.6 grid_v2: `outputs/agent_runs/prompt_v2_full_qwen3_6_grid_v2/evaluation/diagnostic_figures/OP_010_diagnostic_overlay.png`
-- Full gemma4 grid_v2: `outputs/agent_runs/prompt_v2_full_gemma4_31b_grid_v2/evaluation/diagnostic_figures/OP_010_diagnostic_overlay.png`
-- P5E gated adaptive: `outputs/agent_runs/prompt_v2_gated_adaptive_zoom_qwen3_6_full/evaluation/diagnostic_figures/OP_010_diagnostic_overlay.png`
+## Main Failure Mode
 
-## model_behaviour
+`missed_dense_calls` under the overview and `duplicate_or_false_positive_candidate` after tiling.
 
-The clip improved in the representative adaptive experiment and is a useful success case for comparing event separation across grid styles, models, and gated workflows.
+## System Design Lesson
 
-## prompt_lesson
+Local views can improve dense-call recall, but merged tile predictions require duplicate suppression and provenance. This case is suitable for checking that one visible call produces one final event.
 
-Dense activity requires deliberate counting and one tight annotation per visible call. Adjacent calls must not be merged, and weak calls should not be skipped solely because stronger neighbours are present.
+## Useful Figures
 
-## tool_lesson
+- [GT overlay](../../outputs/evaluation_sets/ozimops_petersi_v1/figures/OP_010_gt_overlay.png)
+- [Fixed grid_v2](../../outputs/agent_runs/prompt_v2_full_qwen3_6_grid_v2/evaluation/diagnostic_figures/OP_010_diagnostic_overlay.png)
+- [0.5 s tiled](../../outputs/agent_runs/p6_tiled_qwen3_6_tile_0p5_overlap_0p1/diagnostic_figures/OP_010_diagnostic_overlay.png)
+- [PCEN](../../outputs/agent_runs/p6_pcen_qwen3_6_representative6/diagnostic_figures/OP_010_diagnostic_overlay.png)
+- [Proposal-only](../../outputs/agent_runs/p6_batdetect2_proposal_only_representative6/diagnostic_figures/OP_010_diagnostic_overlay.png)
 
-Use this clip to test whether denser grids, enhanced contrast, or short tiles improve separation without increasing duplicate predictions across tile boundaries.
+## Dissertation-Ready Interpretation
 
-## notes_for_report
-
-This is the preferred dense-call example for a presentation because it is challenging but still interpretable. Contrast it with the unresolved stress case `OP_016`.
-
+> OP_010 demonstrates the recall benefit of tiled views on a dense but separable sequence: the 0.5 s condition matched all seven GT events, compared with five under the fixed overview. The remaining unmatched tiled prediction highlights the need for duplicate-aware merging when overlapping local views are used.

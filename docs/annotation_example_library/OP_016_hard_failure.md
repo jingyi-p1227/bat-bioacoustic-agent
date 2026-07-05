@@ -1,38 +1,46 @@
-# Annotation Example: OP_016 Hard Failure
+# OP_016: Dense Short-Call and Proposal-Timing Stress Case
 
-## clip_id
+## Why It Matters
 
-`OP_016`
+`OP_016` is the clearest compact example of why tool-augmented annotation needs provenance and validation. A fixed VLM misses the sequence, BatDetect2 supplies accurate candidate timing, unconstrained refinement damages that timing, and deterministic preservation recovers it.
 
-## case_type
+## Ground-Truth Pattern
 
-`dense_boundary_stress`, `hard_failure`
+- Seven events in a one-second clip.
+- Five short interior calls plus one left-truncated and one right-truncated event.
+- The interior GT calls are approximately 7-10 ms long.
 
-## why_this_example_matters
+## Model and Tool Behaviour
 
-This clip combines seven events with both left- and right-truncated calls. It is the strongest compact stress case for testing dense-event recall, boundary handling, and local box quality.
+| Method | TP | FP | FN | F1 |
+|---|---:|---:|---:|---:|
+| Fixed qwen3.6 + grid_v2 | 0 | 7 | 7 | 0.000 |
+| 0.5 s tiled qwen3.6 | 2 | 7 | 5 | 0.250 |
+| 0.25 s tiled qwen3.6 | 1 | 6 | 6 | 0.143 |
+| BatDetect2 proposal-only | 6 | 0 | 1 | 0.923 |
+| Metadata-assisted qwen3.6 | 1 | 5 | 6 | 0.154 |
+| P6E.2 proposal preservation | 6 | 0 | 1 | 0.923 |
+| P6E.4 Policy B | 6 | 0 | 1 | 0.923 |
 
-## relevant_figures
+The unconstrained VLM shifted five good detector proposals and broke their temporal matches. Preservation restores all six detector-supported events. The left-boundary event remains missing because neither the detector nor VLM proposed it.
 
-- GT reference: `outputs/evaluation_sets/ozimops_petersi_v1/figures/OP_016_gt_overlay.png`
-- Fixed qwen3.6 grid_v2: `outputs/agent_runs/prompt_v2_full_qwen3_6_grid_v2/evaluation/diagnostic_figures/OP_016_diagnostic_overlay.png`
-- Representative adaptive zoom: `outputs/agent_runs/prompt_v2_adaptive_zoom_qwen3_6_representative6/evaluation/diagnostic_figures/OP_016_diagnostic_overlay.png`
-- P5E gated adaptive: `outputs/agent_runs/prompt_v2_gated_adaptive_zoom_qwen3_6_full/evaluation/diagnostic_figures/OP_016_diagnostic_overlay.png`
-- P5F gated overview-only: `outputs/agent_runs/prompt_v2_gated_overview_only_qwen3_6_full/evaluation/diagnostic_figures/OP_016_diagnostic_overlay.png`
+## Main Failure Mode
 
-## model_behaviour
+`harmful_proposal_refinement`, with a separate `boundary_miss`. The difficult part is not only visual detection; it is preventing a language model from replacing a precise detector prior with plausible but displaced geometry.
 
-This was the only clip that requested zoom in the full P5E/P5F planning runs. Under P5E it remained unresolved with `TP=0`, `FP=2`, and `FN=7`. Zoom reduced false positives relative to the overview-only control, but did not recover true events.
+## System Design Lesson
 
-## prompt_lesson
+Detector proposals should remain immutable references with explicit provenance. Refinements need deviation checks, while missing boundary events require a separate proposal-generation or review mechanism. Smaller tiles alone do not solve this case.
 
-Additional instructions alone may not solve cases where the visual representation does not expose separable evidence. The model should still avoid producing unsupported boxes and should mark uncertainty explicitly.
+## Useful Figures
 
-## tool_lesson
+- [GT overlay](../../outputs/evaluation_sets/ozimops_petersi_v1/figures/OP_016_gt_overlay.png)
+- [Fixed grid_v2](../../outputs/agent_runs/prompt_v2_full_qwen3_6_grid_v2/evaluation/diagnostic_figures/OP_016_diagnostic_overlay.png)
+- [0.5 s tiled](../../outputs/agent_runs/p6_tiled_qwen3_6_tile_0p5_overlap_0p1/diagnostic_figures/OP_016_diagnostic_overlay.png)
+- [Proposal-only](../../outputs/agent_runs/p6_batdetect2_proposal_only_representative6/diagnostic_figures/OP_016_diagnostic_overlay.png)
+- [Unconstrained metadata-assisted](../../outputs/agent_runs/p6_batdetect2_metadata_assisted_qwen3_6_representative6/diagnostic_figures/OP_016_diagnostic_overlay.png)
+- [Policy B](../../outputs/agent_runs/p6_timing_rule_ablation_representative6/policy_b_anchored_expansion/diagnostic_figures/OP_016_diagnostic_overlay.png)
 
-This is the primary P6 stress test for PCEN-like enhancement, denoising or band-pass processing, and 0.5 s or 0.25 s tiles. Any apparent improvement must be checked for duplicate tile predictions and coordinate-remapping errors.
+## Dissertation-Ready Interpretation
 
-## notes_for_report
-
-Use to show the limit of the current workflow. It prevents the report from overstating the value of zoom and provides a concrete motivation for preprocessing ablations.
-
+> OP_016 demonstrates that external detector timing can be substantially more reliable than unconstrained VLM geometry for dense, millisecond-scale calls. BatDetect2 recovered six of seven events with no false positives, whereas free-form VLM refinement displaced five correct proposals. Deterministic preservation restored detector performance, but the unresolved left-boundary event shows that validation cannot recover candidates absent from both tools.
