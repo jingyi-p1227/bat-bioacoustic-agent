@@ -62,10 +62,13 @@ def test_annotation_memory_records_validate() -> None:
     assert all(record.evidence_paths for record in records)
 
 
-def test_verified_evidence_store_contains_no_unverified_records() -> None:
+def test_verified_evidence_store_contains_only_verified_records() -> None:
     records = load_jsonl_records(EVIDENCE_PATH, RetrievedLiteratureEvidence)
 
-    assert records == []
+    assert 4 <= len(records) <= 8
+    assert len({record.evidence_id for record in records}) == len(records)
+    assert all(record.provenance.get("verified_url") for record in records)
+    assert all(record.provenance.get("verified_on") for record in records)
     assert "TODO" not in EVIDENCE_PATH.read_text(encoding="utf-8")
 
     valid = RetrievedLiteratureEvidence.model_validate(

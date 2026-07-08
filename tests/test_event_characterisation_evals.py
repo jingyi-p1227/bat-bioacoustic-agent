@@ -272,6 +272,12 @@ def test_unsupported_behaviour_and_exploratory_review_rules() -> None:
     assert UnsupportedBehaviourClaimEvaluator().evaluate(ctx) is False
 
     output.interpreted_events[0].confirmed_interpretations = []
+    output.sequence_interpretation.confirmed_interpretations = [
+        "The sequence contains directly annotated echolocation events."
+    ]
+    assert UnsupportedBehaviourClaimEvaluator().evaluate(ctx) is True
+
+    output.sequence_interpretation.confirmed_interpretations = []
     output.exploratory_hypotheses = [
         ExploratoryHypothesis(
             hypothesis_id="hypothesis-1",

@@ -9,6 +9,7 @@ separate from these ground-truth evaluators.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -18,6 +19,7 @@ from pydantic_evals.evaluators import Evaluator, EvaluatorContext
 
 from event_characterisation_models import (
     EventCharacterisationExpected,
+    EventCharacterisationInput,
     GroundedEventInterpretation,
     RetrievedAnnotationCase,
     RetrievedLiteratureEvidence,
@@ -202,6 +204,37 @@ class BoundaryStatusEvaluator(Evaluator):
         )
 
 
+class EventOverlapEvaluator(Evaluator):
+    def evaluate(self, ctx: EvaluatorContext) -> bool:
+        maps = _event_maps(ctx)
+        if maps is None:
+            return False
+        output_events, expected_events = maps
+        return set(output_events) == set(expected_events) and all(
+            output_events[event_id].event_overlap == expected.event_overlap
+            for event_id, expected in expected_events.items()
+        )
+
+
+class SequenceFeatureEvaluator(Evaluator):
+    def evaluate(self, ctx: EvaluatorContext) -> bool:
+        output = _output(ctx.output)
+        expected = _expected(ctx.expected_output)
+        if output is None or expected is None:
+            return False
+        actual = output.sequence_interpretation
+        target = expected.sequence
+        return (
+            actual.event_count == target.event_count
+            and actual.event_density_category == target.event_density_category
+            and abs(
+                actual.event_density_events_per_second
+                - target.event_density_events_per_second
+            )
+            <= 1e-9
+        )
+
+
 @dataclass
 class AnnotationCaseIdExistsEvaluator(Evaluator):
     memory_path: Path = DEFAULT_ANNOTATION_MEMORY
@@ -233,6 +266,39 @@ class LiteratureEvidenceIdExistsEvaluator(Evaluator):
         )
 
 
+class TargetCaseRetrievalExclusionEvaluator(Evaluator):
+    def evaluate(self, ctx: EvaluatorContext) -> bool:
+        output = _output(ctx.output)
+        if output is None:
+            return False
+        try:
+            inputs = EventCharacterisationInput.model_validate(ctx.inputs)
+        except (ValidationError, TypeError, ValueError):
+            return False
+        return all(
+            record.case_id != inputs.clip_id
+            for record in output.retrieved_annotation_cases
+        )
+
+
+class ConditionIsolationEvaluator(Evaluator):
+    """Ensure disabled stores cannot appear in the runtime output."""
+
+    def evaluate(self, ctx: EvaluatorContext) -> bool:
+        output = _output(ctx.output)
+        if output is None:
+            return False
+        try:
+            inputs = EventCharacterisationInput.model_validate(ctx.inputs)
+        except (ValidationError, TypeError, ValueError):
+            return False
+        if not inputs.annotation_memory_enabled and output.retrieved_annotation_cases:
+            return False
+        if not inputs.literature_evidence_enabled and output.retrieved_literature_evidence:
+            return False
+        return True
+
+
 class UnsupportedBehaviourClaimEvaluator(Evaluator):
     """Reject confirmed behaviour-like claims outside exploratory hypotheses."""
 
@@ -248,7 +314,10 @@ class UnsupportedBehaviourClaimEvaluator(Evaluator):
         confirmed_text.extend(output.sequence_interpretation.confirmed_interpretations)
         confirmed_text.extend(output.unsupported_claims)
         lowered = "\n".join(confirmed_text).lower()
-        return not any(term in lowered for term in BEHAVIOUR_TERMS)
+        return not any(
+            re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", lowered)
+            for term in BEHAVIOUR_TERMS
+        )
 
 
 class ScientificNameGroundingEvaluator(Evaluator):
@@ -296,8 +365,12 @@ DETERMINISTIC_EVALUATORS: tuple[type[Evaluator], ...] = (
     EventOrderEvaluator,
     InterEventIntervalEvaluator,
     BoundaryStatusEvaluator,
+    EventOverlapEvaluator,
+    SequenceFeatureEvaluator,
     AnnotationCaseIdExistsEvaluator,
     LiteratureEvidenceIdExistsEvaluator,
+    TargetCaseRetrievalExclusionEvaluator,
+    ConditionIsolationEvaluator,
     UnsupportedBehaviourClaimEvaluator,
     ScientificNameGroundingEvaluator,
     HumanReviewRuleEvaluator,

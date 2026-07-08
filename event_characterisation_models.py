@@ -26,6 +26,23 @@ TruncationBasis = Literal[
     "explicit_metadata", "source_time_comparison", "unknown"
 ]
 DensityCategory = Literal["zero", "low", "medium", "high"]
+RiskFlag = Literal[
+    "dense_short_call_sequence",
+    "boundary_truncation",
+    "detector_under_extension",
+    "harmful_rigid_shift",
+    "useful_anchored_expansion",
+    "unnecessary_tool_use",
+    "uncertain_tool_conflict",
+]
+RecommendedStrategy = Literal[
+    "use_fixed_overview",
+    "use_tiled_view",
+    "prefer_detector_geometry",
+    "allow_anchored_expansion",
+    "preserve_current_geometry",
+    "request_human_review",
+]
 
 
 class EventBox(BaseModel):
@@ -227,6 +244,17 @@ class SequenceInterpretation(BaseModel):
     confirmed_interpretations: list[str] = Field(default_factory=list)
 
 
+class GroundedLimitation(BaseModel):
+    """A narrow limitation explicitly supported by retrieved evidence."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    limitation_id: str
+    statement: str = Field(min_length=1)
+    evidence_ids: list[str] = Field(min_length=1)
+    scope: str = Field(min_length=1)
+
+
 class GroundedEventInterpretation(BaseModel):
     """Eval-compatible output with exploratory claims strictly isolated."""
 
@@ -245,6 +273,10 @@ class GroundedEventInterpretation(BaseModel):
         default_factory=list
     )
     unsupported_claims: list[str] = Field(default_factory=list)
+    risk_flags: list[RiskFlag] = Field(default_factory=list)
+    recommended_strategy: RecommendedStrategy = "preserve_current_geometry"
+    grounded_limitations: list[GroundedLimitation] = Field(default_factory=list)
+    reasoning_confidence: float = Field(default=1.0, ge=0.0, le=1.0)
     confidence: float = Field(ge=0.0, le=1.0)
     human_review_needed: bool
     review_reason: str
