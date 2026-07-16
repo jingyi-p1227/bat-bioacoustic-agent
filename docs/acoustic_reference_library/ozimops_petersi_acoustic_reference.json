@@ -1,0 +1,47 @@
+{
+  "species": "Ozimops petersi",
+  "reference_id": "ozimops_petersi_acoustic_reference_p9",
+  "status": "blocked_insufficient_non_evaluation_data",
+  "usable_for_inference": false,
+  "construction_date": "2026-07-16",
+  "intended_experiment": "P9 geometry-informed acoustic reference for bounding-box annotation",
+  "data_sources_inspected": [
+    {
+      "path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia/annotations.json",
+      "role": "original AOEF annotation file"
+    },
+    {
+      "path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia/study/split.json",
+      "role": "BatDetect2 Australia train/test recording split"
+    },
+    {
+      "path": "docs/literature_reference_library/verified_evidence_store.jsonl",
+      "role": "verified local literature evidence store"
+    },
+    {
+      "path": "docs/annotation_example_library/annotation_memory.jsonl",
+      "role": "project annotation case memory; not allowed for acoustic reference construction"
+    }
+  ],
+  "excluded_sources": [
+    "outputs/evaluation_sets/ozimops_petersi_v1/",
+    "ground-truth boxes from OP_001 to OP_045",
+    "diagnostic overlays",
+    "previous model predictions",
+    "project case cards derived from frozen evaluation outputs"
+  ],
+  "counts": {
+    "australia_recordings": 274,
+    "australia_sound_events": 5723,
+    "ozimops_petersi_recordings": 10,
+    "ozimops_petersi_unique_source_events": 191,
+    "ozimops_petersi_non_evaluation_recordings": 0,
+    "ozimops_petersi_non_evaluation_events": 0,
+    "evaluation_set_clips": 45,
+    "evaluation_set_unique_source_recordings": 10,
+    "evaluation_set_clip_event_instances": 198
+  },
+  "blocked_reason": "All locally available Ozimops petersi source annotations are from pseudo_petersi_001.wav through pseudo_petersi_010.wav, which are exactly the source recordings used to construct the frozen 45-clip evaluation set. Using those boxes to derive acoustic duration or frequency reference values would leak evaluation ground truth into P9.",
+  "reference_statistics": null,
+  "safe_next_step": "Provide independent non-evaluation Ozimops petersi annotations or a verified species-specific acoustic reference source before running P9 model conditions."
+}
