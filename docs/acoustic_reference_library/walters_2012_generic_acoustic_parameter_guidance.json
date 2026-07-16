@@ -1,0 +1,83 @@
+{
+  "guidance_id": "walters_2012_generic_acoustic_parameter_guidance",
+  "status": "usable_for_generic_guidance",
+  "not_species_specific": true,
+  "not_op_prior": true,
+  "no_numeric_species_ranges": true,
+  "no_european_numeric_transfer": true,
+  "intended_use": "generic acoustic-parameter checklist for bounding-box annotation",
+  "source_metadata": {
+    "title": "A continental-scale tool for acoustic identification of European bats",
+    "authors": "Walters et al.",
+    "year": 2012,
+    "journal": "Journal of Applied Ecology",
+    "doi": "10.1111/j.1365-2664.2012.02182.x",
+    "scope_note": "European bat acoustic identification; not an Ozimops petersi source"
+  },
+  "generic_dimensions": [
+    {
+      "name": "onset",
+      "bbox_field": "start_time",
+      "walters_related_parameter": "event onset",
+      "instruction": "Place the start of the box where a coherent time-frequency ridge begins."
+    },
+    {
+      "name": "offset",
+      "bbox_field": "end_time",
+      "walters_related_parameter": "event offset",
+      "instruction": "Place the end of the box where the coherent ridge disappears."
+    },
+    {
+      "name": "duration",
+      "bbox_field": "end_time - start_time",
+      "walters_related_parameter": "Dur",
+      "instruction": "Use duration as a consistency check for visible call span, but do not force any expected duration."
+    },
+    {
+      "name": "low-frequency bound",
+      "bbox_field": "low_frequency",
+      "walters_related_parameter": "FMin",
+      "instruction": "Set the lower frequency bound to the lowest visible extent of the coherent call ridge, not to background noise."
+    },
+    {
+      "name": "high-frequency bound",
+      "bbox_field": "high_frequency",
+      "walters_related_parameter": "FMax",
+      "instruction": "Set the upper frequency bound to the highest visible extent of the coherent call ridge, avoiding isolated noise pixels."
+    },
+    {
+      "name": "bandwidth",
+      "bbox_field": "high_frequency - low_frequency",
+      "walters_related_parameter": "BW",
+      "instruction": "Use bandwidth as a sanity check for whether the frequency extent captures the signal without excessive empty space."
+    },
+    {
+      "name": "centre or peak frequency",
+      "bbox_field": "visual check only",
+      "walters_related_parameter": "FCtr, FC, FPeak",
+      "instruction": "Use the strongest or most characteristic energy region to check whether the box is centred on the call rather than noise."
+    },
+    {
+      "name": "frequency-time ridge shape",
+      "bbox_field": "all box coordinates",
+      "walters_related_parameter": "StartS, SteepS, FMaxFKnS, FLg, FKn",
+      "instruction": "Inspect whether the call ridge is steep, shallow, curved, quasi-constant-frequency or frequency-modulated."
+    },
+    {
+      "name": "signal quality and artefact rejection",
+      "bbox_field": "all box coordinates",
+      "walters_related_parameter": "signal quality",
+      "instruction": "Avoid including background noise, echo, overloaded regions, isolated artefacts or unrelated spectrogram energy."
+    }
+  ],
+  "warnings": [
+    "This is generic acoustic-parameter guidance, not an Ozimops petersi prior.",
+    "It provides no expected OP duration, frequency range, bandwidth or shape.",
+    "It provides no European species-specific numeric ranges.",
+    "The spectrogram is the primary evidence.",
+    "BatDetect2 proposals are candidate regions, not ground truth.",
+    "Visible evidence should override this checklist.",
+    "Do not force every event to match any expected duration, bandwidth or shape.",
+    "Do not transfer European bat numeric values to Ozimops petersi."
+  ]
+}

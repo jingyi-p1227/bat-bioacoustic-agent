@@ -104,3 +104,19 @@ experiments:
     config: configs/experiments/p8b_full45_pcen_confirmatory.yaml
     output_dir: outputs/agent_runs/p8b_pcen_qwen3_6_full45
     included_in_dissertation: true
+
+  p9_light_walters_acoustic_parameter_guidance:
+    phase: P9
+    status: completed
+    task: generic_acoustic_parameter_guidance
+    model: qwen3.6:latest
+    subset: representative_6_plus_heldout_10
+    conditions:
+      - proposal_only
+      - agent_proposals_only
+      - agent_methodological_literature
+      - agent_walters_guidance
+    config: configs/experiments/p9_light_walters_acoustic_parameter_guidance.yaml
+    output_dir: outputs/agent_runs/p9_light_walters_acoustic_parameter_guidance
+    analysis_dir: outputs/analysis_reports/p9_light_walters_acoustic_parameter_guidance
+    included_in_dissertation: true

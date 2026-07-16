@@ -1,0 +1,39 @@
+experiment_id: p9_light_walters_acoustic_parameter_guidance
+title: P9-light Walters-style generic acoustic-parameter guidance
+status: planned
+model: qwen3.6:latest
+ollama_host: http://127.0.0.1:11436
+target_clips:
+  representative_six:
+    - OP_001
+    - OP_003
+    - OP_004
+    - OP_010
+    - OP_016
+    - OP_045
+  heldout_ten:
+    - OP_009
+    - OP_015
+    - OP_018
+    - OP_020
+    - OP_025
+    - OP_027
+    - OP_032
+    - OP_036
+    - OP_041
+    - OP_042
+conditions:
+  required:
+    - proposal_only
+    - agent_proposals_only
+    - agent_methodological_literature
+    - agent_walters_guidance
+  optional:
+    - agent_annotation_memory_walters
+outputs:
+  run_dir: outputs/agent_runs/p9_light_walters_acoustic_parameter_guidance/
+  analysis_dir: outputs/analysis_reports/p9_light_walters_acoustic_parameter_guidance/
+safety:
+  not_op_specific_prior: true
+  no_species_specific_numeric_ranges: true
+  previous_p9_blocker_respected: true
