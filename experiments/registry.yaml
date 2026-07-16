@@ -1,0 +1,106 @@
+experiments:
+  p5_qwen_grid_v2_full:
+    phase: P5
+    status: frozen
+    task: event_localisation
+    model: qwen3.6:latest
+    subset: full_45
+    output_dir: outputs/agent_runs/prompt_v2_full_qwen3_6_grid_v2
+    included_in_dissertation: true
+
+  p5_gated_adaptive_full:
+    phase: P5
+    status: frozen
+    task: conditional_visual_tool_use
+    model: qwen3.6:latest
+    subset: full_45
+    output_dir: outputs/agent_runs/prompt_v2_gated_adaptive_zoom_qwen3_6_full
+    included_in_dissertation: true
+
+  p6_batdetect2_proposal_only:
+    phase: P6
+    status: frozen
+    task: proposal_assisted_localisation
+    model: batdetect2
+    subset: representative_6
+    output_dir: outputs/agent_runs/p6_batdetect2_proposal_only_representative6
+    included_in_dissertation: true
+
+  p6_metadata_assisted_qwen:
+    phase: P6
+    status: frozen
+    task: proposal_refinement
+    model: qwen3.6:latest
+    subset: representative_6
+    output_dir: outputs/agent_runs/p6_batdetect2_metadata_assisted_qwen3_6_representative6
+    included_in_dissertation: true
+
+  p6_validator_heldout:
+    phase: P6
+    status: frozen
+    task: deterministic_validation
+    model: qwen3.6:latest
+    subset: heldout_10
+    output_dir: outputs/agent_runs
+    included_in_dissertation: true
+
+  p7b1_knowledge_reasoning:
+    phase: P7
+    status: frozen
+    task: knowledge_grounded_reasoning
+    model: qwen3.6:latest
+    subset: diagnostic_8
+    conditions:
+      - baseline
+      - annotation_memory_only
+      - literature_only
+      - combined
+    output_dir: outputs/agent_runs/p7b1_knowledge_grounded_reasoning
+    included_in_dissertation: true
+
+  p7c_library_bbox:
+    phase: P7
+    status: frozen
+    task: knowledge_assisted_localisation
+    model: qwen3.6:latest
+    subset: diagnostic_8
+    conditions:
+      - baseline
+      - annotation_memory_only
+      - literature_only
+      - combined
+    output_dir: outputs/agent_runs/p7c_library_assisted_bbox_ablation
+    included_in_dissertation: true
+
+  p7c_oracle_sensitivity:
+    phase: P7
+    status: frozen
+    task: oracle_retrieval_diagnostic
+    model: qwen3.6:latest
+    subset:
+      - OP_032
+      - OP_045
+    output_dir: outputs/agent_runs/p7c_oracle_retrieval_sensitivity
+    included_in_dissertation: supplementary
+
+  p8a_multi_protocol_detection:
+    phase: P8
+    status: completed
+    task: multi_protocol_detection_sensitivity
+    model: frozen_outputs
+    subset:
+      - full_45
+      - representative_6
+      - heldout_10
+    output_dir: outputs/analysis_reports/p8a_multi_protocol_detection
+    included_in_dissertation: true
+
+  p8b_full45_pcen_confirmatory:
+    phase: P8
+    status: completed
+    task: full45_pcen_confirmatory
+    model: qwen3.6:latest
+    subset: full_45
+    config: configs/experiments/p8b_full45_pcen_confirmatory.yaml
+    output_dir: outputs/agent_runs/p8b_pcen_qwen3_6_full45
+    included_in_dissertation: true

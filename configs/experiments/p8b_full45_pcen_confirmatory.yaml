@@ -1,0 +1,32 @@
+experiment_id: p8b_full45_pcen_confirmatory
+description: Frozen full-45 PCEN confirmatory run for qwen3.6 Prompt V2 strong labelling.
+model_name: qwen3.6:latest
+required_ollama_host: http://127.0.0.1:11436
+prompt_path: prompts/prompt_v2_bat_strong_label.md
+eval_dir: outputs/evaluation_sets/ozimops_petersi_v1
+baseline_grid_v2_input_dir: outputs/agent_inputs/prompt_v2_full_grid_v2
+pcen_input_dir: outputs/agent_inputs/p8b_pcen_full45
+run_dir: outputs/agent_runs/p8b_pcen_qwen3_6_full45
+image_suffix: _pcen_grid_v2.png
+backend: ollama_generate
+temperature: 0
+num_predict: 8000
+timeout_seconds: 600
+technical_retry_count: 1
+matching_protocols:
+  - temporal_iou_0.1
+  - temporal_iou_0.3
+  - start_time_proximity_10ms
+pcen_parameters:
+  alpha: 0.98
+  delta: 2.0
+  root: 0.5
+  epsilon: 0.000001
+  time_constant_seconds: 0.4
+  initial_smoother: frequency_median
+  display_lower_percentile: 1.0
+  display_upper_percentile: 99.5
+notes:
+  - Reuses the P6B.1 PCEN parameterisation without tuning.
+  - Clean inputs are generated from WAV only; GT diagnostic sheets are not model inputs.
+  - Do not substitute models if qwen3.6:latest is unavailable.
