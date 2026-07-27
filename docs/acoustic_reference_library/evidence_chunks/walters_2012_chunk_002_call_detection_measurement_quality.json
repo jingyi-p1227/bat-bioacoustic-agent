@@ -1,0 +1,21 @@
+{
+  "evidence_id": "walters_2012_chunk_002_call_detection_measurement_quality",
+  "source_pdf": "walters_2012.pdf",
+  "source_full_text": "../full_text/walters_2012_full_text.txt",
+  "source_title": "A continental-scale tool for acoustic identification of European bats",
+  "authors": "Charlotte L. Walters et al.",
+  "year": 2012,
+  "doi": "10.1111/j.1365-2664.2012.02182.x",
+  "page_number": "3",
+  "chunk_text": "The paper describes an automated measurement workflow that finds calls using amplitude thresholding and smooth frequency changes through time, then fits a frequency-time trend line to the call shape. Calls whose fitted line included background noise or echo were visually rejected. For this project, this supports a generic checklist: annotate coherent frequency-time ridges, avoid noise and echoes, and treat measurement quality as part of localisation.",
+  "detected_acoustic_concepts": [
+    "onset",
+    "offset",
+    "frequency-time ridge",
+    "call shape",
+    "signal quality",
+    "noise rejection",
+    "echo rejection"
+  ],
+  "caution_note": "This is generic acoustic-parameter guidance from European bat identification literature. It should not be treated as an Ozimops petersi species prior."
+}

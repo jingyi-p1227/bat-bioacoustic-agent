@@ -1,0 +1,19 @@
+{
+  "evidence_id": "walters_2012_chunk_001_reference_library_and_standardisation",
+  "source_pdf": "walters_2012.pdf",
+  "source_full_text": "../full_text/walters_2012_full_text.txt",
+  "source_title": "A continental-scale tool for acoustic identification of European bats",
+  "authors": "Charlotte L. Walters et al.",
+  "year": 2012,
+  "doi": "10.1111/j.1365-2664.2012.02182.x",
+  "page_number": "1-3",
+  "chunk_text": "Walters et al. frame acoustic bat identification as a need for objective, standardised, and repeatable methods. Their iBatsID workflow is built from a reference call library and is intended to make large-scale acoustic identification more consistent. For this project, the transferable lesson is not a species prior, but the need to ground annotation decisions in visible acoustic parameters and traceable reference evidence.",
+  "detected_acoustic_concepts": [
+    "reference call library",
+    "standardised identification",
+    "objective acoustic parameters",
+    "uncertainty",
+    "call-type hierarchy"
+  ],
+  "caution_note": "This is generic acoustic-parameter guidance from European bat identification literature. It should not be treated as an Ozimops petersi species prior."
+}
