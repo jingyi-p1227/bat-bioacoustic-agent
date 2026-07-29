@@ -1,0 +1,4 @@
+task,sample_rows,api_call_count,prompt_tokens,completion_tokens,total_tokens,estimated_cost_usd,mean_latency_seconds
+full45_localisation,45,45,102053,30958,133011,1.439005,17.93275973797362
+full240_classification,240,235,233453,66674,300127,3.167485,9.245155416863
+combined,285,280,335506,97632,433138,4.60649,

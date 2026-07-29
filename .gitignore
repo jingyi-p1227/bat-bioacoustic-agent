@@ -9,3 +9,5 @@ results/
 *.wav
 *.mp3
 docs/acoustic_reference_library/raw_sources/*.pdf
+docs/acoustic_reference_library/raw_sources/*.pdf
+.env

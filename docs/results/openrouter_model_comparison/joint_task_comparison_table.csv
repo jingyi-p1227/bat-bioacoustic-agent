@@ -1,0 +1,3 @@
+condition,scope,joint_correct,joint_precision,joint_recall,joint_F1
+qwen3.6 Stage 2C selected-proposal classification,full240,23,0.09787234042553192,0.09583333333333334,0.0968421052631579
+OpenRouter gpt-5.6-sol Stage 2C selected-proposal classification,full240,126,0.5361702127659574,0.525,0.5305263157894737

@@ -1,0 +1,4 @@
+condition,scope,accuracy,macro_F1,balanced_accuracy,matched_species_accuracy
+qwen3.6 Stage 1C GT-box species-guided,full240,0.192,0.105,0.192,
+qwen3.6 Stage 2C selected-proposal classification,full240,,0.03232574679943101,0.0962962962962963,0.10900473933649289
+OpenRouter gpt-5.6-sol Stage 2C selected-proposal classification,full240,,0.5721860768475641,0.6105209147562971,0.5971563981042654

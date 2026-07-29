@@ -227,3 +227,17 @@ Current checkpoint: V1 pipeline stable.
   - classifier-evidence agent
   - annotation adjudication agent
   - human-review triage agent
+
+## Repository map
+
+- `annotations/`, `audio/`, `ground_truth/`: source and evaluation data
+- `prompts/`: versioned agent prompts
+- `docs/`: protocols, audits, knowledge notes and dissertation drafts
+- `outputs/`: generated inputs, predictions, evaluations and reports
+- `experiments/registry.yaml`: experiment registry and freeze status
+- `src/toy_audio_agent/`: reusable package code for new development
+- `scripts/`: new experiment and analysis entry points
+- `tests/`: unit and integration tests
+
+Legacy root-level experiment scripts are retained to preserve reproducibility
+of frozen experiments.
