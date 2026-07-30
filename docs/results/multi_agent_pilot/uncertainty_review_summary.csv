@@ -1,0 +1,13 @@
+model,subset,count,correct,accuracy
+qwen3.6 multi-agent,all,24,1,0.041666666666666664
+qwen3.6 multi-agent,review_status=accepted,24,1,0.041666666666666664
+qwen3.6 multi-agent,review_status=uncertain,0,0,
+qwen3.6 multi-agent,human_review_recommended=true,0,0,
+qwen3.6 multi-agent,human_review_recommended=false,24,1,0.041666666666666664
+qwen3.6 multi-agent,blank_or_parse_failed_review_status,0,0,
+GPT-5.6 Sol multi-agent,all,24,13,0.5416666666666666
+GPT-5.6 Sol multi-agent,review_status=accepted,17,11,0.6470588235294118
+GPT-5.6 Sol multi-agent,review_status=uncertain,5,2,0.4
+GPT-5.6 Sol multi-agent,human_review_recommended=true,7,3,0.42857142857142855
+GPT-5.6 Sol multi-agent,human_review_recommended=false,15,10,0.6666666666666666
+GPT-5.6 Sol multi-agent,blank_or_parse_failed_review_status,2,0,0.0

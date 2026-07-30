@@ -1,0 +1,14 @@
+metric,value
+condition,qwen3_6_stage2c_pilot24
+model,qwen3.6:latest
+sample_count,24
+agent1_parse_success,24
+agent2_parse_success,24
+agent3_parse_success,24
+accuracy,0.041666666666666664
+macro_F1,0.013888888888888888
+balanced_accuracy,0.041666666666666664
+qwen_single_agent_same_sample_accuracy,0.0
+gpt_single_agent_same_sample_accuracy,0.5416666666666666
+revised_cases,1
+uncertain_or_human_review_cases,0
