@@ -4,6 +4,10 @@ __pycache__/
 .DS_Store
 outputs/
 results/
+!docs/results/
+!docs/results/**/
+!docs/results/**/*.md
+!docs/results/**/*.csv
 *.png
 *.jpg
 *.wav
@@ -11,3 +15,4 @@ results/
 docs/acoustic_reference_library/raw_sources/*.pdf
 docs/acoustic_reference_library/raw_sources/*.pdf
 .env
+*.egg-info/

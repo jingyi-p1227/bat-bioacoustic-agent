@@ -1,0 +1,9 @@
+condition,method,iou_0_3_TP,iou_0_3_FP,iou_0_3_FN,iou_0_3_precision,iou_0_3_recall,iou_0_3_F1,iou_0_1_F1,start_10ms_F1,mean_time_iou,mean_frequency_iou,mean_2d_box_iou,parse_success,invalid_bbox_count
+grid_v2 baseline,fixed_grid_v2,134,113,64,0.543,0.677,0.602,0.701,0.333,0.581,0.526,0.332,45,0
+PCEN + grid_v2,pcen_grid_v2,128,148,70,0.464,0.646,0.540,0.692,0.426,0.554,0.463,0.271,45,0
+0.5s tiled,0.5s_tiled,146,196,52,0.427,0.737,0.541,0.626,0.556,0.628,0.512,0.336,45,0
+BatDetect2 proposal-only,batdetect2_proposal_only,145,62,53,0.700,0.732,0.716,0.884,0.884,0.458,0.576,0.283,45,0
+previous proposal-constrained VLM,batdetect2_proposal_constrained_vlm,157,45,41,0.777,0.793,0.785,0.890,0.830,0.461,0.607,0.292,45,0
+Walters acoustic,acoustic_library,121,125,77,0.492,0.611,0.545,0.707,0.338,0.601,0.540,0.345,45,0
+annotation exemplars,annotation_example_library,122,129,76,0.486,0.616,0.543,0.704,0.334,0.588,0.544,0.345,45,0
+P14 conservative best-stack,best_stack_proposal_conservative,144,50,54,0.742,0.727,0.735,0.929,0.913,0.460,0.601,0.296,45,0

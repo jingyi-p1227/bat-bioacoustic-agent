@@ -1,0 +1,10 @@
+experiment_stage,condition,scope,input_or_workflow,samples,primary_classification_accuracy,primary_classification_macro_F1,coarse_macro_F1,iou_0p3_F1,start_time_10ms_F1,matched_species_accuracy,joint_F1,key_result
+Stage 1,stage1a_gt_centred_no_box_zero_shot,full240,GT-centred crop no box,240,0.129,0.051,0.081,,,,,"Zero-shot no-box species classification was weak."
+Stage 1,stage1b_gt_box_marker_zero_shot,full240,GT-box marker,240,0.138,0.074,0.104,,,,,"Neutral box marker produced only a small gain."
+Stage 1,stage1c_gt_box_marker_species_guidance,full240,GT-box marker plus compact guidance,240,0.192,0.105,0.179,,,,,"Guidance modestly improved classification but label collapse remained."
+Stage 2,batdetect2_proposal_only,full240,Raw sample-level BatDetect2 proposals,240,,,,0.292,0.310,,,"High recall but too many false positives."
+Stage 2,nearest_to_centre_selection,pilot80,No-inference central proposal selection,80,,,,0.879,0.955,,,"Strong localisation in target-centred windows."
+Stage 2,nearest_to_centre_selection,full240,No-inference central proposal selection,240,,,,0.888,0.935,,,"Full240 localisation remained strong."
+Stage 2,stage2b_true_proposal_constrained_vlm,pilot80,VLM filters/refines all BatDetect2 proposals,80,,,,0.232,0.265,0.233,0.054,"VLM proposal handling degraded localisation through false positives."
+Stage 2,stage2c_nearest_centre_proposal_classification,pilot80,Preserve nearest-centre proposal and classify,80,,,,0.879,0.955,0.159,0.140,"Localisation fixed; species classification still weak."
+Stage 2,stage2c_nearest_centre_proposal_classification,full240,Preserve nearest-centre proposal and classify,240,,,,0.888,0.935,0.109,0.097,"Final decomposition result: strong localisation, weak species labelling."

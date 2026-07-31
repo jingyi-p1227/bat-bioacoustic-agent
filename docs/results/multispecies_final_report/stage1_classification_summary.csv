@@ -1,0 +1,4 @@
+condition,input_condition,guidance,samples,parse_success,parse_success_rate,invalid_label_count,accuracy,macro_F1,balanced_accuracy,coarse_accuracy,coarse_macro_F1,coarse_balanced_accuracy,notes
+stage1a_gt_centred_no_box_zero_shot,GT-centred crop no box,zero-shot,240,240,1.000,0,0.129,0.051,0.129,0.129,0.081,0.207,"Target event centred; no box marker or species guidance."
+stage1b_gt_box_marker_zero_shot,GT-box marker,zero-shot,240,240,1.000,0,0.138,0.074,0.138,0.142,0.104,0.210,"Neutral GT box marker slightly improved zero-shot classification."
+stage1c_gt_box_marker_species_guidance,GT-box marker,compact species/acoustic guidance,240,240,1.000,0,0.192,0.105,0.192,0.242,0.179,0.292,"Compact guidance improved performance but did not solve label collapse."
