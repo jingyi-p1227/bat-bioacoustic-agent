@@ -19,7 +19,7 @@ import soundfile as sf
 from main import EventResult, make_spectrogram, plot_events_on_spectrogram
 
 
-DEFAULT_MANIFEST = Path("ground_truth/pilot_subset_manifest.csv")
+DEFAULT_MANIFEST = Path("outputs/evaluation_sets/ozimops_petersi_v1/manifest.csv")
 DEFAULT_OUTPUT_DIR = Path("outputs/pilot_ground_truth")
 
 
@@ -80,13 +80,18 @@ def resolve_manifest_path(path: str | Path) -> Path:
 
 
 def resolve_ground_truth_path(manifest_path: Path, row: dict) -> Path:
-    """Resolve a manifest row's ground_truth_json path relative to the project root."""
-    ground_truth_path = Path(row["ground_truth_json"])
+    """Resolve old pilot or current evaluation-set ground-truth manifest fields."""
+    if "ground_truth_json" in row:
+        ground_truth_path = Path(row["ground_truth_json"])
+        relative_base = manifest_path.parent.parent
+    else:
+        ground_truth_path = Path(row["ground_truth_path"])
+        relative_base = manifest_path.parent
+
     if ground_truth_path.is_absolute():
         return ground_truth_path
 
-    project_root = manifest_path.parent.parent
-    return project_root / ground_truth_path
+    return relative_base / ground_truth_path
 
 
 def plot_pilot_ground_truth(
@@ -126,7 +131,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--manifest",
         default=str(DEFAULT_MANIFEST),
-        help="Path to ground_truth/pilot_subset_manifest.csv.",
+        help="Path to a manifest with ground_truth_path or ground_truth_json.",
     )
     parser.add_argument(
         "--output-dir",

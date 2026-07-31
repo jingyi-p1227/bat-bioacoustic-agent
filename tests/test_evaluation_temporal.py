@@ -22,7 +22,7 @@ def test_temporal_iou_uses_temporal_union() -> None:
 
 
 def test_pseudo_petersi_self_evaluation_temporal_mode_is_perfect() -> None:
-    path = Path("ground_truth/pseudo_petersi_001_ground_truth.json")
+    path = Path("tests/fixtures/ground_truth/pseudo_petersi_001_ground_truth.json")
 
     result = evaluate_temporal(path, path, iou_threshold=0.5)
 

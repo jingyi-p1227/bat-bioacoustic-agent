@@ -24,7 +24,6 @@ from main import ANNOTATION_DIR, OLLAMA_HOST, OUTPUT_DIR, EventResult
 
 
 DEFAULT_IMAGE_PATH = Path("outputs/grid/pseudo_petersi_001_zoom_short_event_grid.png")
-DEFAULT_GROUND_TRUTH_PATH = Path("ground_truth/pseudo_petersi_001_ground_truth.json")
 MODEL_TEST_DIR = OUTPUT_DIR / "model_tests"
 LOG_PATH = MODEL_TEST_DIR / "backend_comparison_log.csv"
 
@@ -471,7 +470,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--backend", choices=["ollama", "openai", "claude"], default="ollama")
     parser.add_argument("--model", default="qwen3-vl:latest")
     parser.add_argument("--image-path", type=Path, default=DEFAULT_IMAGE_PATH)
-    parser.add_argument("--ground-truth", type=Path, default=DEFAULT_GROUND_TRUTH_PATH)
+    parser.add_argument(
+        "--ground-truth",
+        type=Path,
+        default=None,
+        help="Optional ground-truth EventResult path to validate exists before running.",
+    )
     parser.add_argument("--timeout", type=float, default=180.0)
 
     mode_group = parser.add_mutually_exclusive_group(required=True)
