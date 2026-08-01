@@ -6,7 +6,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import analyze_proposal_deviations as analysis
+import scripts.maintenance.analyze_proposal_deviations as analysis
 
 
 def proposal(proposal_id: str = "bd2_001", start: float = 0.1) -> dict:

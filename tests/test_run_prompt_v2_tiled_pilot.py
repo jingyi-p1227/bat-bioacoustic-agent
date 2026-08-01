@@ -7,7 +7,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import run_prompt_v2_tiled_pilot as tiled
-from merge_tiled_predictions import ManifestTile
+from scripts.maintenance.merge_tiled_predictions import ManifestTile
 
 
 def make_tile(tmp_path: Path, clip_id: str = "OP_016") -> ManifestTile:

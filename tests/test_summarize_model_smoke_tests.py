@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from summarize_model_smoke_tests import (
+from scripts.diagnostics.summarize_model_smoke_tests import (
     SmokeRun,
     parse_run_specs,
     resolve_all_clip_ids,

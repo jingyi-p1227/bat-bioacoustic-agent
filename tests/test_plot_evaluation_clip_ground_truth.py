@@ -8,7 +8,7 @@ import soundfile as sf
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from plot_evaluation_clip_ground_truth import resolve_clip_paths
+from scripts.visualization.plot_evaluation_clip_ground_truth import resolve_clip_paths
 
 
 def create_eval_clip(root: Path, clip_id: str = "OP_001") -> Path:

@@ -63,14 +63,30 @@ toy-audio-agent-main/
 - `scripts/maintenance/`: repair, validation, deterministic post-processing, and repository audit utilities.
 - `scripts/legacy_root/`: root-level historical scripts that are not yet worth fully migrating but should leave the root eventually.
 
-## What To Move Now
+## First Migration Batch Completed
 
-Move nothing automatically. The safest immediate actions are Git-hygiene changes only:
+The first low-risk migration batch has moved selected utility scripts out of
+the repository root:
 
-1. Add `*.egg-info/` to `.gitignore`.
-2. Remove tracked `toy_audio_agent.egg-info/` from Git after confirming no packaging reason to keep it.
-3. Decide whether all `docs/results/` markdown/CSV summaries should be tracked, then add explicit `.gitignore` exceptions if yes.
-4. Keep root-level legacy scripts in place until import wrappers or package modules exist.
+- deterministic validators and repair helpers moved to `scripts/maintenance/`;
+- plotting, overlay and contact-sheet utilities moved to `scripts/visualization/`;
+- diagnostic comparison and smoke-test summary utilities moved to
+  `scripts/diagnostics/`.
+
+The remaining root-level scripts are still treated as legacy-active and should
+be migrated gradually.
+
+## What To Move Next
+
+The safest immediate actions after this batch are small, test-backed migrations
+only:
+
+1. Keep high-risk legacy-active runners in place until their dependencies are
+   isolated.
+2. Move data-preparation scripts only after mapping tests and frozen
+   experiment references.
+3. Consider compatibility wrappers only for scripts that are still documented as
+   root-level commands.
 
 ## What To Leave Alone Until After Dissertation
 
@@ -87,8 +103,11 @@ Move nothing automatically. The safest immediate actions are Git-hygiene changes
 2. **Documentation commit**: commit repository inventory, cleanup audit, and selected `docs/results/` summaries.
 3. **Package reusable models/evaluators**: migrate `event_characterisation_models.py`, `event_characterisation_evaluators.py`, `event_characterisation_retrieval.py`, and `extract_event_characterisation_features.py` into `src/toy_audio_agent/` with compatibility wrappers.
 4. **Move data-prep scripts**: migrate `build_*`, `convert_*`, `prepare_*`, and `split_audio_clips.py` into `scripts/data_prep/`; update tests.
-5. **Move plotting scripts**: migrate `plot_*` and spectrogram example scripts into `scripts/visualization/`; update tests/docs.
-6. **Move validation utilities**: migrate validator/post-processor scripts into `scripts/maintenance/`; update tests.
+5. **Migrate remaining low-risk diagnostics**: only after confirming no frozen
+   historical command references need compatibility wrappers.
+6. **Package reusable validation logic**: move reusable internals from
+   maintenance scripts into `src/toy_audio_agent/` when they are needed by more
+   than one active workflow.
 7. **Retire or archive legacy runners**: move old one-off root `run_*` scripts only after dissertation results are frozen and registry references are stable.
 
 ## Next Refactor Phase Commands

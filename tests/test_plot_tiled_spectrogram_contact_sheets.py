@@ -6,7 +6,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from plot_tiled_spectrogram_contact_sheets import (
+from scripts.visualization.plot_tiled_spectrogram_contact_sheets import (
     CoverageSummaryRow,
     TileManifestEntry,
     contact_sheet_path,

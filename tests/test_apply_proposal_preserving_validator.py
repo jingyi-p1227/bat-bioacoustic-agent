@@ -3,7 +3,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import apply_proposal_preserving_validator as validator
+import scripts.maintenance.apply_proposal_preserving_validator as validator
 
 
 def proposal(proposal_id: str = "bd2_001", det_prob: float = 0.8) -> dict:

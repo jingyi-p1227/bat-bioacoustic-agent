@@ -33,7 +33,7 @@ from event_characterisation_retrieval import (
     write_retrieval_trace,
 )
 from extract_event_characterisation_features import load_jsonl_records
-from plot_prompt_v2_small_pilot_diagnostics import (
+from scripts.visualization.plot_prompt_v2_small_pilot_diagnostics import (
     load_evaluation_csvs,
     plot_diagnostic_clip,
 )

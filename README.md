@@ -97,7 +97,7 @@ uv run python run_zoom_guided_prompt.py
 Generate full and zoomed grid-overlay spectrogram examples:
 
 ```bash
-uv run python generate_grid_spectrogram_examples.py
+uv run python scripts/visualization/generate_grid_spectrogram_examples.py
 ```
 
 The grid examples are saved to:

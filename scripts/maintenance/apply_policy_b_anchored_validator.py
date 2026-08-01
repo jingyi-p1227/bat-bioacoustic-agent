@@ -5,10 +5,15 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from pathlib import Path
 
-import apply_timing_preserving_validator as timing
-from apply_timing_rule_ablation_validator import (
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+import scripts.maintenance.apply_timing_preserving_validator as timing
+from scripts.maintenance.apply_timing_rule_ablation_validator import (
     constrain_clip_payload,
     write_policy_decision_summary,
 )

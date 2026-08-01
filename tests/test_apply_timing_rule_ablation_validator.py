@@ -7,7 +7,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import apply_timing_rule_ablation_validator as ablation
+import scripts.maintenance.apply_timing_rule_ablation_validator as ablation
 
 
 def audit(**overrides: str) -> dict[str, str]:

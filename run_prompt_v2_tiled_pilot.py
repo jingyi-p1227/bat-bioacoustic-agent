@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from merge_tiled_predictions import (
+from scripts.maintenance.merge_tiled_predictions import (
     DEFAULT_MANIFEST,
     DEFAULT_TILE_SETTING,
     ManifestTile,

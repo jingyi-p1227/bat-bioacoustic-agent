@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import apply_timing_preserving_validator as validator
+import scripts.maintenance.apply_timing_preserving_validator as validator
 
 
 def proposal() -> dict:

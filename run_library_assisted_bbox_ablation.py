@@ -33,7 +33,7 @@ from event_characterisation_retrieval import (
     store_version,
     write_retrieval_trace,
 )
-from plot_prompt_v2_small_pilot_diagnostics import (
+from scripts.visualization.plot_prompt_v2_small_pilot_diagnostics import (
     load_evaluation_csvs,
     plot_diagnostic_clip,
 )

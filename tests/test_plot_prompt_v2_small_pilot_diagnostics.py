@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from plot_prompt_v2_small_pilot_diagnostics import (
+from scripts.visualization.plot_prompt_v2_small_pilot_diagnostics import (
     diagnostic_output_path,
     load_csv_rows,
     load_evaluation_csvs,

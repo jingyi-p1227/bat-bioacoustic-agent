@@ -2,9 +2,21 @@
 
 ## Source and configuration
 
-- Root-level Python files are legacy experiment runners and reusable modules.
+- Root-level Python files are legacy-active experiment runners and reusable
+  modules. They will be migrated gradually after compatibility and tests are
+  checked.
 - `src/toy_audio_agent/` is the destination for newly reusable package code.
-- `scripts/` contains new experiment, evaluation and analysis entry points.
+- `scripts/` contains organized experiment, evaluation, analysis and utility
+  entry points.
+- `scripts/inference/` contains newer inference experiment entry points.
+- `scripts/evaluation/` contains evaluation entry points.
+- `scripts/analysis/` contains analysis and report-generation entry points.
+- `scripts/maintenance/` contains migrated deterministic validators, repair
+  utilities and post-processing helpers from the legacy root.
+- `scripts/visualization/` contains migrated plotting, overlay and contact-sheet
+  utilities from the legacy root.
+- `scripts/diagnostics/` contains migrated smoke-test summaries and diagnostic
+  comparison utilities from the legacy root.
 - `prompts/` contains versioned prompts used for model inference.
 - `configs/` contains model and experiment configurations.
 
@@ -42,7 +54,7 @@
 Before the final experiment freeze:
 - do not move existing data;
 - do not rename frozen output directories;
-- do not move legacy runners;
+- migrate legacy-active runners gradually rather than in broad batches;
 - place all new reusable code under `src/`;
 - place all new experiment entry points under `scripts/`.
 

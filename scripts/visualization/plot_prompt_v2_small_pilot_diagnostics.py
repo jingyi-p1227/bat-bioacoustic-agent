@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,10 @@ import numpy as np
 import soundfile as sf
 from matplotlib.lines import Line2D
 from matplotlib.patches import Rectangle
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from main import make_spectrogram, to_decibels
 

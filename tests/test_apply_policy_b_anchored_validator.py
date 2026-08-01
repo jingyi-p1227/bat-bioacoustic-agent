@@ -6,7 +6,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from apply_policy_b_anchored_validator import (
+from scripts.maintenance.apply_policy_b_anchored_validator import (
     build_method_summary,
     load_clip_list,
     output_prediction_path,

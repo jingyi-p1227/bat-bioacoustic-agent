@@ -7,7 +7,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from summarize_single_agent_tool_use_experiments import (
+from scripts.diagnostics.summarize_single_agent_tool_use_experiments import (
     ExperimentSpec,
     build_case_highlights,
     consolidated_row,

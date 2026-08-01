@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from merge_tiled_predictions import (
+from scripts.maintenance.merge_tiled_predictions import (
     ManifestTile,
     box_iou,
     group_tiles_by_clip,

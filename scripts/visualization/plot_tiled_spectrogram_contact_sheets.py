@@ -10,12 +10,17 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from PIL import Image, ImageDraw
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from main import make_spectrogram
 from prepare_agent_spectrogram_inputs import (
@@ -567,4 +572,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
