@@ -12,7 +12,12 @@ import csv
 import json
 import math
 from dataclasses import asdict, dataclass
+import sys
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -20,7 +25,7 @@ from matplotlib.patches import Rectangle
 from PIL import Image, ImageDraw
 
 from main import make_spectrogram
-from prepare_agent_spectrogram_inputs import (
+from scripts.data_prep.prepare_agent_spectrogram_inputs import (
     DEFAULT_MAX_FREQ_HZ,
     apply_grid_style,
     parse_clip_list,

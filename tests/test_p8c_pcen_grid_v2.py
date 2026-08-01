@@ -3,7 +3,7 @@ from __future__ import annotations
 import importlib.util
 from pathlib import Path
 
-from prepare_pcen_spectrogram_inputs import GRID_STYLE, pcen_image_path
+from scripts.data_prep.prepare_pcen_spectrogram_inputs import GRID_STYLE, pcen_image_path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]

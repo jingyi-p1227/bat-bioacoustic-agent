@@ -11,6 +11,9 @@
 - `scripts/inference/` contains newer inference experiment entry points.
 - `scripts/evaluation/` contains evaluation entry points.
 - `scripts/analysis/` contains analysis and report-generation entry points.
+- `scripts/data_prep/` contains migrated dataset construction, audio
+  conversion, model-input generation, and proposal conversion scripts from the
+  legacy root.
 - `scripts/maintenance/` contains migrated deterministic validators, repair
   utilities and post-processing helpers from the legacy root.
 - `scripts/visualization/` contains migrated plotting, overlay and contact-sheet

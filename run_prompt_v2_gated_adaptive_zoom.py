@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from prepare_agent_spectrogram_inputs import DEFAULT_MAX_FREQ_HZ, DEFAULT_MIN_DB
+from scripts.data_prep.prepare_agent_spectrogram_inputs import DEFAULT_MAX_FREQ_HZ, DEFAULT_MIN_DB
 from run_prompt_v2_adaptive_zoom import (
     DEFAULT_CLIP_IDS,
     DEFAULT_EVAL_DIR,

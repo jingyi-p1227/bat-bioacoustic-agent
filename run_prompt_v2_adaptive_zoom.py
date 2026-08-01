@@ -24,7 +24,7 @@ from matplotlib.ticker import MultipleLocator
 from PIL import Image, ImageDraw, ImageOps
 
 from main import make_spectrogram, to_decibels
-from prepare_agent_spectrogram_inputs import (
+from scripts.data_prep.prepare_agent_spectrogram_inputs import (
     DEFAULT_MAX_FREQ_HZ,
     DEFAULT_MIN_DB,
     apply_grid_style,

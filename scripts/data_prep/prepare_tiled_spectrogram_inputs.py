@@ -9,12 +9,17 @@ from __future__ import annotations
 import argparse
 import csv
 from dataclasses import asdict, dataclass
+import sys
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import matplotlib.pyplot as plt
 
 from main import make_spectrogram
-from prepare_agent_spectrogram_inputs import (
+from scripts.data_prep.prepare_agent_spectrogram_inputs import (
     DEFAULT_MAX_FREQ_HZ,
     DEFAULT_MIN_DB,
     apply_grid_style,

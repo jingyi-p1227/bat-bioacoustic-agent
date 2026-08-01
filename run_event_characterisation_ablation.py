@@ -26,7 +26,7 @@ from typing import Any
 from pydantic import ValidationError
 from pydantic_evals import Case, Dataset
 
-from build_event_characterisation_eval_dataset import (
+from scripts.data_prep.build_event_characterisation_eval_dataset import (
     CONDITION_SETTINGS,
     EventCharacterisationDataset,
     inputs_for_condition,

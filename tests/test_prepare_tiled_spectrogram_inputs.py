@@ -6,7 +6,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from prepare_tiled_spectrogram_inputs import (
+from scripts.data_prep.prepare_tiled_spectrogram_inputs import (
     TileManifestRow,
     generate_tile_windows,
     tile_image_name,

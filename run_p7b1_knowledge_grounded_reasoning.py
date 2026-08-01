@@ -16,7 +16,7 @@ from statistics import mean
 from types import SimpleNamespace
 from typing import Any
 
-from build_event_characterisation_eval_dataset import inputs_for_condition
+from scripts.data_prep.build_event_characterisation_eval_dataset import inputs_for_condition
 from event_characterisation_evaluators import UnsupportedBehaviourClaimEvaluator
 from event_characterisation_models import (
     EventCharacterisationExpected,

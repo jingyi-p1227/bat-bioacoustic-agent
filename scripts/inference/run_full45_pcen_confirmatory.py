@@ -26,7 +26,7 @@ if str(REPO_ROOT) not in sys.path:
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from prepare_pcen_spectrogram_inputs import (  # noqa: E402
+from scripts.data_prep.prepare_pcen_spectrogram_inputs import (  # noqa: E402
     DEFAULT_PCEN_PARAMETERS,
     build_pcen_inputs,
 )

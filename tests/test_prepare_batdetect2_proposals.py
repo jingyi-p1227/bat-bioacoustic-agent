@@ -6,7 +6,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from prepare_batdetect2_proposals import (
+from scripts.data_prep.prepare_batdetect2_proposals import (
     ProposalSummaryRow,
     convert_raw_event,
     convert_raw_payload,

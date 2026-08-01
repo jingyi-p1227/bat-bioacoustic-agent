@@ -25,7 +25,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from prepare_agent_spectrogram_inputs import apply_grid_style  # noqa: E402
+from scripts.data_prep.prepare_agent_spectrogram_inputs import apply_grid_style  # noqa: E402
 from scripts.analysis.prepare_bd2_species_visual_spotcheck import (  # noqa: E402
     DEFAULT_CANDIDATE_CSV,
     DEFAULT_MAX_DB,

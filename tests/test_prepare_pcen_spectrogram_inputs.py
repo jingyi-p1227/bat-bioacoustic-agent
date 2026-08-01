@@ -8,7 +8,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from prepare_pcen_spectrogram_inputs import (
+from scripts.data_prep.prepare_pcen_spectrogram_inputs import (
     DEFAULT_PCEN_PARAMETERS,
     PCENManifestRow,
     comparison_contact_sheet_path,

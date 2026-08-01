@@ -5,7 +5,7 @@ from types import SimpleNamespace
 import pytest
 from pydantic import ValidationError
 
-from build_event_characterisation_eval_dataset import build_dataset, inputs_for_condition
+from scripts.data_prep.build_event_characterisation_eval_dataset import build_dataset, inputs_for_condition
 from event_characterisation_models import (
     GroundedEventInterpretation,
     GroundedLimitation,

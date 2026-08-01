@@ -8,7 +8,7 @@ import soundfile as sf
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from split_audio_clips import split_audio_file
+from scripts.data_prep.split_audio_clips import split_audio_file
 
 
 def write_test_wav(path: Path, sample_count: int, sample_rate: int = 10) -> Path:

@@ -7,7 +7,7 @@ import soundfile as sf
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from prepare_agent_spectrogram_inputs import (
+from scripts.data_prep.prepare_agent_spectrogram_inputs import (
     GRID_STYLE_DEFINITIONS,
     apply_grid_style,
     resolve_audio_path,

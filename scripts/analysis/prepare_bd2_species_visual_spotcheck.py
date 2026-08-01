@@ -28,7 +28,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from main import make_spectrogram, to_decibels  # noqa: E402
-from prepare_agent_spectrogram_inputs import (  # noqa: E402
+from scripts.data_prep.prepare_agent_spectrogram_inputs import (  # noqa: E402
     DEFAULT_MAX_FREQ_HZ,
     apply_grid_style,
 )

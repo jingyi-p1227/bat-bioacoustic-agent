@@ -16,7 +16,7 @@ The prototype is intentionally small. It does not use external classifiers yet; 
 - Both spectrogram tools can optionally render a coordinate grid with `show_grid=True`, plus configurable major/minor time and frequency steps.
 - `save_annotations(audio_path, events)`: saves structured predicted events to `annotations/<audio_stem>_events.json`.
 - `plot_predicted_boxes(audio_path, annotation_json_path)`: overlays saved predicted boxes on the spectrogram and writes `outputs/<audio_stem>_predicted_boxes.png`.
-- `convert_aoef_to_eventresult.py`: converts one AOEF/Whombat recording into the demo EventResult JSON schema.
+- `scripts/data_prep/convert_aoef_to_eventresult.py`: converts one AOEF/Whombat recording into the demo EventResult JSON schema.
 - `evaluation.py`: local script for comparing predicted boxes with ground-truth boxes from JSON or CSV.
 
 Each predicted event contains:

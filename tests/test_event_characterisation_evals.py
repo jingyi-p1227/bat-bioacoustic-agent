@@ -6,7 +6,7 @@ import pytest
 from pydantic import ValidationError
 from pydantic_evals import Dataset
 
-from build_event_characterisation_eval_dataset import (
+from scripts.data_prep.build_event_characterisation_eval_dataset import (
     HELD_OUT_CLIP_IDS,
     REPRESENTATIVE_CLIP_IDS,
     build_dataset,

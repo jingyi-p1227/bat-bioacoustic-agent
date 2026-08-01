@@ -9,7 +9,7 @@ import soundfile as sf
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from build_evaluation_set import build_evaluation_set, load_project
+from scripts.data_prep.build_evaluation_set import build_evaluation_set, load_project
 
 
 def create_synthetic_dataset(root: Path) -> Path:

@@ -3,7 +3,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from convert_batdetect2_proposals_to_predictions import (
+from scripts.data_prep.convert_batdetect2_proposals_to_predictions import (
     convert_proposal_event,
     convert_proposal_payload,
     prediction_output_path,

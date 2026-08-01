@@ -63,15 +63,24 @@ toy-audio-agent-main/
 - `scripts/maintenance/`: repair, validation, deterministic post-processing, and repository audit utilities.
 - `scripts/legacy_root/`: root-level historical scripts that are not yet worth fully migrating but should leave the root eventually.
 
-## First Migration Batch Completed
+## Migration Batches Completed
 
-The first low-risk migration batch has moved selected utility scripts out of
-the repository root:
+The first low-risk migration batch moved selected utility scripts out of the
+repository root:
 
 - deterministic validators and repair helpers moved to `scripts/maintenance/`;
 - plotting, overlay and contact-sheet utilities moved to `scripts/visualization/`;
 - diagnostic comparison and smoke-test summary utilities moved to
   `scripts/diagnostics/`.
+
+The second low-risk migration batch moved data-preparation scripts out of the
+repository root:
+
+- dataset construction scripts moved to `scripts/data_prep/`;
+- AOEF, NPZ/WAV and BatDetect2 proposal conversion scripts moved to
+  `scripts/data_prep/`;
+- clean spectrogram, PCEN and tiled input-generation scripts moved to
+  `scripts/data_prep/`.
 
 The remaining root-level scripts are still treated as legacy-active and should
 be migrated gradually.
@@ -83,8 +92,8 @@ only:
 
 1. Keep high-risk legacy-active runners in place until their dependencies are
    isolated.
-2. Move data-preparation scripts only after mapping tests and frozen
-   experiment references.
+2. Move another small family only after mapping tests and frozen experiment
+   references.
 3. Consider compatibility wrappers only for scripts that are still documented as
    root-level commands.
 
@@ -102,7 +111,8 @@ only:
 1. **Git hygiene commit**: `.gitignore` fixes, remove package metadata, ensure `.env` and `outputs/` stay ignored.
 2. **Documentation commit**: commit repository inventory, cleanup audit, and selected `docs/results/` summaries.
 3. **Package reusable models/evaluators**: migrate `event_characterisation_models.py`, `event_characterisation_evaluators.py`, `event_characterisation_retrieval.py`, and `extract_event_characterisation_features.py` into `src/toy_audio_agent/` with compatibility wrappers.
-4. **Move data-prep scripts**: migrate `build_*`, `convert_*`, `prepare_*`, and `split_audio_clips.py` into `scripts/data_prep/`; update tests.
+4. **Data-prep migration completed**: `build_*`, `convert_*`, `prepare_*`, and
+   `split_audio_clips.py` now live under `scripts/data_prep/`.
 5. **Migrate remaining low-risk diagnostics**: only after confirming no frozen
    historical command references need compatibility wrappers.
 6. **Package reusable validation logic**: move reusable internals from

@@ -16,7 +16,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from main import make_spectrogram
-from prepare_agent_spectrogram_inputs import (
+from scripts.data_prep.prepare_agent_spectrogram_inputs import (
     DEFAULT_MAX_FREQ_HZ,
     DEFAULT_MIN_DB,
     apply_grid_style,
