@@ -318,40 +318,40 @@ Highest-risk root-level files to avoid moving immediately:
 
 | Test file | Root-level imports |
 |---|---|
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_analyze_proposal_deviations.py` | `analyze_proposal_deviations.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_apply_policy_b_anchored_validator.py` | `apply_policy_b_anchored_validator.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_apply_proposal_preserving_validator.py` | `apply_proposal_preserving_validator.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_apply_timing_preserving_validator.py` | `apply_timing_preserving_validator.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_apply_timing_rule_ablation_validator.py` | `apply_timing_rule_ablation_validator.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_audio_clips.py` | `split_audio_clips.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_build_evaluation_set.py` | `build_evaluation_set.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_convert_batdetect2_proposals_to_predictions.py` | `convert_batdetect2_proposals_to_predictions.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_evaluate_prompt_v2_small_pilot.py` | `evaluate_prompt_v2_small_pilot.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_evaluation_temporal.py` | `evaluation.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_event_characterisation_evals.py` | `build_event_characterisation_eval_dataset.py`, `event_characterisation_evaluators.py`, `event_characterisation_models.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_event_characterisation_retrieval.py` | `build_event_characterisation_eval_dataset.py`, `event_characterisation_evaluators.py`, `event_characterisation_models.py`, `event_characterisation_retrieval.py`, `run_event_characterisation_ablation.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_extract_event_characterisation_features.py` | `event_characterisation_models.py`, `extract_event_characterisation_features.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_merge_tiled_predictions.py` | `merge_tiled_predictions.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_p7b1_reasoning.py` | `build_event_characterisation_eval_dataset.py`, `event_characterisation_models.py`, `event_characterisation_retrieval.py`, `extract_event_characterisation_features.py`, `p7b1_reasoning_evaluators.py`, `run_p7b1_knowledge_grounded_reasoning.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_p8c_pcen_grid_v2.py` | `prepare_pcen_spectrogram_inputs.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_plot_evaluation_clip_ground_truth.py` | `plot_evaluation_clip_ground_truth.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_plot_prompt_v2_small_pilot_diagnostics.py` | `plot_prompt_v2_small_pilot_diagnostics.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_plot_tiled_spectrogram_contact_sheets.py` | `plot_tiled_spectrogram_contact_sheets.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_prepare_agent_spectrogram_inputs.py` | `prepare_agent_spectrogram_inputs.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_prepare_batdetect2_proposals.py` | `prepare_batdetect2_proposals.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_prepare_pcen_spectrogram_inputs.py` | `prepare_pcen_spectrogram_inputs.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_prepare_tiled_spectrogram_inputs.py` | `prepare_tiled_spectrogram_inputs.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_run_library_assisted_bbox_ablation.py` | `event_characterisation_models.py`, `event_characterisation_retrieval.py`, `run_library_assisted_bbox_ablation.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_run_p7c_followup_checks.py` | `run_p7c_followup_checks.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_run_prompt_v2_adaptive_zoom.py` | `run_prompt_v2_adaptive_zoom.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_run_prompt_v2_batdetect2_assisted_pilot.py` | `run_prompt_v2_batdetect2_assisted_pilot.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_run_prompt_v2_gated_adaptive_zoom.py` | `run_prompt_v2_gated_adaptive_zoom.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_run_prompt_v2_small_pilot.py` | `run_prompt_v2_small_pilot.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_run_prompt_v2_tiled_pilot.py` | `merge_tiled_predictions.py`, `run_prompt_v2_tiled_pilot.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_spectrogram_grid.py` | `main.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_summarize_model_smoke_tests.py` | `summarize_model_smoke_tests.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_summarize_single_agent_tool_use_experiments.py` | `summarize_single_agent_tool_use_experiments.py` |
-| `/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/toy-audio-agent-main/tests/test_temporal_schema.py` | `main.py` |
+| `<PROJECT_ROOT>/tests/test_analyze_proposal_deviations.py` | `analyze_proposal_deviations.py` |
+| `<PROJECT_ROOT>/tests/test_apply_policy_b_anchored_validator.py` | `apply_policy_b_anchored_validator.py` |
+| `<PROJECT_ROOT>/tests/test_apply_proposal_preserving_validator.py` | `apply_proposal_preserving_validator.py` |
+| `<PROJECT_ROOT>/tests/test_apply_timing_preserving_validator.py` | `apply_timing_preserving_validator.py` |
+| `<PROJECT_ROOT>/tests/test_apply_timing_rule_ablation_validator.py` | `apply_timing_rule_ablation_validator.py` |
+| `<PROJECT_ROOT>/tests/test_audio_clips.py` | `split_audio_clips.py` |
+| `<PROJECT_ROOT>/tests/test_build_evaluation_set.py` | `build_evaluation_set.py` |
+| `<PROJECT_ROOT>/tests/test_convert_batdetect2_proposals_to_predictions.py` | `convert_batdetect2_proposals_to_predictions.py` |
+| `<PROJECT_ROOT>/tests/test_evaluate_prompt_v2_small_pilot.py` | `evaluate_prompt_v2_small_pilot.py` |
+| `<PROJECT_ROOT>/tests/test_evaluation_temporal.py` | `evaluation.py` |
+| `<PROJECT_ROOT>/tests/test_event_characterisation_evals.py` | `build_event_characterisation_eval_dataset.py`, `event_characterisation_evaluators.py`, `event_characterisation_models.py` |
+| `<PROJECT_ROOT>/tests/test_event_characterisation_retrieval.py` | `build_event_characterisation_eval_dataset.py`, `event_characterisation_evaluators.py`, `event_characterisation_models.py`, `event_characterisation_retrieval.py`, `run_event_characterisation_ablation.py` |
+| `<PROJECT_ROOT>/tests/test_extract_event_characterisation_features.py` | `event_characterisation_models.py`, `extract_event_characterisation_features.py` |
+| `<PROJECT_ROOT>/tests/test_merge_tiled_predictions.py` | `merge_tiled_predictions.py` |
+| `<PROJECT_ROOT>/tests/test_p7b1_reasoning.py` | `build_event_characterisation_eval_dataset.py`, `event_characterisation_models.py`, `event_characterisation_retrieval.py`, `extract_event_characterisation_features.py`, `p7b1_reasoning_evaluators.py`, `run_p7b1_knowledge_grounded_reasoning.py` |
+| `<PROJECT_ROOT>/tests/test_p8c_pcen_grid_v2.py` | `prepare_pcen_spectrogram_inputs.py` |
+| `<PROJECT_ROOT>/tests/test_plot_evaluation_clip_ground_truth.py` | `plot_evaluation_clip_ground_truth.py` |
+| `<PROJECT_ROOT>/tests/test_plot_prompt_v2_small_pilot_diagnostics.py` | `plot_prompt_v2_small_pilot_diagnostics.py` |
+| `<PROJECT_ROOT>/tests/test_plot_tiled_spectrogram_contact_sheets.py` | `plot_tiled_spectrogram_contact_sheets.py` |
+| `<PROJECT_ROOT>/tests/test_prepare_agent_spectrogram_inputs.py` | `prepare_agent_spectrogram_inputs.py` |
+| `<PROJECT_ROOT>/tests/test_prepare_batdetect2_proposals.py` | `prepare_batdetect2_proposals.py` |
+| `<PROJECT_ROOT>/tests/test_prepare_pcen_spectrogram_inputs.py` | `prepare_pcen_spectrogram_inputs.py` |
+| `<PROJECT_ROOT>/tests/test_prepare_tiled_spectrogram_inputs.py` | `prepare_tiled_spectrogram_inputs.py` |
+| `<PROJECT_ROOT>/tests/test_run_library_assisted_bbox_ablation.py` | `event_characterisation_models.py`, `event_characterisation_retrieval.py`, `run_library_assisted_bbox_ablation.py` |
+| `<PROJECT_ROOT>/tests/test_run_p7c_followup_checks.py` | `run_p7c_followup_checks.py` |
+| `<PROJECT_ROOT>/tests/test_run_prompt_v2_adaptive_zoom.py` | `run_prompt_v2_adaptive_zoom.py` |
+| `<PROJECT_ROOT>/tests/test_run_prompt_v2_batdetect2_assisted_pilot.py` | `run_prompt_v2_batdetect2_assisted_pilot.py` |
+| `<PROJECT_ROOT>/tests/test_run_prompt_v2_gated_adaptive_zoom.py` | `run_prompt_v2_gated_adaptive_zoom.py` |
+| `<PROJECT_ROOT>/tests/test_run_prompt_v2_small_pilot.py` | `run_prompt_v2_small_pilot.py` |
+| `<PROJECT_ROOT>/tests/test_run_prompt_v2_tiled_pilot.py` | `merge_tiled_predictions.py`, `run_prompt_v2_tiled_pilot.py` |
+| `<PROJECT_ROOT>/tests/test_spectrogram_grid.py` | `main.py` |
+| `<PROJECT_ROOT>/tests/test_summarize_model_smoke_tests.py` | `summarize_model_smoke_tests.py` |
+| `<PROJECT_ROOT>/tests/test_summarize_single_agent_tool_use_experiments.py` | `summarize_single_agent_tool_use_experiments.py` |
+| `<PROJECT_ROOT>/tests/test_temporal_schema.py` | `main.py` |
 
 ## `docs/results/` Dissertation-Facing Summaries
 

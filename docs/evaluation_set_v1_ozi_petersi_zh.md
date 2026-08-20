@@ -102,7 +102,7 @@ ozimops_petersi_v1/
 
 ```bash
 uv run python build_evaluation_set.py \
-  --dataset-dir "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia" \
+  --dataset-dir "<DATASET_ROOT>" \
   --output-dir outputs/evaluation_sets/ozimops_petersi_v1 \
   --species "Ozimops petersi" \
   --source-prefix "pseudo_petersi_" \

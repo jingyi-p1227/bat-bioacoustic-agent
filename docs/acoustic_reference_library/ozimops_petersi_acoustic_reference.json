@@ -7,11 +7,11 @@
   "intended_experiment": "P9 geometry-informed acoustic reference for bounding-box annotation",
   "data_sources_inspected": [
     {
-      "path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia/annotations.json",
+      "path": "<DATASET_ROOT>/annotations.json",
       "role": "original AOEF annotation file"
     },
     {
-      "path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia/study/split.json",
+      "path": "<DATASET_ROOT>/study/split.json",
       "role": "BatDetect2 Australia train/test recording split"
     },
     {

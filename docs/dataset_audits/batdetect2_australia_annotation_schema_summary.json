@@ -2,7 +2,7 @@
   "audit_version": "1.0",
   "dataset": {
     "name": "BatDetect2 Australia",
-    "path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia",
+    "path": "<DATASET_ROOT>",
     "annotation_format": "AOEF",
     "annotation_format_version": "1.1.0"
   },

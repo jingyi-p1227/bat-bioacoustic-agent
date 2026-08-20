@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Tool-constrained Vision-Language Agents for Bat Bioacoustic Annotation: Disentangling Event Localisation and Species Classification"
+authors:
+  - family-names: "Peng"
+    given-names: "Jingyi"
+version: "1.0.0"
+date-released: 2026
+abstract: "Code and evaluation framework accompanying an MSc dissertation at University College London."

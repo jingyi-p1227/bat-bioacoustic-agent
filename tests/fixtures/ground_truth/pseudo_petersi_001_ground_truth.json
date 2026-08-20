@@ -1,5 +1,5 @@
 {
-  "audio_path": "/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia/audio/pseudo_petersi_001.wav",
+  "audio_path": "<DATASET_ROOT>/audio/pseudo_petersi_001.wav",
   "events": [
     {
       "event_id": "f431041a-9033-5840-8616-5a5fb6342f7e",

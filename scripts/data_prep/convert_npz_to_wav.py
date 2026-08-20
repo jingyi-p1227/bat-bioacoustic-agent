@@ -1,3 +1,9 @@
+"""Legacy/demo utility for converting the old `flies.npz` sample to WAV.
+
+`flies.npz` is not included in the public research release, and this helper is
+not required for the dissertation experiments or final analysis pipeline.
+"""
+
 import numpy as np
 import soundfile as sf
 import sys

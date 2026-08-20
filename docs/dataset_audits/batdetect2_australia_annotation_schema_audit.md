@@ -7,7 +7,7 @@ This audit examines the local BatDetect2 Australia dataset without modifying it.
 Dataset root:
 
 ```text
-/Users/morn/Desktop/BIOS0057 EDS/ai agent demo/batdetect2_outputs/datasets/australia
+<DATASET_ROOT>
 ```
 
 The dataset contains 274 WAV recordings and an AOEF 1.1.0 `annotations.json`. The annotation project contains 274 recording records, 274 full-recording clips, 274 clip annotations, 274 completed tasks, 5,723 sound events, and 5,723 sound-event annotations. Every recording has at least one sound event. The 5,723 event annotations refer one-to-one to 5,723 unique sound events.
