@@ -9,8 +9,8 @@ This card is a compact, model-facing acoustic checklist grounded in Walters et a
 - Year: 2012
 - Journal: Journal of Applied Ecology
 - DOI: 10.1111/j.1365-2664.2012.02182.x
-- Raw PDF: `../raw_sources/walters_2012.pdf`
-- Extracted full text: `../full_text/walters_2012_full_text.txt`
+- Raw PDF: not redistributed in this public repository
+- Extracted full text: not redistributed in this public repository
 
 ## Source Evidence IDs
 

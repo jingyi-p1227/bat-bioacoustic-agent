@@ -4,25 +4,19 @@
 
 This library maps literature needs to the UCL35 dissertation argument: reliable agentic bioacoustic annotation requires specialist tools, structured outputs, validation, uncertainty handling, and human or critic review.
 
-Only Walters et al. has partial bibliographic information in the current project materials. Every other citation gap is marked `TODO`; these cards are writing plans, not substitutes for verified sources.
+The public library keeps only compact notes that are useful for interpreting the project. It does not redistribute source papers or extracted full text. Any incomplete citation details should be verified against authoritative source records before formal submission.
 
 ## Citation Status
 
 | Note | Status | Primary themes |
 |---|---|---|
-| [BatDetect2](batdetect2_automated_bat_detection.md) | **TODO citation** | Automated detection, proposal tools |
+| [BatDetect2](batdetect2_automated_bat_detection.md) | Citation details to verify | Automated detection, proposal tools |
 | [Walters et al. 2012](walters_2012_ibatsid.md) | **Partial citation; verify details** | Bat identification, reference calls, uncertainty |
-| [Bioacoustic monitoring](bioacoustic_monitoring_automated_annotation_todo.md) | **TODO references** | Monitoring scale, automated annotation |
-| [Strong labelling](strong_labelling_time_frequency_localisation_todo.md) | **TODO references** | Event boxes, time-frequency localisation |
-| [PCEN](pcen_audio_preprocessing_todo.md) | **TODO citation** | Audio preprocessing, representation ablation |
-| [Human-in-the-loop](human_in_loop_active_learning_todo.md) | **TODO references** | Review triage, active learning |
-| [Vision-language models](vision_language_scientific_annotation_todo.md) | **TODO references** | Scientific images, structured multimodal output |
-| [Agentic validation](agentic_tool_use_validation_critic_todo.md) | **TODO references** | Tool use, validators, critic/referee systems |
-| [Metrics and uncertainty](evaluation_metrics_calibration_uncertainty_todo.md) | **TODO references** | Precision/recall/F1, IoU, calibration |
+| [Verified evidence store](verified_evidence_store.jsonl) | Compact evidence records | Tool use, validation, acoustic-parameter guidance |
 
 ## Introduction
 
-- **Bioacoustic monitoring:** motivate scalable annotation, after a real review source is added.
+- **Bioacoustic monitoring:** motivate scalable annotation using properly cited sources in the dissertation text.
 - **BatDetect2:** introduce automated candidate detection and its role in bat monitoring.
 - **Walters et al.:** motivate objective, standardized acoustic identification and uncertainty-aware decisions.
 - **Human-in-the-loop:** frame reliable automation as selective assistance rather than complete replacement.
@@ -33,7 +27,7 @@ Only Walters et al. has partial bibliographic information in the current project
 - **Strong labelling:** distinguish clip classification from event-level time-frequency localisation.
 - **Vision-language models:** position spectrogram annotation as structured scientific-image interpretation.
 - **Agentic validation:** position tool-using single-agent and future critic/referee workflows.
-- **PCEN:** position alternate audio representations once the original citation is verified.
+- **PCEN:** position alternate audio representations using properly cited sources in the dissertation text.
 
 ## Methods
 
@@ -59,8 +53,7 @@ Only Walters et al. has partial bibliographic information in the current project
 
 ## Submission Checklist
 
-1. Obtain the actual papers or authoritative records for every TODO card.
+1. Verify incomplete citation details against authoritative source records.
 2. Replace placeholders with complete citations in the required UCL style.
 3. Verify each methodological claim against the source text.
-4. Remove any TODO note that is not ultimately cited.
-5. Keep project findings clearly separated from claims attributed to literature.
+4. Keep project findings clearly separated from claims attributed to literature.
