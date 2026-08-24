@@ -8,28 +8,36 @@ This repository supports the MSc dissertation project:
 
 ## Overview
 
-This project investigates whether multimodal large language model (MLLM)-based agents can support automated bat bioacoustic annotation from spectrogram representations.
+Large-scale bioacoustic monitoring requires extensive expert annotation
+of sound recordings. This project investigates whether tool-constrained
+multimodal language model (MLLM)-based agents can support bat
+bioacoustic annotation from spectrogram representations.
 
-Rather than replacing specialist bioacoustic detectors, the work explores tool-constrained agent workflows where dedicated detection models provide structured evidence and MLLMs perform interpretation, verification and classification.
+Rather than replacing specialist bioacoustic models, this work explores
+how general-purpose multimodal models can be integrated with
+domain-specific tools in a human-in-the-loop annotation workflow.
 
-The study separates bat annotation into two related tasks:
+The annotation problem is separated into:
 
-- **Event localisation:** identifying the time-frequency boundaries of individual echolocation calls.
-- **Species classification:** assigning species identities from spectrogram evidence.
+-   **Event localisation:** identifying the time-frequency boundaries of
+    individual bat echolocation calls.
+-   **Species classification:** assigning species identities from
+    spectrogram evidence.
 
 ## Research Questions
 
-**RQ1:** Can MLLM-based agents localise bat echolocation events from spectrograms?
+**RQ1:** Can multimodal language model agents localise bat echolocation
+events from spectrograms?
 
-**RQ2:** Can MLLM-based agents classify bat species from spectrogram evidence?
+**RQ2:** Can multimodal language model agents classify bat species from
+spectrogram evidence?
 
-**RQ3:** How do specialist tools, stronger models and multi-agent workflows affect annotation reliability?
+**RQ3:** How do specialist detection tools, stronger models and
+multi-agent workflows affect annotation reliability?
 
 ## Method Overview
 
-The experimental workflow follows:
-
-```text
+``` text
 Audio recordings
         ↓
 Spectrogram generation
@@ -38,98 +46,89 @@ Specialist detector proposals (BatDetect2)
         ↓
 Structured tool outputs
         ↓
-Multimodal model reasoning
+MLLM interpretation and reasoning
         ↓
-Validated annotations and evaluation
+Annotation evaluation
 ```
 
-The repository contains:
+The repository includes:
 
-- spectrogram preparation and preprocessing utilities;
-- BatDetect2 proposal processing tools;
-- structured MLLM annotation workflows;
-- localisation, classification and joint-task evaluation scripts;
-- failure analysis and visualisation utilities.
+-   spectrogram preparation utilities;
+-   BatDetect2 proposal processing;
+-   structured MLLM annotation workflows;
+-   localisation and classification evaluation;
+-   failure analysis tools.
 
 ## Models
 
-Experiments evaluate multimodal language models under different annotation settings.
+Primary model:
 
-Primary local model:
+-   Qwen3.6 through Ollama-based inference.
 
-- Qwen3.6 through Ollama-based inference.
+Comparison model:
 
-Additional comparison model:
-
-- GPT-5.6 Sol through API-based inference.
-
-Model configurations and experiment settings are stored in `configs/` where applicable. Credentials and private environment files are excluded.
+-   GPT-5.6 Sol through API-based inference.
 
 ## Repository Structure
 
-```text
+``` text
 src/          Core implementation
 scripts/      Experiment runners and analysis utilities
 configs/      Model and experiment configurations
 prompts/      Prompt templates
 experiments/  Experiment records
-results/      Generated summaries (when included)
 tests/        Automated tests
-docs/         Documentation and reproducibility notes
+docs/         Documentation
 ```
 
 ## Installation
 
-The project uses `uv` for environment management.
+This project uses `uv` for environment management.
 
-```bash
+``` bash
 uv sync
 ```
 
 Run tests:
 
-```bash
+``` bash
 uv run pytest
 ```
-
-Some experiments require local model backends or API credentials, which should be configured separately.
 
 ## Reproducibility
 
 The repository provides:
 
-- experiment configurations;
-- prompt templates;
-- evaluation scripts;
-- analysis utilities;
-- documentation of experimental procedures.
+-   experiment configurations;
+-   prompt templates;
+-   evaluation scripts;
+-   analysis utilities.
 
-Raw audio datasets, generated model outputs and large intermediate files are not included.
+Raw datasets and generated model outputs are not included.
 
-## Data Availability
+## Key Results
 
-Raw recordings are not redistributed in this repository. Users should obtain datasets from their original sources according to relevant access and licensing conditions.
+  Task                     Method                         Metric
+  ------------------------ ------------------------------ ------------------
+  Call localisation        Qwen3.6 direct annotation      F1 = 0.602
+  Call localisation        BatDetect2 + MLLM refinement   F1 = 0.785
+  Species classification   Qwen3.6                        Accuracy = 0.109
+  Species classification   GPT-5.6 Sol                    Accuracy = 0.597
 
-The repository focuses on the annotation framework, evaluation pipeline and analysis workflow.
+Main findings:
 
-## Results
-
-Experimental results and analysis notes are documented under:
-
-```text
-docs/
-```
-
-The final dissertation evaluates:
-
-- direct MLLM-based call localisation;
-- detector-assisted localisation refinement;
-- multi-species classification;
-- stronger-model comparison;
-- multi-agent workflow analysis.
+-   Specialist detector proposals improved call localisation.
+-   Species identification remained the main bottleneck.
+-   Stronger model capability provided larger gains than adding agent
+    roles.
+-   Agent workflows are most promising as human-in-the-loop annotation
+    assistants.
 
 ## Citation
 
-Peng, J. (2026).  
-*Tool-constrained Multimodal Agents for Bat Bioacoustic Annotation: Disentangling Event Localisation and Species Classification.*  
+Peng, J. (2026).
+
+*Tool-constrained Multimodal Agents for Bat Bioacoustic Annotation:
+Disentangling Event Localisation and Species Classification.*
+
 MSc Dissertation, University College London.
