@@ -124,6 +124,14 @@ Main findings:
 -   Agent workflows are most promising as human-in-the-loop annotation
     assistants.
 
+## Data Availability
+
+The experiments use recordings derived from the BatDetect2 dataset (Mac Aodha et al., 2022).
+
+The original recordings are not included in this repository. This repository contains selected implementation components for preprocessing, MLLM-based annotation workflows and evaluation.
+
+Users should obtain the original dataset from the official source according to the dataset licence.
+
 ## Citation
 
 Peng, J. (2026).
