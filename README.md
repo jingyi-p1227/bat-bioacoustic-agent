@@ -108,15 +108,6 @@ Raw datasets and generated model outputs are not included.
 
 ## Key Results
 
-  Task                     Method                         Metric
-  ------------------------ ------------------------------ ------------------
-  Call localisation        Qwen3.6 direct annotation      F1 = 0.602
-  Call localisation        BatDetect2 + MLLM refinement   F1 = 0.785
-  Species classification   Qwen3.6                        Accuracy = 0.109
-  Species classification   GPT-5.6 Sol                    Accuracy = 0.597
-
-Main findings:
-
 -   Specialist detector proposals improved call localisation.
 -   Species identification remained the main bottleneck.
 -   Stronger model capability provided larger gains than adding agent
